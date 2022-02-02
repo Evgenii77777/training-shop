@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Evgenii77777/training-shop/static/css/main.073c9b0a.css",
-    "main.js": "/Evgenii77777/training-shop/static/js/main.cee97fae.js",
-    "static/js/787.47ca6e30.chunk.js": "/Evgenii77777/training-shop/static/js/787.47ca6e30.chunk.js",
-    "static/media/logo.svg": "/Evgenii77777/training-shop/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/Evgenii77777/training-shop/index.html",
-    "main.073c9b0a.css.map": "/Evgenii77777/training-shop/static/css/main.073c9b0a.css.map",
-    "main.cee97fae.js.map": "/Evgenii77777/training-shop/static/js/main.cee97fae.js.map",
-    "787.47ca6e30.chunk.js.map": "/Evgenii77777/training-shop/static/js/787.47ca6e30.chunk.js.map"
+    "main.css": "/evgenii77777/training-shop/static/css/main.073c9b0a.css",
+    "main.js": "/evgenii77777/training-shop/static/js/main.7e3f3e15.js",
+    "static/js/787.47ca6e30.chunk.js": "/evgenii77777/training-shop/static/js/787.47ca6e30.chunk.js",
+    "static/media/logo.svg": "/evgenii77777/training-shop/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/evgenii77777/training-shop/index.html",
+    "main.073c9b0a.css.map": "/evgenii77777/training-shop/static/css/main.073c9b0a.css.map",
+    "main.7e3f3e15.js.map": "/evgenii77777/training-shop/static/js/main.7e3f3e15.js.map",
+    "787.47ca6e30.chunk.js.map": "/evgenii77777/training-shop/static/js/787.47ca6e30.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.cee97fae.js"
+    "static/js/main.7e3f3e15.js"
   ]
 }
