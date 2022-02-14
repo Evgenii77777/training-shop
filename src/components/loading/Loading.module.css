@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+.btnLoad {
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}

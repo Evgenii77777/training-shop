@@ -1,0 +1,40 @@
+.price {
+  align-items: center;
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid #e6e6e6;
+}
+span.priceSpan {
+  margin-right: 24px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.64;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 1;
+}
+button.priceBtn {
+  margin-right: 16px;
+  width: auto;
+  height: auto;
+  padding: 16.5px 24px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  background: #121212;
+
+  border: 2px solid #121212;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  span.priceSpan {
+    margin-right: 10px;
+  }
+}

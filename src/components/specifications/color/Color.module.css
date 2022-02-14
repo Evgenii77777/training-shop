@@ -1,0 +1,47 @@
+.colorTitle {
+  margin-right: 4px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.6;
+}
+span.colorSpan {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #121212;
+  opacity: 1;
+  text-transform: none;
+}
+.colorList {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+.colorList li {
+  width: 64px;
+  height: 64px;
+}
+.colorList li:not(:last-child) {
+  margin-right: 16px;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .colorList {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .colorList li {
+    width: 25%;
+    height: 60px;
+  }
+  .colorList li:not(:last-child) {
+    margin-right: 0;
+  }
+}

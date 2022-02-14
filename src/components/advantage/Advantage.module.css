@@ -1,0 +1,51 @@
+.list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  padding-bottom: 30px;
+}
+.list li {
+  padding-left: 46px;
+}
+.list h3 {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.list span {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.9;
+}
+.one {
+  background-image: url(../../assets/png/truck\ 1.png);
+  background-repeat: no-repeat;
+}
+.two {
+  background-image: url(../../assets/png/refresh\ 1.png);
+  background-repeat: no-repeat;
+}
+.three {
+  background-image: url(../../assets/png/support\ 1.png);
+  background-repeat: no-repeat;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .list {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .list li:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

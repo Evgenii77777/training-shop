@@ -1,0 +1,95 @@
+.review {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid #e6e6e6;
+}
+.reviewTitle {
+  margin-bottom: 32px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.reviewList {
+  display: flex;
+  margin-right: 8px;
+}
+.reviewList li img {
+  width: 22px;
+  height: 22px;
+}
+.reviewWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.reviewWrapperList {
+  align-items: center;
+  display: flex;
+}
+.reviewText {
+  padding-left: 30px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #121212;
+  opacity: 0.6;
+  background-image: url(../../../assets/png/annotation\ 1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.reviewSpan {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.64;
+  color: #121212;
+  opacity: 0.6;
+}
+.reviewListSmall {
+  display: flex;
+}
+.reviewListSmall li {
+  width: 14px;
+  height: 14px;
+}
+.smallList li:not(:last-child) {
+  margin-bottom: 48px;
+}
+.reviewListSmall li:not(:last-child) {
+  margin-bottom: 0;
+}
+.reviewName {
+  opacity: 1;
+  padding-left: 0;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+}
+.reviewSmallListWraooer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.smallList {
+  margin-top: 24px;
+}
+.reviewPar {
+  padding-left: 0;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 0.8;
+}

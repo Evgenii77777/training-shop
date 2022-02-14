@@ -1,0 +1,56 @@
+.poster {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  max-width: 1090px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.list li {
+  padding: 94.5px 123.5px;
+  width: calc((100% - 30px) / 2);
+}
+.list li h3 {
+  margin-top: 8px;
+}
+.one {
+  background-image: url(../../assets/img/collection.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.two {
+  background-image: url(../../assets/img/sales.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.list li div {
+  padding: 16px 24px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 4px;
+}
+.redSpan {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e91e63;
+  opacity: 1;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .list li div {
+    padding: 0;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .poster {
+    display: none;
+  }
+}

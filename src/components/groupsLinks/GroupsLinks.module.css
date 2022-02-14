@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+}
+.link {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.06em;
+  color: #121212;
+
+  opacity: 0.6;
+}
+.list li:not(:last-child) {
+  margin-right: 32px;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .list {
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

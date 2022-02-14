@@ -1,0 +1,110 @@
+.wrapper {
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+.superContainer {
+  max-width: 1090px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blog {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.wrapper h2 {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.wrapper button {
+  border: none;
+  background-color: inherit;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  color: #121212;
+  opacity: 0.6;
+}
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+.list li {
+  width: calc((100%-60px) / 3);
+  height: 350px;
+}
+.one {
+  position: relative;
+  background-image: url(../../assets/img/b1.jpg);
+  background-repeat: no-repeat;
+}
+.two {
+  position: relative;
+  background-image: url(../../assets/img/b2.jpg);
+  background-repeat: no-repeat;
+}
+.three {
+  position: relative;
+  background-image: url(../../assets/img/b3.jpg);
+  background-repeat: no-repeat;
+}
+.containerItem {
+  position: absolute;
+  width: calc(100% - 78px);
+  bottom: -5px;
+  left: 31px;
+  padding: 24px 16px 0;
+  background-color: #fff;
+}
+.containerItem h4 {
+  margin-bottom: 12px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.containerItem span {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.8;
+  text-transform: none;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .superContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .list li:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .superContainer {
+    display: none;
+  }
+  .blog {
+    padding-top: 30px;
+    padding-bottom: 0;
+  }
+}

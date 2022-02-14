@@ -1,0 +1,34 @@
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+.item {
+  width: calc((100%-30px) / 2);
+}
+.item:not(:last-child) {
+  margin-right: 30px;
+}
+.superContainer {
+  max-width: 1090px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .superContainer {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .list {
+    display: table;
+  }
+  .item {
+    width: 100%;
+    margin-right: 0;
+  }
+  .item:not(:last-child) {
+    margin-right: 0;
+  }
+}

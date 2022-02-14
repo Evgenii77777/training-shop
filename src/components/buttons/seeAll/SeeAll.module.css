@@ -1,0 +1,19 @@
+button.btn {
+  display: block;
+  margin-top: 48px;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 16px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.8;
+  border: none;
+}

@@ -1,0 +1,48 @@
+.nav {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 64px;
+  border-bottom: 2px solid #f8f8f8;
+}
+.wrapper {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1090px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.link {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+}
+.list li:not(:last-child) {
+  margin-right: 32px;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .wrapper {
+    max-width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .wrapper {
+    display: table;
+  }
+  .list {
+    flex-wrap: wrap;
+  }
+  .nav {
+    height: auto;
+  }
+}

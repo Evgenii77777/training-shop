@@ -1,0 +1,7 @@
+.list {
+  display: flex;
+}
+.list li {
+  width: 14px;
+  height: 14px;
+}

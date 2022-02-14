@@ -1,0 +1,30 @@
+import React from "react";
+import styles from "./Stars.module.css";
+import Gold from "../../assets/png/star 1.png";
+import Grey from "../../assets/png/star 5.png";
+
+const Stars = () => {
+  return (
+    <div>
+      <ul className={styles.list}>
+        <li>
+          <img src={Gold} alt="Gold Star" />
+        </li>
+        <li>
+          <img src={Gold} alt="Gold Star" />
+        </li>
+        <li>
+          <img src={Gold} alt="Gold Star" />
+        </li>
+        <li>
+          <img src={Gold} alt="Gold Star" />
+        </li>
+        <li>
+          <img src={Grey} alt="Grey Star" />
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Stars;

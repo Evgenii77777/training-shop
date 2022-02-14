@@ -1,0 +1,205 @@
+.mainContainer {
+  border-bottom: 2px solid #f8f8f8;
+  padding-top: 32px;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  display: flex;
+  padding: 195px 24px;
+
+  background-image: url(../../assets/img/Rectangle.jpg);
+  background-repeat: no-repeat;
+}
+.superContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1090px;
+}
+.wrapper {
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 64px;
+  margin-right: 64px;
+  padding: 24px 32px;
+  background-color: #fff;
+}
+.span {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.4;
+}
+.title {
+  margin-top: 14px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.list {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.women {
+  margin-right: 30px;
+  padding: 76px 69px;
+  background-image: url(../../assets/img/women.jpg);
+  background-repeat: no-repeat;
+}
+.men {
+  padding: 76px 69px;
+  background-image: url(../../assets/img/men.jpg);
+  background-repeat: no-repeat;
+}
+.acc {
+  padding: 110px 187px;
+  background-image: url(../../assets/img/access.jpg);
+  background-repeat: no-repeat;
+}
+.women a,
+.men a,
+.acc a {
+  display: block;
+  padding: 13px 24px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.men a {
+  padding: 13px 40px;
+}
+.womenContainer {
+  border-top: 2px solid #f8f8f8;
+  padding-top: 96px;
+}
+.menContainer {
+  padding-top: 96px;
+}
+.womenWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 48px;
+}
+.womenTitle {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .superContainer {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .main {
+    width: 100%;
+    display: table;
+    justify-content: center;
+  }
+  .container {
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+    padding: 195px 24px;
+    background-image: url(../../assets/img/Rectangle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .list {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+  }
+  .list li {
+    width: calc((100%-30px) / 2);
+  }
+  .women {
+    margin-right: 30px;
+    padding: 76px 69px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .men {
+    padding: 76px 69px;
+    background-image: url(../../assets/img/men.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .acc {
+    padding: 110px 187px;
+    background-image: url(../../assets/img/access.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .wrapper {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+  }
+  .container {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100%;
+    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url(../../assets/img/Rectangle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .list li {
+    width: 100%;
+  }
+  .acc {
+    padding: 110px 60px;
+    background-image: url(../../assets/img/access.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .women {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .womenWrapper {
+    display: table;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}

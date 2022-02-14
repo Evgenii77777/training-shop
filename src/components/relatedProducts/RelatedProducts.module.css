@@ -1,0 +1,78 @@
+.related {
+  padding-top: 104px;
+  padding-bottom: 96px;
+}
+.relatedWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.relatedWrapper button:not(:last-child) {
+  margin-right: 16px;
+}
+.relatedTitle {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.relatedList {
+  margin-top: 41px;
+  display: flex;
+  justify-content: space-between;
+}
+.relatedList p {
+  padding-left: 0;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  opacity: 0.6;
+}
+.relatedList span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  opacity: 1;
+}
+.relatedContainer {
+  display: flex;
+  align-items: center;
+}
+.relatedContainer div {
+  margin-left: auto;
+}
+.relatedContainer div img {
+  align-items: center;
+  padding-bottom: 5px;
+}
+span.darkSpan {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 13px;
+  text-decoration-line: line-through;
+  color: #121212;
+  opacity: 0.4;
+}
+@media (min-width: 320px) and (max-width: 1089px) {
+  .related {
+    padding: 50px 20px;
+  }
+  .relatedList {
+    margin-top: 41px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

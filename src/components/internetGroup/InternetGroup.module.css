@@ -1,0 +1,15 @@
+.logo:not(:last-child) {
+  margin-right: 10px;
+}
+.container {
+  align-items: center;
+  display: flex;
+}
+.container img {
+  display: block;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .container {
+    display: none;
+  }
+}

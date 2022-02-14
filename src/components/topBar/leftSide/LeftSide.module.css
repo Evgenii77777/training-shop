@@ -1,0 +1,50 @@
+p {
+  padding-left: 18px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 12px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.one {
+  margin-right: 29px;
+  background-image: url(../../../assets/png/phone\ 1.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.two {
+  margin-right: 53px;
+  background-image: url(../../../assets/png/location-marker\ 2.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.three {
+  background-image: url(../../../assets/png/clock\ 2.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.superContainer {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  max-width: 1090px;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .one {
+    margin-right: 5px;
+  }
+  .two {
+    margin-right: 5px;
+  }
+  .wrapper {
+    width: 100%;
+  }
+}

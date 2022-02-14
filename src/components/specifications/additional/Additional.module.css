@@ -1,0 +1,39 @@
+.additionalTitle {
+  margin-bottom: 32px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+.additionalText {
+  padding-left: 0;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 1;
+}
+.additionalText:not(:last-child) {
+  margin-bottom: 12px;
+}
+.additionalSpan {
+  margin-left: 4px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 0.6;
+}
+.additional {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid #e6e6e6;
+}
