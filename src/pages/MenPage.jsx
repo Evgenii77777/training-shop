@@ -6,7 +6,7 @@ import TopClothes from "../components/topClothes/TopClothes";
 
 const MenPage = ({ name = "Men" }) => {
   return (
-    <section>
+    <section data-test-id={`clothes-men`}>
       <TopClothes name={name} />
       <Filter />
       <MenProducts />

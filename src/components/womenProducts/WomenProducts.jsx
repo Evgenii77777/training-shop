@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const WomensProducts = () => {
   return (
-    <div className={styles.superContainer} data-test-id={`clothes-women`}>
+    <div className={styles.superContainer}>
       <ul className={styles.list}>
         {womenProducts.map((item) => (
           <li
