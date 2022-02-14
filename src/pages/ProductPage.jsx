@@ -19,7 +19,7 @@ const ProductPage = ({ path = "Women's tracksuit Q109" }) => {
   const newName = name.toLocaleLowerCase();
 
   return (
-    <section data-test-id={`products-page-${newName}`}>
+    <section data-test-id={`product-page-${newName}`}>
       <TopClothesPage path={path} name={name} />
       <div className={styles.superContainer}>
         <ul className={styles.list}>

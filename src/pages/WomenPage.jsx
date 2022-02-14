@@ -6,7 +6,7 @@ import WomensProducts from "../components/womenProducts/WomenProducts";
 
 const WomenPage = ({ name = "Women" }) => {
   return (
-    <section data-test-id={`product-page-women`}>
+    <section data-test-id={`products-page-women`}>
       <TopClothes name={name} />
       <Filter />
       <WomensProducts />
