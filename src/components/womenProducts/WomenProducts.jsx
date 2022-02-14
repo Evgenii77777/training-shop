@@ -12,7 +12,7 @@ const WomensProducts = () => {
           <li
             className={styles.item}
             key={item.id}
-            data-test-id={`product-page-${item.producttype}`}
+           
           >
             <Link
               data-test-id={`clothes-card-${item.producttype}`}

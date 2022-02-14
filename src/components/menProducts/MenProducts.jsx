@@ -9,11 +9,7 @@ const MenProducts = () => {
     <div className={styles.superContainer} data-test-id={`clothes-men`}>
       <ul className={styles.list}>
         {menProducts.map((item) => (
-          <li
-            className={styles.item}
-            key={item.id}
-            data-test-id={`product-page-${item.producttype}`}
-          >
+          <li className={styles.item} key={item.id}>
             <Link
               data-test-id={`clothes-card-${item.producttype}`}
               path={item.producttype}
