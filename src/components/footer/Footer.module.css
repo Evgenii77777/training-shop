@@ -34,6 +34,7 @@
   color: #ffffff;
 }
 .label {
+  width: 400px;
   padding: 7px 0 7px 16px;
   margin-right: 12px;
   background: #ffffff;
@@ -182,5 +183,8 @@ div.group {
   }
   .listWrap {
     display: none;
+  }
+  .label {
+    max-width: 250px;
   }
 }
