@@ -39,15 +39,26 @@
     width: 100%;
     justify-content: space-between;
   }
+  .wrapper {
+    width: 45%;
+  }
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 16px;
     padding-right: 16px;
-
-    width: calc((100%-20px) / 2);
+    margin-left: 0;
+    width: 45%;
     height: 560px;
     background-image: url(../../assets/img/f5.png);
+  }
+  .list {
+    width: 100%;
+  }
+  .list li {
+    height: 114px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

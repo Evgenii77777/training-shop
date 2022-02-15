@@ -23,6 +23,7 @@
 @media (min-width: 320px) and (max-width: 740px) {
   .list {
     display: table;
+    width: 90%;
   }
   .item {
     width: 100%;

@@ -93,3 +93,14 @@
   color: #121212;
   opacity: 0.8;
 }
+@media (min-width: 320px) and (max-width: 540px) {
+  .reviewWrapper {
+    display: table;
+  }
+  .reviewSmallListWraooer {
+    display: table;
+  }
+  .reviewPar {
+    width: 90%;
+  }
+}

@@ -188,3 +188,12 @@ div.group {
     max-width: 250px;
   }
 }
+@media (min-width: 320px) and (max-width: 540px) {
+  .title {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .label {
+    margin-bottom: 10px;
+  }
+}

@@ -13,7 +13,7 @@ import styles from "./Foto.module.css";
 const Foto = () => {
   return (
     <div className={styles.foto}>
-      <div>
+      <div className={styles.wrapper}>
         <div className={styles.btnWrapper}>
           <BtnTop />
           <BtnBottom />

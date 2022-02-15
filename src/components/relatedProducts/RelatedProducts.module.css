@@ -68,11 +68,37 @@ span.darkSpan {
 }
 @media (min-width: 320px) and (max-width: 1089px) {
   .related {
-    padding: 50px 20px;
+    padding: 50px 0;
+    width: 100%;
   }
   .relatedList {
     margin-top: 41px;
     display: flex;
     flex-wrap: wrap;
+  }
+}
+@media (min-width: 740px) and (max-width: 1090px) {
+  .relatedList {
+    display: flex;
+  }
+  .relatedList li {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .relatedList li img {
+    width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 540px) {
+  .relatedList {
+    width: 100%;
+    display: table;
+  }
+  .relatedList li img {
+    width: 100%;
+  }
+  .relatedList li:not(:last-child) {
+    margin-bottom: 15px;
   }
 }

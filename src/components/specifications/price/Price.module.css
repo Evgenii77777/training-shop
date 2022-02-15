@@ -37,4 +37,7 @@ button.priceBtn {
   span.priceSpan {
     margin-right: 10px;
   }
+  button.priceBtn {
+    margin-right: 0;
+  }
 }

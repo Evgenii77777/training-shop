@@ -29,3 +29,8 @@
     flex-wrap: wrap;
   }
 }
+@media (min-width: 320px) and (max-width: 540px) {
+  .payment {
+    width: 100%;
+  }
+}

@@ -17,3 +17,8 @@ button.btn {
   opacity: 0.8;
   border: none;
 }
+button.btn:hover,
+button.btn:focus {
+  opacity: 1;
+  text-transform: lowercase;
+}

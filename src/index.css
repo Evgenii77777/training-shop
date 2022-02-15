@@ -1,4 +1,5 @@
 body {
+  box-sizing: border-box;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -58,4 +59,12 @@ button {
   padding: 0;
 }
 @media (min-width: 360px) and (max-width: 1089px) {
+}
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+  font-weight: bold;
+  opacity: 1;
+  text-transform: uppercase;
 }

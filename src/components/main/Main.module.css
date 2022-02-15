@@ -202,4 +202,11 @@
     text-align: center;
     padding-bottom: 20px;
   }
+  .womenTitle {
+    margin-bottom: 20px;
+  }
+  .womenContainer,
+  .menContainer {
+    padding-top: 30px;
+  }
 }
