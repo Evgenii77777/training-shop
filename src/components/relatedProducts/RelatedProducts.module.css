@@ -1,8 +1,11 @@
 .related {
   padding-top: 104px;
   padding-bottom: 96px;
+  position: relative;
 }
 .relatedWrapper {
+  position: absolute;
+  bottom: 491px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,6 +81,9 @@ span.darkSpan {
   }
 }
 @media (min-width: 740px) and (max-width: 1090px) {
+  .relatedWrapper {
+    bottom: 457px;
+  }
   .relatedList {
     display: flex;
   }
@@ -91,6 +97,9 @@ span.darkSpan {
   }
 }
 @media (min-width: 320px) and (max-width: 540px) {
+  .relatedWrapper {
+    bottom: 480px;
+  }
   .relatedList {
     width: 100%;
     display: table;

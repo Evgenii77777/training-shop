@@ -14,12 +14,12 @@ import Ask from "./ask/Ask";
 import Additional from "./additional/Additional";
 import Review from "./review/Review";
 
-const Specifications = () => {
+const Specifications = ({ card: { images, price, sizes, reviews }, card }) => {
   return (
     <div>
-      <Color />
-      <Size />
-      <Price />
+      <Color images={images} />
+      <Size sizes={sizes} />
+      <Price price={price} />
       <Ask />
       <div className={styles.payment}>
         <img src={P1} alt="stripe" />
@@ -33,8 +33,8 @@ const Specifications = () => {
       <div className={styles.description}>
         <h4 className={styles.descriptionTitle}>DESCRIPTION</h4>
       </div>
-      <Additional />
-      <Review />
+      <Additional card={card} />
+      <Review reviews={reviews} />
     </div>
   );
 };

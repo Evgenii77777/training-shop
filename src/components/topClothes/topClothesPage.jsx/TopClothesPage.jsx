@@ -4,16 +4,16 @@ import Arrow from "../../../assets/png/►.png";
 import Share from "../../../assets/svg/share 1.svg";
 import ProductStatistics from "../../productStatistic/ProductStatistics";
 
-const TopClothesPage = ({ name, path }) => {
+const TopClothesPage = ({ name, category, reviews }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.superContainer}>
         <div>
           <span className={styles.home}>Home</span>
           <img className={styles.arrow} src={Arrow} alt="arrow" />
-          <span className={styles.home}>{`${name}`}</span>
+          <span className={styles.home}>{category}</span>
           <img className={styles.arrow} src={Arrow} alt="arrow" />
-          <span className={styles.path}>{`${path}`}</span>
+          <span className={styles.path}>{name}</span>
         </div>
         <div className={styles.container}>
           <img src={Share} alt="share" />
@@ -23,7 +23,7 @@ const TopClothesPage = ({ name, path }) => {
       <div className={styles.titleWrapper}>
         <h2 className={styles.title}>{name}</h2>
       </div>
-      <ProductStatistics />
+      <ProductStatistics reviews={reviews} />
     </div>
   );
 };

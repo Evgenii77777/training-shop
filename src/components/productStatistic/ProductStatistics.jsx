@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProductStatistics.module.css";
 import Gold from "../../assets/png/star 1.png";
 
-const ProductStatistics = () => {
+const ProductStatistics = ({ reviews }) => {
   return (
     <div className={styles.product}>
       <div className={styles.container}>
@@ -23,7 +23,7 @@ const ProductStatistics = () => {
             <img src={Gold} alt="Gold Star" />
           </li>
         </ul>
-        <p className={styles.reviewText}>2 Reviews</p>
+        <p className={styles.reviewText}>{reviews.length} Reviews</p>
       </div>
       <div className={styles.wrapper}>
         <p className={styles.newText}>

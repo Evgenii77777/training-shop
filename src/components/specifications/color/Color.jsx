@@ -1,28 +1,22 @@
 import React from "react";
 import styles from "./Color.module.css";
-import C1 from "../../../assets/img/c1.jpg";
-import C2 from "../../../assets/img/c2.jpg";
-import C3 from "../../../assets/img/c3.jpg";
-import C4 from "../../../assets/img/c4.jpg";
 
-const Color = () => {
+const Color = ({ images }) => {
   return (
     <div className={styles.color}>
       <span className={styles.colorTitle}>Color:</span>
-      <span className={styles.colorSpan}>Blue</span>
+      <span className={styles.colorSpan}>{images[0].color}</span>
       <ul className={styles.colorList}>
-        <li>
-          <img src={C1} alt="clothes 1" />
-        </li>
-        <li>
-          <img src={C2} alt="clothes 2" />
-        </li>
-        <li>
-          <img src={C3} alt="clothes 3" />
-        </li>
-        <li>
-          <img src={C4} alt="clothes 4" />
-        </li>
+        {images.map((item) => {
+          return (
+            <li key={item.id}>
+              <img
+                src={`https://training.cleverland.by/shop${item?.url}`}
+                alt={item.url}
+              />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

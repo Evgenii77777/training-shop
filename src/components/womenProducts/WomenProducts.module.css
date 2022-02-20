@@ -7,11 +7,8 @@
 .list li {
   width: calc((100% - 90px) / 4);
 }
-.item:nth-child(5),
-.item:nth-child(6),
-.item:nth-child(7),
-.item:nth-child(8) {
-  margin-top: 30px;
+.item {
+  margin-bottom: 30px;
 }
 .item h4 {
   padding-top: 16px;
@@ -46,6 +43,9 @@
   top: 0;
   left: 0;
   background: #e91e63;
+}
+.list li img {
+  width: 100%;
 }
 .sale p {
   padding-left: 0;
@@ -82,16 +82,6 @@ a {
   }
   .list li img {
     width: 100%;
-  }
-  .item:not(:nth-child(7)),
-  .item:not(:nth-child(8)) {
-    margin-bottom: 20px;
-  }
-  .item:nth-child(5),
-  .item:nth-child(6),
-  .item:nth-child(7),
-  .item:nth-child(8) {
-    margin-top: 0;
   }
 }
 

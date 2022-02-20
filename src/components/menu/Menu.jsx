@@ -4,6 +4,8 @@ import styles from "./Menu.module.css";
 import GroupItem from "../groupItem/GroupItem";
 import Logo from "../logo/Logo";
 import mainRoutes from "../../routes/MainRoutes";
+import Burger from "../burger/Burger";
+import MainMenu from "../burger/mainMenu/MainMenu";
 
 const Menu = () => {
   return (
@@ -24,6 +26,9 @@ const Menu = () => {
             </li>
           ))}
         </ul>
+        <Burger>
+          <MainMenu />
+        </Burger>
         <GroupItem />
       </div>
     </nav>

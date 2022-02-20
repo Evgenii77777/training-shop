@@ -8,6 +8,7 @@
 .container img {
   display: block;
 }
+
 @media (min-width: 320px) and (max-width: 740px) {
   .container {
     display: none;

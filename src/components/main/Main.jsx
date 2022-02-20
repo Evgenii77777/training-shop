@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Advantage from "../advantage/Advantage";
 import Blog from "../blog/Blog";
-import BtnLeft from "../buttons/leftRigth/BtnLeft";
-import BtnRigth from "../buttons/leftRigth/BtnRigth";
 import SeeAll from "../buttons/seeAll/SeeAll";
 import Form from "../form/Form";
 import GroupsLinks from "../groupsLinks/GroupsLinks";
 import MenProducts from "../menProducts/MenProducts";
 import Poster from "../poster/Poster";
+import Swip from "../swiper/Swip";
 import WomensProducts from "../womenProducts/WomenProducts";
 import styles from "./Main.module.css";
 
@@ -18,12 +17,7 @@ const Main = () => {
       <div className={styles.superContainer}>
         <div className={styles.main}>
           <div className={styles.container}>
-            <BtnLeft />
-            <div className={styles.wrapper}>
-              <span className={styles.text}>Banner</span>
-              <h3 className={styles.title}>your Title text</h3>
-            </div>
-            <BtnRigth />
+            <Swip />
           </div>
           <div>
             <ul className={styles.list}>

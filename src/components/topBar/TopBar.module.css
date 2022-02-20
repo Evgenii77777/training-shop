@@ -12,7 +12,7 @@
 }
 @media (min-width: 320px) and (max-width: 1089px) {
   .superContainer {
-    max-width: auto;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
   }

@@ -1,36 +1,47 @@
 import React from "react";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import Foto from "../components/foto/Foto";
 import RelatedProducts from "../components/relatedProducts/RelatedProducts";
 import Specifications from "../components/specifications/Specifications";
 import TopClothesPage from "../components/topClothes/topClothesPage.jsx/TopClothesPage";
 import styles from "./ProductPage.module.css";
+import { PRODUCTS } from "../object/Products";
 
-const ProductPage = ({ path = "Women's tracksuit Q109" }) => {
+const ProductPage = () => {
   const location = useLocation();
+  const par = useParams();
   let name = "";
   const namePath = function () {
     if (location.pathname.split("/").includes("women")) {
-      return (name = "Women");
+      return (name = "women");
     }
-    return (name = "Men");
+    return (name = "men");
   };
   namePath();
-  const newName = name.toLocaleLowerCase();
 
+  let card = [];
+  PRODUCTS[name].filter((item) => {
+    if (item.id === par.id) {
+      return (card = item);
+    }
+  });
   return (
-    <section data-test-id={`product-page-${newName}`}>
-      <TopClothesPage path={path} name={name} />
+    <section data-test-id={`product-page-${card.category}`}>
+      <TopClothesPage
+        name={card.name}
+        category={card.category}
+        reviews={card.reviews}
+      />
       <div className={styles.superContainer}>
         <ul className={styles.list}>
           <li className={styles.item}>
-            <Foto />
+            <Foto card={card} />
           </li>
           <li className={styles.item}>
-            <Specifications />
+            <Specifications card={card} />
           </li>
         </ul>
-        <RelatedProducts />
+        <RelatedProducts card={card} />
       </div>
     </section>
   );

@@ -29,6 +29,10 @@ span.colorSpan {
   width: 64px;
   height: 64px;
 }
+.colorList li img {
+  width: 100%;
+  height: 100%;
+}
 .colorList li:not(:last-child) {
   margin-right: 16px;
 }

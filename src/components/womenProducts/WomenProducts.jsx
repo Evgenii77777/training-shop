@@ -1,34 +1,15 @@
 import React from "react";
 import styles from "./WomenProducts.module.css";
-import { womenProducts } from "../../object/WomenProductsObj";
-import Stars from "../stars/Stars";
-import { Link } from "react-router-dom";
+import CardsItem from "../cardsItem/CardsItem";
+import { PRODUCTS } from "../../object/Products";
 
 const WomensProducts = () => {
   return (
     <div className={styles.superContainer} data-test-id={`clothes-women`}>
       <ul className={styles.list}>
-        {womenProducts.map((item) => (
+        {PRODUCTS.women.map((item) => (
           <li className={styles.item} key={item.id}>
-            <Link
-              data-test-id={`clothes-card-${item.producttype}`}
-              path={item.producttype}
-              to={`/${item.producttype}/${item.id}`}
-              producttype={item.producttype}
-            >
-              <img src={item.img} alt={item.name} />
-              {item.sale && (
-                <div className={styles.sale}>
-                  <p>{item.sale}</p>
-                </div>
-              )}
-              <h4>{item.name}</h4>
-              <div className={styles.wrapper}>
-                <span>{item.price}</span>
-
-                <Stars />
-              </div>
-            </Link>
+            <CardsItem card={item} productType="women" />
           </li>
         ))}
       </ul>

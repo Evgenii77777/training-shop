@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Review.module.css";
 import Gold from "../../../assets/png/star 1.png";
 
-const Review = () => {
+const Review = ({ reviews }) => {
   return (
     <div className={styles.review}>
       <h4 className={styles.reviewTitle}>reviews</h4>
@@ -25,65 +25,37 @@ const Review = () => {
               <img src={Gold} alt="Gold Star" />
             </li>
           </ul>
-          <span className={styles.reviewSpan}>2 Reviews</span>
+          <span className={styles.reviewSpan}>{reviews.length} Reviews</span>
         </div>
         <p className={styles.reviewText}>Write a review</p>
       </div>
       <div>
         <ul className={styles.smallList}>
-          <li>
-            <div className={styles.reviewSmallListWraooer}>
-              <p className={styles.reviewName}>Oleh Chabanov</p>
-              <ul className={styles.reviewListSmall}>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-              </ul>
-            </div>
-            <p className={styles.reviewPar}>
-              On the other hand, we denounce with righteous indignation and like
-              men who are so beguiled and demoralized by the charms of pleasure
-              of the moment
-            </p>
-          </li>
-          <li>
-            <div className={styles.reviewSmallListWraooer}>
-              <p className={styles.reviewName}>ShAmAn design</p>
-              <ul className={styles.reviewListSmall}>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-                <li>
-                  <img src={Gold} alt="Gold Star" />
-                </li>
-              </ul>
-            </div>
-            <p className={styles.reviewPar}>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti
-            </p>
-          </li>
+          {reviews.map((item) => (
+            <li key={item.name}>
+              <div className={styles.reviewSmallListWraooer}>
+                <p className={styles.reviewName}>{item.name}</p>
+                <ul className={styles.reviewListSmall}>
+                  <li>
+                    <img src={Gold} alt="Gold Star" />
+                  </li>
+                  <li>
+                    <img src={Gold} alt="Gold Star" />
+                  </li>
+                  <li>
+                    <img src={Gold} alt="Gold Star" />
+                  </li>
+                  <li>
+                    <img src={Gold} alt="Gold Star" />
+                  </li>
+                  <li>
+                    <img src={Gold} alt="Gold Star" />
+                  </li>
+                </ul>
+              </div>
+              <p className={styles.reviewPar}>{item.text}</p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

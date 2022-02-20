@@ -1,6 +1,17 @@
 .foto {
   display: flex;
 }
+.topBtn,
+.bottomBtn {
+  border: none;
+  background-color: inherit;
+  padding: 0;
+}
+
+.wrapper {
+  width: 114px;
+  height: 560px;
+}
 .btnWrapper {
   display: flex;
   justify-content: space-between;
@@ -17,6 +28,12 @@
   width: 94px;
   height: 114px;
 }
+.images {
+  width: 100%;
+  height: 100%;
+  filter: opacity(0.4);
+}
+
 .list li:not(:last-child) {
   margin-bottom: 16px;
 }
@@ -29,10 +46,10 @@
   margin-left: 16px;
   width: 448px;
   height: 560px;
-  background-image: url(../../assets/img/f5.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+}
+.container img {
+  width: 100%;
+  height: 560px;
 }
 @media (min-width: 320px) and (max-width: 740px) {
   .foto {
