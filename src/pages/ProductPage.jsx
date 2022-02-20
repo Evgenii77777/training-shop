@@ -20,11 +20,12 @@ const ProductPage = () => {
   namePath();
 
   let card = [];
-  PRODUCTS[name].filter((item) => {
+  PRODUCTS[name].forEach((item) => {
     if (item.id === par.id) {
       return (card = item);
     }
   });
+
   return (
     <section data-test-id={`product-page-${card.category}`}>
       <TopClothesPage

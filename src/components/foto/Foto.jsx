@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Top from "../../assets/svg/Group 9.svg";
-import Bottom from "../../assets/svg/Group 10.svg";
+import React, { useState } from "react";
+// import Top from "../../assets/svg/Group 9.svg";
+// import Bottom from "../../assets/svg/Group 10.svg";
 import styles from "./Foto.module.css";
-import { Controller, Navigation } from "swiper";
+import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../swiper/style.css";
 import "swiper/css";
