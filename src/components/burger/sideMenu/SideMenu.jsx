@@ -53,32 +53,32 @@ export const MenuLink = styled.li`
   }
 `;
 
-export const SideMenu = ({ children }) => {
-  const { isMenuOpen } = useContext(MenuContext);
+export const SideMenu = () => {
+  const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+
+  const clickHandler = () => {
+    toggleMenuMode();
+  };
 
   return (
     <Menu data-test-id="burger-menu" className={styles.nav} open={isMenuOpen}>
-      {children}
+      {
+        <ul className={styles.listBurger}>
+          {mainRoutes.map((item) => (
+            <MenuLink className={styles.item} key={item.id}>
+              <Link
+                className={styles.link}
+                to={`/${item.path}`}
+                data-test-id={`menu-link-${item.path}`}
+                exact={item.exact}
+                onClick={clickHandler}
+              >
+                {item.name}
+              </Link>
+            </MenuLink>
+          ))}
+        </ul>
+      }
     </Menu>
   );
-};
-SideMenu.defaultProps = {
-  children: (
-    <>
-      <ul className={styles.listBurger}>
-        {mainRoutes.map((item) => (
-          <MenuLink className={styles.item} key={item.id}>
-            <Link
-              className={styles.link}
-              to={`/${item.path}`}
-              data-test-id={`menu-link-${item.path}`}
-              exact={item.exact}
-            >
-              {item.name}
-            </Link>
-          </MenuLink>
-        ))}
-      </ul>
-    </>
-  ),
 };

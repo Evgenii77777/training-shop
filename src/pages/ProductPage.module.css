@@ -20,10 +20,20 @@
     padding-right: 20px;
   }
 }
+@media (min-width: 741px) and (max-width: 1089px) {
+  .list {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .list li {
+    width: 100%;
+  }
+}
 @media (min-width: 320px) and (max-width: 740px) {
   .list {
     display: table;
-    width: 90%;
+    width: 100%;
   }
   .item {
     width: 100%;

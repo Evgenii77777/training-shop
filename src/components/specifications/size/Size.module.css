@@ -65,6 +65,6 @@ button.active {
     margin-right: 0;
   }
   .sizeList {
-    justify-content: space-between;
+    justify-content: center;
   }
 }

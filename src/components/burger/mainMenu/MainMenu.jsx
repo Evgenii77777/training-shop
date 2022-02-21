@@ -12,7 +12,7 @@ const Navbar = styled.div`
   box-sizing: border-box;
   outline: currentcolor none medium;
   max-width: 100%;
-  top: 35px;
+  top: 41px;
   margin: 0px;
   align-items: center;
   color: rgb(248, 248, 248);
@@ -23,7 +23,7 @@ const Navbar = styled.div`
     left: 10px;
   }
   @media (max-width: 387px) {
-    top: 49px;
+    top: 57px;
   }
 `;
 

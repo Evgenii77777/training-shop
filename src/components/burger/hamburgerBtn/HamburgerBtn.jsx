@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MenuContext } from "../Burger";
 import styled from "styled-components";
 
+
 const MenuButton = styled.button`
   display: block;
   transform-origin: 16px 11px;
@@ -39,7 +40,7 @@ const MenuButton = styled.button`
 
   &.active {
     span:nth-of-type(1) {
-      transform: rotate(45deg) translate(10px, 10px);
+      transform: rotate(45deg) translate(5px, 10px);
       width: 40px;
     }
 
@@ -49,7 +50,7 @@ const MenuButton = styled.button`
     }
 
     span:nth-of-type(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
+      transform: rotate(-45deg) translate(2px, -7px);
       width: 40px;
     }
   }
@@ -58,7 +59,7 @@ const MenuButton = styled.button`
 const Bar = styled.span`
   display: block;
   width: 40px;
-  height: 5px;
+  height: 1px;
   margin-bottom: 7px;
   background-color: black;
 `;
@@ -71,16 +72,18 @@ const HamburgerBtn = () => {
   };
 
   return (
-    <MenuButton
-      className={isMenuOpen ? "active" : ""}
-      aria-label="Открыть главное меню"
-      onClick={clickHandler}
-      data-test-id="burger-menu-btn"
-    >
-      <Bar />
-      <Bar />
-      <Bar />
-    </MenuButton>
+
+      <MenuButton
+        className={isMenuOpen ? "active" : ""}
+        aria-label="Открыть главное меню"
+        onClick={clickHandler}
+        data-test-id="burger-menu-btn"
+      >
+        <Bar />
+        <Bar />
+        <Bar />
+      </MenuButton>
+
   );
 };
 

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import Top from "../../assets/svg/Group 9.svg";
-// import Bottom from "../../assets/svg/Group 10.svg";
 import styles from "./Foto.module.css";
-import { Controller } from "swiper";
+import { Controller, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../swiper/style.css";
 import "swiper/css";
@@ -11,42 +9,13 @@ import "swiper/css/navigation";
 const Foto = ({ card }) => {
   const [firstSwiper, setFirstSwiper] = useState(null);
   const [secondSwiper, setSecondSwiper] = useState(null);
-  // useEffect(() => {
-  //   console.log(firstSwiper);
-  //   console.log(setFirstSwiper);
-  // });
-  // const onNext = () => {
-  //   let swip = document.querySelector(".swiper-slide-active").children[0].src;
 
-  //   let img = document.querySelectorAll("#img");
-  //   img.forEach((el) => {
-  //     if (el.src !== swip) {
-  //       return el.classList.add("active");
-  //     } else {
-  //       return el.classList.remove("active");
-  //     }
-  //   });
-  //   secondSwiper.slideNext();
-  // };
-  // const onPrev = () => {
-  //   let swip = document.querySelector(".swiper-slide-active").children[0].src;
-
-  //   let img = document.querySelectorAll("#img");
-  //   img.forEach((el) => {
-  //     if (el.src !== swip) {
-  //       return el.classList.add("active");
-  //     } else {
-  //       return el.classList.remove("active");
-  //     }
-  //   });
-  //   secondSwiper.slidePrev();
-  // };
   return (
     <div className={styles.foto}>
       <div className={styles.wrapper}>
         <Swiper
           className="firstSwiper"
-          modules={[Controller]}
+          modules={[Controller, Navigation]}
           onSwiper={setFirstSwiper}
           controller={{ control: secondSwiper }}
           navigation
@@ -67,7 +36,7 @@ const Foto = ({ card }) => {
       </div>
       <div className={styles.container}>
         <Swiper
-          modules={[Controller]}
+          modules={[Controller, Navigation]}
           onSwiper={setSecondSwiper}
           controller={{ control: firstSwiper }}
           navigation
