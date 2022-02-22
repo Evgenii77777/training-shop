@@ -37,11 +37,11 @@ const MainMenu = () => {
   });
 
   return (
-    <div ref={node} data-test-id="burger-menu">
+    <div ref={node}>
       <Navbar>
         <HamburgerBtn />
       </Navbar>
-      <SideMenu />
+      <SideMenu data-test-id="burger-menu" />
     </div>
   );
 };
