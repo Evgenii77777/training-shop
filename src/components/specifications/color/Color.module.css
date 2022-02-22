@@ -52,9 +52,9 @@ span.colorSpan {
     margin-right: 0;
   }
 }
-@media (min-width: 740px) and (max-width: 1090px) {
+/* @media (min-width: 740px) and (max-width: 1090px) {
   .colorList {
     display: flex;
     flex-wrap: nowrap;
   }
-}
+} */

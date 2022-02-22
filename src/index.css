@@ -64,9 +64,9 @@ button:hover,
 button:focus,
 a:hover,
 a:focus {
-  font-weight: bold;
+  /* font-weight: bold; */
   opacity: 1;
-  text-transform: uppercase;
+  text-decoration: underline;
 }
 .images {
   width: 100%;

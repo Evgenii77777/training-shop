@@ -34,8 +34,3 @@
   background: black;
   border-radius: 50%;
 }
-@media (min-width: 320px) and (max-width: 1089px) {
-  .container {
-    display: none;
-  }
-}

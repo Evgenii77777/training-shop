@@ -19,11 +19,12 @@ const Navbar = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   z-index: 500;
-  @media (max-width: 740px) {
+  @media (max-width: 500px) {
     left: 10px;
+    top: 86px;
   }
   @media (max-width: 387px) {
-    top: 57px;
+    top: 97px;
   }
 `;
 

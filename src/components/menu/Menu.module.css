@@ -40,12 +40,17 @@
 }
 @media (min-width: 320px) and (max-width: 740px) {
   .wrapper {
-    display: table;
+    display: flex;
   }
   .list {
     flex-wrap: wrap;
   }
   .nav {
     height: auto;
+  }
+}
+@media (min-width: 320px) and (max-width: 500px) {
+  .wrapper {
+    display: table;
   }
 }
