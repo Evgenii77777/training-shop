@@ -9,7 +9,7 @@ import MainMenu from "../burger/mainMenu/MainMenu";
 
 const Menu = () => {
   return (
-    <nav className={styles.nav} data-test-id="burger-menu">
+    <nav className={styles.nav} data-test-id="menu">
       <div className={styles.wrapper}>
         <Logo />
         <ul className={styles.list}>
