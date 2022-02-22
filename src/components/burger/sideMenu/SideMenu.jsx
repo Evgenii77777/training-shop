@@ -5,7 +5,7 @@ import mainRoutes from "../../../routes/MainRoutes";
 import styles from "../../menu/Menu.module.css";
 import { Link } from "react-router-dom";
 
-const Menu = styled.nav`
+const Menu = styled.div`
   position: absolute;
   top: 98px;
   left: 0px;
@@ -61,7 +61,7 @@ export const SideMenu = () => {
   };
 
   return (
-    <Menu data-test-id="burger-menu" className={styles.nav} open={isMenuOpen}>
+    <Menu className={styles.nav} open={isMenuOpen}>
       {
         <ul className={styles.listBurger}>
           {mainRoutes.map((item) => (

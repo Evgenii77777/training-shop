@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { MenuContext } from "../Burger";
 import styled from "styled-components";
 
-
 const MenuButton = styled.button`
   display: block;
   transform-origin: 16px 11px;
@@ -72,18 +71,16 @@ const HamburgerBtn = () => {
   };
 
   return (
-
-      <MenuButton
-        className={isMenuOpen ? "active" : ""}
-        aria-label="Открыть главное меню"
-        onClick={clickHandler}
-        data-test-id="burger-menu-btn"
-      >
-        <Bar />
-        <Bar />
-        <Bar />
-      </MenuButton>
-
+    <MenuButton
+      className={isMenuOpen ? "active" : ""}
+      aria-label="Открыть главное меню"
+      onClick={clickHandler}
+      data-test-id="burger-menu-btn"
+    >
+      <Bar />
+      <Bar />
+      <Bar />
+    </MenuButton>
   );
 };
 

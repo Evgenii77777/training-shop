@@ -1,17 +1,17 @@
 .swiper {
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .swiper.firstSwiper {
-  padding-top: 56px;
+  padding-top: 50px;
   position: relative;
 }
 
 .swiper.firstSwiper .swiper-wrapper {
-  display: contents;
+  display: flex;
 }
 .swiper.firstSwiper .swiper-wrapper .swiper-slide {
-  height: auto;
   width: 100%;
   margin-bottom: 16px;
 }
@@ -19,7 +19,7 @@
   width: 100%;
   filter: opacity(0.4);
 }
-.swiper.firstSwiper .swiper-slide-active img {
+.swiper.firstSwiper .swiper-slide-thumb-active img {
   filter: opacity(1);
 }
 .swiper.firstSwiper .swiper-button-prev {
@@ -87,8 +87,10 @@
   width: 100%;
   height: 99%;
 }
-
-@media (min-width: 320px) and (max-width: 740px) {
+.hid {
+  overflow: hidden;
+}
+@media (min-width: 320px) and (max-width: 1090px) {
   .swiper-button-prev {
     margin-left: 0;
   }

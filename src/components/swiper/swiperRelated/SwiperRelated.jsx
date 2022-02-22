@@ -12,28 +12,27 @@ import I4 from "../../../assets/img/i4.jpg";
 import Stars from "../../stars/Stars";
 
 const SwiperRelated = () => {
-  let scrn = 2;
-  function widthScreen() {
-    const screen = window.screen.width;
-    if (screen >= 320 && screen <= 500) {
-      console.log(screen);
-      return (scrn = 1);
-    }
-    if (screen >= 501 && screen <= 739) {
-      return (scrn = 2);
-    } else if (screen >= 740 && screen <= 1023) {
-      return (scrn = 3);
-    }
-    return (scrn = 4);
-  }
-  widthScreen();
+
   return (
     <Swiper
       className="swiperNew"
       modules={[Navigation]}
       navigation
       spaceBetween={50}
-      slidesPerView={scrn}
+      breakpoints={{
+        1023: {
+          slidesPerView: 4,
+        },
+        740: {
+          slidesPerView: 3,
+        },
+        501: {
+          slidesPerView: 2,
+        },
+        320: {
+          slidesPerView: 1,
+        },
+      }}
       data-test-id="related-slider"
     >
       <SwiperSlide className="newSlide">
