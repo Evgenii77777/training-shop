@@ -41,7 +41,7 @@ const MainMenu = () => {
       <Navbar>
         <HamburgerBtn />
       </Navbar>
-      <SideMenu data-test-id="burger-menu" />
+      <SideMenu />
     </div>
   );
 };

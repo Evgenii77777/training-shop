@@ -63,7 +63,7 @@ export const SideMenu = () => {
   return (
     <Menu className={styles.nav} open={isMenuOpen}>
       {
-        <ul className={styles.listBurger}>
+        <ul className={styles.listBurger} data-test-id="burger-menu">
           {mainRoutes.map((item) => (
             <MenuLink className={styles.item} key={item.id}>
               <Link
