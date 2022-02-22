@@ -37,7 +37,7 @@ const MainMenu = () => {
   });
 
   return (
-    <div ref={node} data-test-id="burger-menu">
+    <div ref={node}>
       <Navbar>
         <HamburgerBtn />
       </Navbar>
