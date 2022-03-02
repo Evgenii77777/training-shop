@@ -11,7 +11,7 @@ const Menu = styled.div`
   left: 0px;
   bottom: 0px;
   z-index: 293;
-  display: block;
+  display: none;
   width: 100vw;
   height: 100vh;
   max-width: 100%;
@@ -21,8 +21,8 @@ const Menu = styled.div`
   align-items: stretch;
   background-color: white;
   opacity: 0.7;
-  transform: translateX(-100%);
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  /* transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); */
   @media (max-width: 500px) {
     top: 136px;
   }
@@ -30,7 +30,8 @@ const Menu = styled.div`
   ${(props) =>
     props.open &&
     css`
-      transform: translateX(0);
+      display: block;
+      /* transform: translateX(0); */
     `}
 `;
 
