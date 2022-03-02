@@ -100,6 +100,7 @@
   padding-top: 96px;
 }
 .womenWrapper {
+  align-items: center;
   display: flex;
   justify-content: space-between;
   padding-bottom: 48px;
@@ -114,6 +115,33 @@
   text-transform: uppercase;
   color: #121212;
 }
+.listBtn {
+  display: flex;
+}
+.linkBtn {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.06em;
+  color: #121212;
+  border: none;
+  background-color: inherit;
+  opacity: 0.6;
+}
+.listBtn li:not(:last-child) {
+  margin-right: 32px;
+}
+@media (min-width: 320px) and (max-width: 740px) {
+  .listBtn {
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 1089px) {
   .superContainer {
     max-width: 100%;

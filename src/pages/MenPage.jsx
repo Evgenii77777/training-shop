@@ -1,15 +1,13 @@
 import React from "react";
-import Filter from "../components/filter/Filter";
+import AllProductsMen from "../components/allProductsPage/AllProductsMen";
 import Loading from "../components/loading/Loading";
-import MenProducts from "../components/menProducts/MenProducts";
 import TopClothes from "../components/topClothes/TopClothes";
 
 const MenPage = ({ name = "Men" }) => {
   return (
     <section data-test-id={`products-page-men`}>
       <TopClothes name={name} />
-      <Filter />
-      <MenProducts />
+      <AllProductsMen />
       <Loading />
     </section>
   );

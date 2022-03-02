@@ -10,7 +10,8 @@
   text-align: right;
   letter-spacing: 0.06em;
   color: #121212;
-
+  border: none;
+  background-color: inherit;
   opacity: 0.6;
 }
 .list li:not(:last-child) {

@@ -10,7 +10,6 @@ import "swiper/css/thumbs";
 
 const Foto = ({ card }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   return (
     <div className={styles.foto}>
       <div className={styles.wrapper}>
@@ -32,54 +31,16 @@ const Foto = ({ card }) => {
           navigation
           direction="vertical"
         >
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
+          {card.images.map((el) => (
+            <SwiperSlide key={el.url}>
+              <img
+                src={`https://training.cleverland.by/shop${el?.url}`}
+                alt="Clothes"
+                id="imgSwiper"
+                className={styles.imgSwiper}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
 
@@ -91,54 +52,16 @@ const Foto = ({ card }) => {
           modules={[FreeMode, Navigation, Thumbs]}
           data-test-id="product-slider"
         >
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={`https://training.cleverland.by/shop${card.images[0]?.url}`}
-              alt="Clothes"
-              id="imgSwiper"
-              className={styles.imgSwiper}
-            />
-          </SwiperSlide>
+          {card.images.map((el) => (
+            <SwiperSlide key={el.url}>
+              <img
+                src={`https://training.cleverland.by/shop${el?.url}`}
+                alt="Clothes"
+                id="imgSwiper"
+                className={styles.imgSwiper}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

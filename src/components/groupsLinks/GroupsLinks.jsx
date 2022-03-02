@@ -1,35 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./GroupsLinks.module.css";
+import { Main_Clothes_Block_Menu } from "../../object/MainBlockMenu";
 
 const GroupsLinks = () => {
+  // const [btn, useBtn] = useState("");
+  // const onHandleClick = () => {
+  //   console.log(particularName);
+  // };
+
   return (
     <ul className={styles.list}>
-      <li>
-        <NavLink className={styles.link} to="/women">
-          NEW ARRIVALS
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={styles.link} to="/women">
-          SPECIALS
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={styles.link} to="/women">
-          BESTSELLERS
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={styles.link} to="/women">
-          MOST VIEWED
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={styles.link} to="/women">
-          FEATURED PRODUCTS
-        </NavLink>
-      </li>
+      {Main_Clothes_Block_Menu.map((el) => (
+        <li key={el.name}>
+          <button
+            onClick={() => {
+              console.log(el.particularName);
+            }}
+            className={styles.link}
+          >
+            {el.name}
+          </button>
+        </li>
+      ))}
     </ul>
   );
 };

@@ -30,9 +30,18 @@ span.colorSpan {
   width: 64px;
   height: 64px;
 }
+.colorBtn {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.colorBtn:hover,
+.colorBtn:focus {
+  border: 2px solid #121212;
+}
 .colorList li img {
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
 }
 .colorList li:not(:last-child) {
   margin-right: 16px;

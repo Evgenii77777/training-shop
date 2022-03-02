@@ -28,6 +28,9 @@
 .newText {
   margin-right: 24px;
 }
+.reviewText {
+  margin-left: 6px;
+}
 .reviewText,
 .newText,
 .text {

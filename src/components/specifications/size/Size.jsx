@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Size.module.css";
 
 const Size = ({ sizes }) => {
+  let [btnContent, setBtnContent] = useState(`${sizes[0]}`);
+
+  const btnName = (e) =>
+    setBtnContent((btnContent = e.currentTarget.textContent));
   return (
     <div className={styles.size}>
       <span className={styles.colorTitle}>Size:</span>
-      <span className={styles.colorSpan}>{sizes[0].split(" ")[0]}</span>
+      <span className={styles.colorSpan}>{btnContent}</span>
       <ul className={styles.sizeList}>
         {sizes.map((item) => (
-          <li key={item.split(" ")[0]}>
-            <button>{item.split(" ")[0]}</button>
+          <li key={item}>
+            <button className={styles.sizesBtn} onClick={btnName}>
+              {item}
+            </button>
           </li>
         ))}
       </ul>

@@ -23,6 +23,9 @@ const Menu = styled.div`
   opacity: 0.7;
   transform: translateX(-100%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  @media (max-width: 500px) {
+    top: 136px;
+  }
 
   ${(props) =>
     props.open &&

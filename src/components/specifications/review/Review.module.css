@@ -27,6 +27,14 @@
   display: flex;
   justify-content: space-between;
 }
+.reviewWrapperList li {
+  height: 22px;
+  width: 22px;
+}
+.reviewWrapperList li img {
+  height: 22px;
+  width: 22px;
+}
 .reviewWrapperList {
   align-items: center;
   display: flex;
@@ -44,6 +52,7 @@
   background-size: contain;
 }
 .reviewSpan {
+  margin-left: 8px;
   font-family: Spartan;
   font-style: normal;
   font-weight: 500;
@@ -59,7 +68,7 @@
   width: 14px;
   height: 14px;
 }
-.smallList li:not(:last-child) {
+.smallListItem:not(:last-child) {
   margin-bottom: 48px;
 }
 .reviewListSmall li:not(:last-child) {
