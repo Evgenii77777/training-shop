@@ -38,45 +38,53 @@ const Main = () => {
       </div>
       <section className={styles.womenContainer}>
         <div className={styles.superContainer}>
-          <div className={styles.womenWrapper}>
-            <h3 className={styles.womenTitle}>WOMEN’S</h3>
-            <ul className={styles.listBtn}>
-              {Main_Clothes_Block_Menu.map((el) => (
-                <li key={el.name}>
-                  <button
-                    onClick={() => setBtn((btn = el.particularName))}
-                    className={styles.linkBtn}
+          <div data-test-id={`clothes-women`}>
+            <div className={styles.womenWrapper}>
+              <h3 className={styles.womenTitle}>WOMEN’S</h3>
+              <ul className={styles.listBtn}>
+                {Main_Clothes_Block_Menu.map((el) => (
+                  <li
+                    key={el.name}
                     data-test-id={`clothes-women-${el.particularName}`}
                   >
-                    {el.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+                    <button
+                      onClick={() => setBtn((btn = el.particularName))}
+                      className={styles.linkBtn}
+                    >
+                      {el.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <WomensProducts btn={btn} />
           </div>
-          <WomensProducts btn={btn} />
           <SeeAll />
         </div>
       </section>
       <section className={styles.menContainer}>
         <div className={styles.superContainer}>
-          <div className={styles.womenWrapper}>
-            <h3 className={styles.womenTitle}>MEN’S</h3>
-            <ul className={styles.listBtn}>
-              {Main_Clothes_Block_Menu.map((el) => (
-                <li key={el.name}>
-                  <button
-                    onClick={() => setBtn((btn = el.particularName))}
-                    className={styles.linkBtn}
+          <div data-test-id={`clothes-men`}>
+            <div className={styles.womenWrapper}>
+              <h3 className={styles.womenTitle}>MEN’S</h3>
+              <ul className={styles.listBtn}>
+                {Main_Clothes_Block_Menu.map((el) => (
+                  <li
+                    key={el.name}
                     data-test-id={`clothes-men-${el.particularName}`}
                   >
-                    {el.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+                    <button
+                      onClick={() => setBtn((btn = el.particularName))}
+                      className={styles.linkBtn}
+                    >
+                      {el.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <MenProducts btn={btn} />
           </div>
-          <MenProducts btn={btn} />
           <SeeAll />
         </div>
       </section>

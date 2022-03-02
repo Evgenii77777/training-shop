@@ -5,7 +5,7 @@ import { PRODUCTS } from "../../object/Products";
 
 const MenProducts = ({ btn }) => {
   return (
-    <div className={styles.superContainer} data-test-id={`clothes-men`}>
+    <div className={styles.superContainer}>
       <ul className={styles.list}>
         {PRODUCTS.men
           .filter((el) => el.particulars[btn])
