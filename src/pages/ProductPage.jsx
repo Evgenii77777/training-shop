@@ -42,7 +42,7 @@ const ProductPage = () => {
             <Specifications card={card} />
           </li>
         </ul>
-        <RelatedProducts card={card} />
+        <RelatedProducts card={card} name={name} />
       </div>
     </section>
   );

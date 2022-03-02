@@ -1,18 +1,24 @@
 import React from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { PRODUCTS } from "../../../object/Products";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../style.css";
 import styles from "../../relatedProducts/RelatedProducts.module.css";
-import I1 from "../../../assets/img/i1.jpg";
-import I2 from "../../../assets/img/i2.jpg";
-import I3 from "../../../assets/img/i3.jpg";
-import I4 from "../../../assets/img/i4.jpg";
-import Stars from "../../stars/Stars";
+import OneStar from "../../stars/oneStar/OneStar";
+import TwoStars from "../../stars/twoStar/TwoStars";
+import ThreeStars from "../../stars/threeStars/ThreeStars";
+import FourStars from "../../stars/fourStars/FourStars";
+import FiveStars from "../../stars/fiveStars/FiveStars";
+import ZeroStars from "../../stars/zeroStar/ZeroStars";
 
-const SwiperRelated = () => {
-
+const SwiperRelated = ({ name, card }) => {
+  let sumReviews = 0;
+  card.reviews.forEach((el) => {
+    return (sumReviews += el.rating);
+  });
+  sumReviews = Math.round(sumReviews / card.reviews.length);
   return (
     <Swiper
       className="swiperNew"
@@ -35,90 +41,39 @@ const SwiperRelated = () => {
       }}
       data-test-id="related-slider"
     >
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I1} alt="Image1" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I2} alt="Image2" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <span className={styles.darkSpan}>$ 60.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I3} alt="Image3" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I4} alt="Image4" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I1} alt="Image1" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I2} alt="Image2" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <span className={styles.darkSpan}>$ 60.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I3} alt="Image3" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
-      <SwiperSlide className="newSlide">
-        <li>
-          <img src={I4} alt="Image4" />
-          <p>Women's tracksuit Q109</p>
-          <div className={styles.relatedContainer}>
-            <span>$ 30.00</span>
-            <Stars />
-          </div>
-        </li>
-      </SwiperSlide>
+      {PRODUCTS[name].map((el) => (
+        <SwiperSlide className="newSlide" key={el.images[0]?.url}>
+          <li>
+            <img
+              src={`https://training.cleverland.by/shop${el.images[0]?.url}`}
+              alt="clothes"
+              className="imagesRelated"
+            />
+            <p className={styles.relText}>{name}'s tracksuit Q109`</p>
+            <div className={styles.relatedContainer}>
+              <span>$ {el.price}</span>
+              {el.discount && (
+                <span className={styles.darkSpan}> {el.discount}</span>
+              )}
+              <div className={styles.relContainer}>
+                {el.rating === 1 ? (
+                  <OneStar className={styles.rel} />
+                ) : "" || el.rating === 2 ? (
+                  <TwoStars className={styles.rel} />
+                ) : "" || el.rating === 3 ? (
+                  <ThreeStars className={styles.rel} />
+                ) : "" || el.rating === 4 ? (
+                  <FourStars className={styles.rel} />
+                ) : "" || el.rating === 5 ? (
+                  <FiveStars className={styles.rel} />
+                ) : (
+                  <ZeroStars className={styles.rel} />
+                )}
+              </div>
+            </div>
+          </li>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

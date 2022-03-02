@@ -10,7 +10,7 @@ const MenuButton = styled.button`
   border: 0;
   padding: 12px;
   background: none;
-  @media (min-width: 1090px) {
+  @media (min-width: 999px) {
     display: none;
   }
 

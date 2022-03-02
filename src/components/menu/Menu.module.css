@@ -29,7 +29,7 @@
 .list li:not(:last-child) {
   margin-right: 32px;
 }
-@media (min-width: 320px) and (max-width: 1089px) {
+@media (min-width: 320px) and (max-width: 998px) {
   .list {
     display: none;
   }

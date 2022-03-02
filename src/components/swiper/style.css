@@ -42,7 +42,7 @@
   position: relative;
 }
 .swiper.swiperNew {
-  padding-top: 80px;
+  padding-top: 55px;
 }
 .swiperNew .swiper-button-prev {
   top: 22px;
@@ -89,6 +89,14 @@
 }
 .hid {
   overflow: hidden;
+}
+.newSlide li {
+  width: 255px;
+  height: 378px;
+}
+.newSlide li .imagesRelated {
+  width: 255px;
+  height: 318px;
 }
 @media (min-width: 320px) and (max-width: 1090px) {
   .swiper-button-prev {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Main_Clothes_Block_Menu } from "../../object/MainBlockMenu";
 import Advantage from "../advantage/Advantage";
@@ -13,6 +13,30 @@ import styles from "./Main.module.css";
 
 const Main = () => {
   let [btn, setBtn] = useState("isNewArrivals");
+
+  useEffect(() => {
+    const itemWomen = document.querySelectorAll(".linksWomen");
+    const itemMen = document.querySelectorAll(".linksMen");
+    itemWomen[0].classList.add("linksWomenActive");
+    itemMen[0].classList.add("linksWomenActive");
+  }, []);
+
+  const onHandleWomen = function (e) {
+    const items = document.querySelectorAll(".linksWomen");
+    const target = e.currentTarget;
+    Array.from(items).forEach((item) => {
+      item.classList.remove("linksWomenActive");
+    });
+    target.classList.add("linksWomenActive");
+  };
+  const onHandleMen = function (e) {
+    const items = document.querySelectorAll(".linksMen");
+    const target = e.currentTarget;
+    Array.from(items).forEach((item) => {
+      item.classList.remove("linksWomenActive");
+    });
+    target.classList.add("linksWomenActive");
+  };
   return (
     <section className={styles.mainContainer}>
       <div className={styles.superContainer}>
@@ -46,11 +70,10 @@ const Main = () => {
                   <li
                     key={el.name}
                     data-test-id={`clothes-women-${el.particularName}`}
+                    onClick={() => setBtn((btn = el.particularName))}
+                    className={styles.linkBtn}
                   >
-                    <button
-                      onClick={() => setBtn((btn = el.particularName))}
-                      className={styles.linkBtn}
-                    >
+                    <button className="linksWomen" onClick={onHandleWomen}>
                       {el.name}
                     </button>
                   </li>
@@ -72,11 +95,10 @@ const Main = () => {
                   <li
                     key={el.name}
                     data-test-id={`clothes-men-${el.particularName}`}
+                    onClick={() => setBtn((btn = el.particularName))}
+                    className={styles.linkBtn}
                   >
-                    <button
-                      onClick={() => setBtn((btn = el.particularName))}
-                      className={styles.linkBtn}
-                    >
+                    <button className="linksMen" onClick={onHandleMen}>
                       {el.name}
                     </button>
                   </li>

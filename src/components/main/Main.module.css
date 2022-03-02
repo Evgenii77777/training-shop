@@ -118,7 +118,7 @@
 .listBtn {
   display: flex;
 }
-.linkBtn {
+/* .linkBtn {
   font-family: Spartan;
   font-style: normal;
   font-weight: 400;
@@ -130,7 +130,7 @@
   border: none;
   background-color: inherit;
   opacity: 0.6;
-}
+} */
 .listBtn li:not(:last-child) {
   margin-right: 32px;
 }

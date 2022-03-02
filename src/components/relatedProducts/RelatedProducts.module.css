@@ -49,7 +49,9 @@
   opacity: 1;
 }
 .relatedContainer {
+  height: 25px;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 .relatedContainer div {
@@ -58,6 +60,27 @@
 .relatedContainer div img {
   align-items: center;
   padding-bottom: 5px;
+}
+.rel {
+  height: 20px;
+  width: 25%;
+}
+.relContainer {
+  width: 28%;
+  height: 100%;
+}
+.relText {
+  margin-top: 10px;
+  margin-bottom: 9px;
+  padding-left: 0;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+
+  opacity: 0.6;
 }
 span.darkSpan {
   font-family: Spartan;

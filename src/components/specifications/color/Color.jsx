@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Color.module.css";
+import "../../../index.css";
 
 const Color = ({ images }) => {
   let unicColor = [];
@@ -13,6 +14,20 @@ const Color = ({ images }) => {
   let [btnContent, setBtnContent] = useState(`${unicColor[0]}`);
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
 
+  useEffect(() => {
+    const ite = document.querySelectorAll(".btnColor");
+    ite[0].classList.add("btnColorActive");
+  }, []);
+
+  const onHandle = function (e) {
+    const items = document.querySelectorAll(".btnColor");
+    const target = e.currentTarget;
+    Array.from(items).forEach((item) => {
+      item.classList.remove("btnColorActive");
+    });
+    target.classList.add("btnColorActive");
+  };
+
   return (
     <div className={styles.color}>
       <span className={styles.colorTitle}>Color:</span>
@@ -22,11 +37,13 @@ const Color = ({ images }) => {
           return (
             <li key={item.id}>
               <button
-                className={styles.colorBtn}
-                onClick={btnName}
-                id={item.color}
+                className="btnColor"
+                index={item.color}
+                onClick={onHandle}
               >
                 <img
+                  onClick={btnName}
+                  id={item.color}
                   src={`https://training.cleverland.by/shop${item?.url}`}
                   alt={item.url}
                 />

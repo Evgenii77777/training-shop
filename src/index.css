@@ -76,3 +76,38 @@ a:focus {
 .images.active {
   filter: opacity(1);
 }
+.btnColor {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.btnColorActive {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #121212;
+}
+.btnSize {
+  padding: 10px;
+  border: none;
+}
+.btnSizeActive {
+  border: 2px solid #121212;
+  background-color: inherit;
+}
+.linksWomen,
+.linksMen {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.06em;
+  color: #121212;
+  border: none;
+  background-color: inherit;
+  opacity: 0.6;
+}
+.linksWomenActive {
+  opacity: 1;
+}
