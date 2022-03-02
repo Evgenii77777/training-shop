@@ -232,7 +232,7 @@ const AllProductsWomen = () => {
           </div>
         </div>
       </div>
-      <div className={styles.superContainer} data-test-id={`clothes-women`}>
+      <div className={styles.superContainer}>
         <ul className={styles.list}>
           {priceArr.length !== 0 &&
             brandArr.length === 0 &&
