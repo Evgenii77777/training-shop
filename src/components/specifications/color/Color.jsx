@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Color.module.css";
 import "../../../index.css";
+import { connect } from "react-redux";
+import { currentColor } from "../../../redux/btnBasket/btnBasket-actions";
 
-const Color = ({ images }) => {
+const Color = ({ images, onColor }) => {
   let unicColor = [];
   let unicImg = [];
   images.forEach((el) => {
@@ -15,6 +17,10 @@ const Color = ({ images }) => {
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
 
   useEffect(() => {
+    onColor([
+      unicColor[0],
+      "https://training.cleverland.by/shop" + unicImg[0].url,
+    ]);
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
   }, []);
@@ -35,11 +41,17 @@ const Color = ({ images }) => {
       <ul className={styles.colorList}>
         {unicImg.map((item) => {
           return (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              onClick={(e) =>
+                onColor([e.currentTarget.firstChild.id, e.target.src])
+              }
+            >
               <button
                 className="btnColor"
                 index={item.color}
                 onClick={onHandle}
+                id={item.color}
               >
                 <img
                   onClick={btnName}
@@ -55,5 +67,14 @@ const Color = ({ images }) => {
     </div>
   );
 };
-
-export default Color;
+// const mapStateToProps = (state) => {
+//   return {
+//     color: state.basket.color,
+//   };
+// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onColor: (id) => dispatch(currentColor(id)),
+  };
+};
+export default connect(null, mapDispatchToProps)(Color);

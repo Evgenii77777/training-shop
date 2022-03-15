@@ -111,3 +111,6 @@ a:focus {
 .linksWomenActive {
   opacity: 1;
 }
+.no__scroll {
+  overflow: hidden;
+}

@@ -1,0 +1,313 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 388px;
+}
+.openBasketSide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+.openBasket {
+  position: relative;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 18, 18, 0.4);
+}
+.open {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.wrapper {
+  padding: 13px 24px;
+  background: #121212;
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.57;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.cross {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: inherit;
+  background-image: url(../../assets/svg/cross.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.basket {
+  position: relative;
+  height: calc(100% - 48px);
+  text-align: center;
+  background: white;
+  padding-top: 18px;
+  padding-bottom: 24px;
+}
+.text {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 191px;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 150%;
+  color: #121212;
+}
+.btn {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  padding: 17px 91px;
+  width: calc(100% - 48px);
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  background: #121212;
+  border: 2px solid #121212;
+}
+.notEmptyBasket {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.notEmptyWrapper {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
+.notEmpty {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+.notEmpty img {
+  display: block;
+}
+.notEmpty button {
+  display: block;
+  border: none;
+  background-color: inherit;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 130%;
+  color: #e6e6e6;
+}
+.spanWrapper {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.spanWrapper span {
+  display: block;
+}
+.spanWrapperFirst {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 1;
+}
+.spanWrapperSecond {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: right;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 1;
+}
+.btnWrapperFirst {
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 17px 119px;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  background: #121212;
+  border: 2px solid #121212;
+}
+.btnWrapperSecond {
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 17px 119px;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.9;
+  border: none;
+  background: #f8f8f8;
+}
+
+.listWrapper {
+  height: 50vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.list {
+  width: 90%;
+}
+.list li {
+  height: 104px;
+  display: flex;
+  background: #ffffff;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.list li:not(:first-child) {
+  margin-top: 24px;
+}
+.notEmptyImg {
+  width: 83px;
+  height: 100%;
+}
+.name {
+  display: block;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 0.6;
+}
+.color,
+.size {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #121212;
+  opacity: 1;
+  text-transform: none;
+}
+.notEmptySpanContainer {
+  margin-left: 12px;
+  text-align: left;
+}
+.notEmptyBtnContainer {
+  margin-right: 16px;
+  align-items: center;
+  padding: 7px 6px;
+  display: flex;
+  justify-content: space-between;
+  height: 32px;
+  width: 81px;
+  background: #f8f8f8;
+}
+.notEmptyBtnContainer button {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: inherit;
+}
+.notEmptyBtnContainer span {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 1;
+}
+.price {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 1;
+}
+.notEmptyBtnWrapper {
+  margin-top: 13px;
+  display: flex;
+  align-items: center;
+}
+.trash {
+  margin-left: 9px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: inherit;
+  background-image: url(../../assets/svg/trash\ 1.svg);
+  background-repeat: no-repeat;
+}
+@media (min-width: 381px) and (max-width: 1000px) {
+  .listWrapper {
+    height: 40vh;
+  }
+}
+@media (min-width: 320px) and (max-width: 380px) {
+  .listWrapper {
+    height: 40vh;
+  }
+  .container {
+    width: 100%;
+  }
+  .spanWrapper {
+    margin-bottom: 0;
+  }
+  .notEmptyWrapper {
+    left: 0;
+    width: 100%;
+  }
+  .trash {
+    margin-left: 0;
+  }
+}

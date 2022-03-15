@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Size.module.css";
 import "../../../index.css";
+import { currentSize } from "../../../redux/btnBasket/btnBasket-actions";
+import { connect } from "react-redux";
 
-const Size = ({ sizes }) => {
+const Size = ({ sizes, onSize }) => {
   let [btnContent, setBtnContent] = useState(`${sizes[0]}`);
 
   useEffect(() => {
+    onSize(sizes[0]);
     const ite = document.querySelectorAll(".btnSize");
     ite[0].classList.add("btnSizeActive");
-  }, []);
+  }, [onSize, sizes]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnSize");
@@ -28,9 +31,11 @@ const Size = ({ sizes }) => {
       <ul className={styles.sizeList}>
         {sizes.map((item) => (
           <li key={item} onClick={btnName}>
-            <button className="btnSize" onClick={onHandle}>
-              {item}
-            </button>
+            <div onClick={(e) => onSize(e.target.textContent)}>
+              <button className="btnSize" onClick={onHandle}>
+                {item}
+              </button>
+            </div>
           </li>
         ))}
       </ul>
@@ -38,5 +43,14 @@ const Size = ({ sizes }) => {
     </div>
   );
 };
-
-export default Size;
+// const mapStateToProps = (state) => {
+//   return {
+//     size: state.basket.size,
+//   };
+// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSize: (id) => dispatch(currentSize(id)),
+  };
+};
+export default connect(null, mapDispatchToProps)(Size);

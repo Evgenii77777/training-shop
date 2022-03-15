@@ -16,7 +16,6 @@ function App() {
   return (
     <div data-test-id="app">
       <Header />
-
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -36,5 +35,9 @@ function App() {
     </div>
   );
 }
-
+const mapStateToProps = (state) => {
+  return {
+    open: state.basket.visible,
+  };
+};
 export default App;

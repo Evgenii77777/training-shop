@@ -1,0 +1,157 @@
+import React from "react";
+import styles from "./Basket.module.css";
+import Cur from "../../assets/png/наклон.png";
+import {
+  decrement,
+  deleteItem,
+  increment,
+  toggleBasket,
+  toggleBasketSide,
+} from "../../redux/btnBasket/btnBasket-actions";
+import { connect } from "react-redux";
+
+const Basket = ({
+  open,
+  onToggleBasket,
+  onToggleBasketSide,
+  isEmpty,
+  onDeleteitem,
+  onIncrement,
+  onDecrement,
+}) => {
+  let total = 0;
+  isEmpty.forEach((el) => (total = el.price * el.quantity + total));
+  // console.log("isEmpty", isEmpty);
+
+  let body = document.querySelector("body");
+  if (open) {
+    body.classList.add("no__scroll");
+  } else {
+    body.classList.remove("no__scroll");
+  }
+
+  return (
+    <div
+      className={open ? styles.openBasketSide : null}
+      onClick={(e) => onToggleBasketSide(e.target.className)}
+    >
+      <div className={open ? styles.openBasket : null} data-test-id="cart">
+        <div className={open ? styles.container : styles.open}>
+          <div className={styles.wrapper}>
+            <h3 className={styles.title}>Shopping Cart</h3>
+            <button
+              className={styles.cross}
+              onClick={() => onToggleBasket(!open)}
+            ></button>
+          </div>
+          <div className={styles.basket}>
+            {isEmpty.length === 0 ? (
+              <div>
+                <h2 className={styles.text}>Sorry, your cart is empty</h2>
+                <button
+                  className={styles.btn}
+                  onClick={() => onToggleBasket(!open)}
+                >
+                  back to shopping
+                </button>
+              </div>
+            ) : (
+              <div className={styles.notEmptyBasket}>
+                <div className={styles.notEmpty}>
+                  <button>Item in Cart</button>
+                  <img src={Cur} alt="item" />
+                  <button>Delivery Info</button>
+                  <img src={Cur} alt="item" />
+                  <button>Payment</button>
+                </div>
+                <div className={styles.listWrapper}>
+                  <ul className={styles.list}>
+                    {isEmpty.map((el, index) => (
+                      <li key={index} data-test-id="cart-card">
+                        <div>
+                          <img
+                            src={el.color[1]}
+                            alt="images"
+                            className={styles.notEmptyImg}
+                          />
+                        </div>
+                        <div className={styles.notEmptySpanContainer}>
+                          <span className={styles.name}>{el.name}</span>
+                          <span className={styles.color}>{el.color[0]},</span>
+                          <span className={styles.size}>{el.size}</span>
+                          <div className={styles.notEmptyBtnWrapper}>
+                            <div className={styles.notEmptyBtnContainer}>
+                              <button
+                                id={el.newId}
+                                onClick={(e) => onDecrement(e.target.id)}
+                                data-test-id="minus-product"
+                              >
+                                -
+                              </button>
+                              <span>{el.quantity}</span>
+                              <button
+                                id={el.newId}
+                                onClick={(e) => onIncrement(e.target.id)}
+                                data-test-id="plus-product"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span id="price" className={styles.price}>
+                              $ {(el.price * el.quantity).toFixed(2)}
+                            </span>
+                            <button
+                              className={styles.trash}
+                              id={el.newId}
+                              onClick={(e) => onDeleteitem(e.target.id)}
+                              data-test-id="remove-product"
+                            ></button>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.notEmptyWrapper}>
+                  <div className={styles.spanWrapper}>
+                    <span className={styles.spanWrapperFirst}>Total</span>
+                    <span className={styles.spanWrapperSecond}>
+                      ${total.toFixed(2)}
+                    </span>
+                  </div>
+                  <div className={styles.btnWrapper}>
+                    <button className={styles.btnWrapperFirst}>Further</button>
+                    <button
+                      className={styles.btnWrapperSecond}
+                      onClick={() => onToggleBasket(!open)}
+                    >
+                      View Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    open: state.basket.visible,
+    isEmpty: state.basket.card,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onDeleteitem: (id) => dispatch(deleteItem(id)),
+    onToggleBasket: (open) => dispatch(toggleBasket(!open)),
+    onToggleBasketSide: (name) => dispatch(toggleBasketSide(name)),
+    onIncrement: (id) => dispatch(increment(id)),
+    onDecrement: (id) => dispatch(decrement(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);
