@@ -23,7 +23,7 @@ const Color = ({ images, onColor }) => {
     ]);
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
-  }, []);
+  }, [onColor, unicColor, unicImg]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnColor");
