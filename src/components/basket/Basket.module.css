@@ -289,7 +289,6 @@
 .notEmptyBtnWrapper {
   position: absolute;
   bottom: -3px;
-
   display: flex;
   align-items: center;
 }

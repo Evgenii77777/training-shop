@@ -23,13 +23,15 @@ const Basket = ({
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
   // console.log("isEmpty", isEmpty);
 
-  let body = document.querySelector("body");
-  if (open) {
-    body.classList.add("no__scroll");
-  } else {
-    body.classList.remove("no__scroll");
-  }
-
+  const backSide = function () {
+    let body = document.querySelector("body");
+    if (open) {
+      body.classList.add("no__scroll");
+    } else {
+      body.classList.remove("no__scroll");
+    }
+  };
+  backSide();
   return (
     <div
       className={open ? styles.openBasketSide : null}
