@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Color.module.css";
 import "../../../index.css";
 import { connect } from "react-redux";
@@ -15,15 +15,13 @@ const Color = ({ images, onColor }) => {
 
   let [btnContent, setBtnContent] = useState(`${unicColor[0]}`);
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
-
+  const bestColor = useMemo(() => unicColor[0], [unicColor]);
+  const bestImg = useMemo(() => unicImg[0], [unicImg]);
   useEffect(() => {
-    onColor([
-      unicColor[0],
-      "https://training.cleverland.by/shop" + unicImg[0].url,
-    ]);
+    onColor([bestColor, "https://training.cleverland.by/shop" + bestImg.url]);
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
-  }, [onColor, unicColor, unicImg]);
+  }, [onColor, bestColor, bestImg]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnColor");
