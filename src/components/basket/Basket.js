@@ -35,11 +35,11 @@ const Basket = ({
   };
   backSide();
   return (
-    <div
-      className={open ? styles.openBasketSide : null}
-      onClick={(e) => onToggleBasketSide(e.target.className)}
-    >
-      <div className={open ? styles.openBasket : null}>
+    <div className={open ? styles.openBasketSide : null}>
+      <div
+        className={open ? styles.openBasket : null}
+        onClick={(e) => onToggleBasketSide(e.target.className)}
+      >
         <div
           className={open ? styles.container : styles.open}
           data-test-id="cart"
