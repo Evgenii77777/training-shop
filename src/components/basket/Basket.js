@@ -26,8 +26,10 @@ const Basket = ({
   const backSide = function () {
     let body = document.querySelector("body");
     if (open) {
+      console.log("yes");
       body.classList.add("no__scroll");
     } else {
+      console.log("no");
       body.classList.remove("no__scroll");
     }
   };
