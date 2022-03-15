@@ -5,20 +5,32 @@ import { connect } from "react-redux";
 import { currentColor } from "../../../redux/btnBasket/btnBasket-actions";
 
 const Color = ({ images, onColor }) => {
-  let unicColor = [];
-  let unicImg = [];
+  // let unicColor = [];
+  // let unicImg = [];
+  // images.forEach((el) => {
+  //   if (!unicColor.includes(el.color)) {
+  //     return unicColor.push(el.color) && unicImg.push(el);
+  //   }
+  // });
+
+  // let [btnContent, setBtnContent] = useState(`${unicColor[0]}`);
+  // const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
+  let bestColor = useMemo(() => [], []);
+  let bestImg = useMemo(() => [], []);
   images.forEach((el) => {
-    if (!unicColor.includes(el.color)) {
-      return unicColor.push(el.color) && unicImg.push(el);
+    if (!bestColor.includes(el.color)) {
+      return bestColor.push(el.color) && bestImg.push(el);
     }
   });
-
-  let [btnContent, setBtnContent] = useState(`${unicColor[0]}`);
+  let [btnContent, setBtnContent] = useState(`${bestColor[0]}`);
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
-  const bestColor = useMemo(() => unicColor[0], [unicColor]);
-  const bestImg = useMemo(() => unicImg[0], [unicImg]);
+  console.log(bestColor);
+  console.log(bestImg);
   useEffect(() => {
-    onColor([bestColor, "https://training.cleverland.by/shop" + bestImg.url]);
+    onColor([
+      bestColor[0],
+      "https://training.cleverland.by/shop" + bestImg[0].url,
+    ]);
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
   }, [onColor, bestColor, bestImg]);
@@ -37,7 +49,7 @@ const Color = ({ images, onColor }) => {
       <span className={styles.colorTitle}>Color:</span>
       <span className={styles.colorSpan}>{btnContent}</span>
       <ul className={styles.colorList}>
-        {unicImg.map((item) => {
+        {bestImg.map((item) => {
           return (
             <li
               key={item.id}
