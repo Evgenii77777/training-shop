@@ -24,8 +24,7 @@ const Color = ({ images, onColor }) => {
   });
   let [btnContent, setBtnContent] = useState(`${bestColor[0]}`);
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
-  console.log(bestColor);
-  console.log(bestImg);
+
   useEffect(() => {
     onColor([
       bestColor[0],

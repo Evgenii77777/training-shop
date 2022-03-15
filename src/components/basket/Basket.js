@@ -35,8 +35,11 @@ const Basket = ({
       className={open ? styles.openBasketSide : null}
       onClick={(e) => onToggleBasketSide(e.target.className)}
     >
-      <div className={open ? styles.openBasket : null} data-test-id="cart">
-        <div className={open ? styles.container : styles.open}>
+      <div className={open ? styles.openBasket : null}>
+        <div
+          className={open ? styles.container : styles.open}
+          data-test-id="cart"
+        >
           <div className={styles.wrapper}>
             <h3 className={styles.title}>Shopping Cart</h3>
             <button
@@ -58,7 +61,7 @@ const Basket = ({
             ) : (
               <div className={styles.notEmptyBasket}>
                 <div className={styles.notEmpty}>
-                  <button>Item in Cart</button>
+                  <button className={styles.firstBtn}>Item in Cart</button>
                   <img src={Cur} alt="item" />
                   <button>Delivery Info</button>
                   <img src={Cur} alt="item" />

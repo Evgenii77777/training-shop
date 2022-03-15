@@ -22,12 +22,13 @@
 }
 @media (min-width: 770px) and (max-width: 1089px) {
   .list {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    display: table;
+    width: 100%;
   }
   .list .item {
-    width: 100%;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (min-width: 320px) and (max-width: 770px) {
