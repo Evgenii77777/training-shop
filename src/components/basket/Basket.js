@@ -9,6 +9,7 @@ import {
   toggleBasketSide,
 } from "../../redux/btnBasket/btnBasket-actions";
 import { connect } from "react-redux";
+import { getOpen, getIsEmpty } from "../../redux/btnBasket/btnBasket-selectors";
 
 const Basket = ({
   open,
@@ -21,7 +22,6 @@ const Basket = ({
 }) => {
   let total = 0;
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
-  // console.log("isEmpty", isEmpty);
 
   const backSide = function () {
     let body = document.querySelector("body");
@@ -146,8 +146,8 @@ const Basket = ({
 
 const mapStateToProps = (state) => {
   return {
-    open: state.basket.visible,
-    isEmpty: state.basket.card,
+    open: getOpen(state),
+    isEmpty: getIsEmpty(state),
   };
 };
 const mapDispatchToProps = (dispatch) => {

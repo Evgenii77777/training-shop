@@ -9,6 +9,11 @@ import {
   addItem,
   deleteItem,
 } from "../../../redux/btnBasket/btnBasket-actions";
+import {
+  getColor,
+  getSize,
+  getIsEmpty,
+} from "../../../redux/btnBasket/btnBasket-selectors";
 
 const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
   const params = useParams();
@@ -66,7 +71,7 @@ const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
           onClick={() => onDeleteitem(obj.newId)}
           data-test-id="add-cart-button"
         >
-          remoove to card
+          remove to card
         </button>
       )}
       <img className={styles.priceImg} src={S1} alt="heatr" />
@@ -76,9 +81,9 @@ const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    color: state.basket.color,
-    size: state.basket.size,
-    isEmpty: state.basket.card,
+    color: getColor(state),
+    size: getSize(state),
+    isEmpty: getIsEmpty(state),
   };
 };
 const mapDispatchToProps = (dispatch) => ({

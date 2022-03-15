@@ -76,11 +76,7 @@ const Color = ({ images, onColor }) => {
     </div>
   );
 };
-// const mapStateToProps = (state) => {
-//   return {
-//     color: state.basket.color,
-//   };
-// };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onColor: (id) => dispatch(currentColor(id)),
