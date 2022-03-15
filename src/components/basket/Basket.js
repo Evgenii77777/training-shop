@@ -26,10 +26,8 @@ const Basket = ({
   const backSide = function () {
     let body = document.querySelector("body");
     if (open) {
-      console.log("yes");
       body.classList.add("no__scroll");
     } else {
-      console.log("no");
       body.classList.remove("no__scroll");
     }
   };
@@ -38,7 +36,8 @@ const Basket = ({
     <div className={open ? styles.openBasketSide : null}>
       <div
         className={open ? styles.openBasket : null}
-        onClick={(e) => onToggleBasketSide(e.target.className)}
+        id="backSide"
+        onClick={(e) => onToggleBasketSide(e.target.id)}
       >
         <div
           className={open ? styles.container : styles.open}

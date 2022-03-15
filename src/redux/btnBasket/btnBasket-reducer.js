@@ -39,7 +39,7 @@ export const basketReducer = createReducer(
       state.visible = !payload;
     },
     [toggleBasketSide]: (state, { payload }) => {
-      if (payload === "Basket_openBasket__tceLU") {
+      if (payload === "backSide") {
         state.visible = false;
       }
     },
