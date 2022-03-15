@@ -211,7 +211,7 @@
   width: 90%;
 }
 .list li {
-  height: 104px;
+  height: 125px;
   display: flex;
   background: #ffffff;
   padding-bottom: 12px;
@@ -247,6 +247,7 @@
   text-transform: none;
 }
 .notEmptySpanContainer {
+  position: relative;
   margin-left: 12px;
   text-align: left;
 }
@@ -286,7 +287,9 @@
   opacity: 1;
 }
 .notEmptyBtnWrapper {
-  margin-top: 13px;
+  position: absolute;
+  bottom: -3px;
+
   display: flex;
   align-items: center;
 }
