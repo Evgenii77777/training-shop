@@ -35,9 +35,5 @@ function App() {
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    open: state.basket.visible,
-  };
-};
+
 export default App;
