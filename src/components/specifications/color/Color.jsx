@@ -1,22 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Color.module.css";
 import "../../../index.css";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { currentColor } from "../../../redux/btnBasket/btnBasket-actions";
 
-const Color = ({ images, onColor }) => {
-  // let unicColor = [];
-  // let unicImg = [];
-  // images.forEach((el) => {
-  //   if (!unicColor.includes(el.color)) {
-  //     return unicColor.push(el.color) && unicImg.push(el);
-  //   }
-  // });
-
-  // let [btnContent, setBtnContent] = useState(`${unicColor[0]}`);
-  // const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
+const Color = ({ images }) => {
   let bestColor = useMemo(() => [], []);
   let bestImg = useMemo(() => [], []);
+  const dispatch = useDispatch();
+
   images.forEach((el) => {
     if (!bestColor.includes(el.color)) {
       return bestColor.push(el.color) && bestImg.push(el);
@@ -26,13 +18,15 @@ const Color = ({ images, onColor }) => {
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
 
   useEffect(() => {
-    onColor([
-      bestColor[0],
-      "https://training.cleverland.by/shop" + bestImg[0].url,
-    ]);
+    dispatch(
+      currentColor([
+        bestColor[0],
+        "https://training.cleverland.by/shop" + bestImg[0].url,
+      ])
+    );
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
-  }, [onColor, bestColor, bestImg]);
+  }, [dispatch, bestColor, bestImg]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnColor");
@@ -53,7 +47,9 @@ const Color = ({ images, onColor }) => {
             <li
               key={item.id}
               onClick={(e) =>
-                onColor([e.currentTarget.firstChild.id, e.target.src])
+                dispatch(
+                  currentColor([e.currentTarget.firstChild.id, e.target.src])
+                )
               }
             >
               <button
@@ -77,9 +73,10 @@ const Color = ({ images, onColor }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onColor: (id) => dispatch(currentColor(id)),
-  };
-};
-export default connect(null, mapDispatchToProps)(Color);
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onColor: (id) => dispatch(currentColor(id)),
+//   };
+// };
+
+export default Color;

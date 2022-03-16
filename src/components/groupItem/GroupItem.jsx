@@ -5,9 +5,14 @@ import Globe from "../../assets/svg/globe 1.svg";
 import User from "../../assets/svg/user 1.svg";
 import Shopping from "../../assets/svg/shopping-bag 2.svg";
 import { toggleBasket } from "../../redux/btnBasket/btnBasket-actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getIsEmpty, getOpen } from "../../redux/btnBasket/btnBasket-selectors";
 
-const GroupItem = ({ open, onToggleBasket, isEmpty }) => {
+const GroupItem = () => {
+  const open = useSelector(getOpen);
+  const isEmpty = useSelector(getIsEmpty);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -16,7 +21,7 @@ const GroupItem = ({ open, onToggleBasket, isEmpty }) => {
         <img className={styles.logo} src={User} alt="user" />
         <button
           className={styles.btn}
-          onClick={() => onToggleBasket(!open)}
+          onClick={() => dispatch(toggleBasket(open))}
           data-test-id="cart-button"
         >
           <img className={styles.logo} src={Shopping} alt="shopping" />
@@ -33,15 +38,15 @@ const GroupItem = ({ open, onToggleBasket, isEmpty }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    open: state.basket.visible,
-    isEmpty: state.basket.card,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onToggleBasket: (open) => dispatch(toggleBasket(!open)),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(GroupItem);
+// const mapStateToProps = (state) => {
+//   return {
+//     open: getOpen(state),
+//     isEmpty: getIsEmpty(state),
+//   };
+// };
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onToggleBasket: (open) => dispatch(toggleBasket(!open)),
+//   };
+// };
+export default GroupItem;

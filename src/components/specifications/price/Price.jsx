@@ -4,7 +4,7 @@ import S1 from "../../../assets/png/Group 26.png";
 import S2 from "../../../assets/png/Group 27.png";
 import { useParams, useLocation } from "react-router";
 import { PRODUCTS } from "../../../object/Products";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addItem,
   deleteItem,
@@ -15,11 +15,16 @@ import {
   getIsEmpty,
 } from "../../../redux/btnBasket/btnBasket-selectors";
 
-const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
+const Price = ({ price }) => {
   const params = useParams();
   let history = useLocation();
   let name = "";
   let find = null;
+
+  const color = useSelector(getColor);
+  const size = useSelector(getSize);
+  const isEmpty = useSelector(getIsEmpty);
+  const dispatch = useDispatch();
 
   const getName = function () {
     if (history.pathname.includes("women")) {
@@ -60,7 +65,7 @@ const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
       {!find ? (
         <button
           className={styles.priceBtn}
-          onClick={() => onAddItem(obj)}
+          onClick={() => dispatch(addItem(obj))}
           data-test-id="add-cart-button"
         >
           Add to card
@@ -68,7 +73,7 @@ const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
       ) : (
         <button
           className={styles.priceBtn}
-          onClick={() => onDeleteitem(obj.newId)}
+          onClick={() => dispatch(deleteItem(obj.newId))}
           data-test-id="add-cart-button"
         >
           remove to card
@@ -79,15 +84,15 @@ const Price = ({ price, onAddItem, color, size, isEmpty, onDeleteitem }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    color: getColor(state),
-    size: getSize(state),
-    isEmpty: getIsEmpty(state),
-  };
-};
-const mapDispatchToProps = (dispatch) => ({
-  onAddItem: (item) => dispatch(addItem(item)),
-  onDeleteitem: (id) => dispatch(deleteItem(id)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Price);
+// const mapStateToProps = (state) => {
+//   return {
+//     color: getColor(state),
+//     size: getSize(state),
+//     isEmpty: getIsEmpty(state),
+//   };
+// };
+// const mapDispatchToProps = (dispatch) => ({
+//   onAddItem: (item) => dispatch(addItem(item)),
+//   onDeleteitem: (id) => dispatch(deleteItem(id)),
+// });
+export default Price;

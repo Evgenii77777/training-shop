@@ -8,19 +8,16 @@ import {
   toggleBasket,
   toggleBasketSide,
 } from "../../redux/btnBasket/btnBasket-actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getOpen, getIsEmpty } from "../../redux/btnBasket/btnBasket-selectors";
 
-const Basket = ({
-  open,
-  onToggleBasket,
-  onToggleBasketSide,
-  isEmpty,
-  onDeleteitem,
-  onIncrement,
-  onDecrement,
-}) => {
+const Basket = () => {
   let total = 0;
+
+  const open = useSelector(getOpen);
+  const isEmpty = useSelector(getIsEmpty);
+  const dispatch = useDispatch();
+
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
 
   const backSide = function () {
@@ -32,12 +29,13 @@ const Basket = ({
     }
   };
   backSide();
+
   return (
     <div className={open ? styles.openBasketSide : null}>
       <div
         className={open ? styles.openBasket : null}
         id="backSide"
-        onClick={(e) => onToggleBasketSide(e.target.id)}
+        onClick={(e) => dispatch(toggleBasketSide(e.target.id))}
       >
         <div
           className={open ? styles.container : styles.open}
@@ -47,7 +45,7 @@ const Basket = ({
             <h3 className={styles.title}>Shopping Cart</h3>
             <button
               className={styles.cross}
-              onClick={() => onToggleBasket(!open)}
+              onClick={() => dispatch(toggleBasket(open))}
             ></button>
           </div>
           <div className={styles.basket}>
@@ -56,7 +54,7 @@ const Basket = ({
                 <h2 className={styles.text}>Sorry, your cart is empty</h2>
                 <button
                   className={styles.btn}
-                  onClick={() => onToggleBasket(!open)}
+                  onClick={() => dispatch(toggleBasket(open))}
                 >
                   back to shopping
                 </button>
@@ -89,7 +87,9 @@ const Basket = ({
                             <div className={styles.notEmptyBtnContainer}>
                               <button
                                 id={el.newId}
-                                onClick={(e) => onDecrement(e.target.id)}
+                                onClick={(e) =>
+                                  dispatch(decrement(e.target.id))
+                                }
                                 data-test-id="minus-product"
                               >
                                 -
@@ -97,7 +97,9 @@ const Basket = ({
                               <span>{el.quantity}</span>
                               <button
                                 id={el.newId}
-                                onClick={(e) => onIncrement(e.target.id)}
+                                onClick={(e) =>
+                                  dispatch(increment(e.target.id))
+                                }
                                 data-test-id="plus-product"
                               >
                                 +
@@ -109,7 +111,7 @@ const Basket = ({
                             <button
                               className={styles.trash}
                               id={el.newId}
-                              onClick={(e) => onDeleteitem(e.target.id)}
+                              onClick={(e) => dispatch(deleteItem(e.target.id))}
                               data-test-id="remove-product"
                             ></button>
                           </div>
@@ -129,7 +131,7 @@ const Basket = ({
                     <button className={styles.btnWrapperFirst}>Further</button>
                     <button
                       className={styles.btnWrapperSecond}
-                      onClick={() => onToggleBasket(!open)}
+                      onClick={() => dispatch(toggleBasket(open))}
                     >
                       View Cart
                     </button>
@@ -144,20 +146,20 @@ const Basket = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    open: getOpen(state),
-    isEmpty: getIsEmpty(state),
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onDeleteitem: (id) => dispatch(deleteItem(id)),
-    onToggleBasket: (open) => dispatch(toggleBasket(!open)),
-    onToggleBasketSide: (name) => dispatch(toggleBasketSide(name)),
-    onIncrement: (id) => dispatch(increment(id)),
-    onDecrement: (id) => dispatch(decrement(id)),
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     open: getOpen(state),
+//     isEmpty: getIsEmpty(state),
+//   };
+// };
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onDeleteitem: (id) => dispatch(deleteItem(id)),
+//     onToggleBasket: (open) => dispatch(toggleBasket(!open)),
+//     onToggleBasketSide: (name) => dispatch(toggleBasketSide(name)),
+//     onIncrement: (id) => dispatch(increment(id)),
+//     onDecrement: (id) => dispatch(decrement(id)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Basket);
+export default Basket;
