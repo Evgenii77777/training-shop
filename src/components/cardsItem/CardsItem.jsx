@@ -19,6 +19,7 @@ const CardsItem = ({
   });
 
   sumReviews = Math.round(sumReviews / card.reviews.length);
+
   return (
     <Link
       to={`/${productType}/${id}`}

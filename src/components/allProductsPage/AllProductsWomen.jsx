@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { PRODUCTS } from "../../object/Products";
+import React, { useEffect, useState } from "react";
 import CardsItem from "../cardsItem/CardsItem";
 import styles from "../womenProducts/WomenProducts.module.css";
 import style from "../filter/filterBlock/FilterBlock.module.css";
@@ -7,6 +6,9 @@ import Adjust from "../../assets/svg/adjustments 1.svg";
 import View from "../../assets/svg/view-list 1.svg";
 import Grid from "../../assets/svg/view-grid 1.svg";
 import Close from "../../assets/svg/x 1.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../../redux/backend/backend-operations";
+import { fetchAllProducts } from "../../redux/thunk/getAllProducts";
 
 const AllProductsWomen = () => {
   const [activeState, setActiveState] = useState(true);
@@ -14,9 +16,21 @@ const AllProductsWomen = () => {
   let [size, setSize] = useState([]);
   let [brand, setBrand] = useState([]);
   let [price, setPrice] = useState([]);
+  const dispatch = useDispatch();
+
+  const allProducts = useSelector((state) => state.items.products);
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getAllProducts());
+  // }, [dispatch]);
 
   let arrColor = [];
-  PRODUCTS.women.map((el) => el.images.map((i) => arrColor.push(i.color)));
+  if (allProducts.length !== 0) {
+    allProducts.women.map((el) => el.images.map((i) => arrColor.push(i.color)));
+  }
   let unicArrolor = [...new Set(arrColor)];
   const onHandleChangeColor = (e) => {
     if (e.target.checked) {
@@ -32,7 +46,9 @@ const AllProductsWomen = () => {
   newArrColor.map((el) => colorArr.push(el.name));
 
   let arrSize = [];
-  PRODUCTS.women.map((el) => arrSize.push(...el.sizes));
+  if (allProducts.length !== 0) {
+    allProducts.women.map((el) => arrSize.push(...el.sizes));
+  }
   let unicArrSize = [...new Set(arrSize)];
   const onHandleChangeSize = (e) => {
     if (e.target.checked) {
@@ -48,7 +64,9 @@ const AllProductsWomen = () => {
   newArrSize.map((el) => sizeArr.push(el.name));
 
   let arrBrand = [];
-  PRODUCTS.women.map((el) => arrBrand.push(el.brand));
+  if (allProducts.length !== 0) {
+    allProducts.women.map((el) => arrBrand.push(el.brand));
+  }
   let unicArrBrand = [...new Set(arrBrand)];
   const onHandleChangeBrand = (e) => {
     if (e.target.checked) {
@@ -64,7 +82,9 @@ const AllProductsWomen = () => {
   newArrBrand.map((el) => brandArr.push(el.name));
 
   let arrPrice = [];
-  PRODUCTS.women.map((el) => arrPrice.push(el.price));
+  if (allProducts.length !== 0) {
+    allProducts.women.map((el) => arrPrice.push(el.price));
+  }
   const onHandleChangePrice = (e) => {
     if (e.target.checked) {
       price = [...price, e.target];
@@ -242,7 +262,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         numb.some((e) => el.price >= e[0] && el.price <= e[1])
                       ).length
                     }{" "}
@@ -254,7 +274,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter((el) =>
                     numb.some((e) => el.price >= e[0] && el.price <= e[1])
                   )
@@ -273,8 +293,9 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) => brandArr.includes(el.brand))
-                        .length
+                      allProducts.women.filter((el) =>
+                        brandArr.includes(el.brand)
+                      ).length
                     }{" "}
                     items Found
                   </h2>
@@ -282,7 +303,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Brand: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter((el) => brandArr.includes(el.brand))
                   .map((item) => (
                     <li className={styles.item} key={item.id}>
@@ -299,7 +320,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         sizeArr.some((e) => el.sizes.includes(e))
                       ).length
                     }{" "}
@@ -309,7 +330,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Size: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter((el) => sizeArr.some((e) => el.sizes.includes(e)))
                   .map((item) => (
                     <li className={styles.item} key={item.id}>
@@ -326,7 +347,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some((e) => colorArr.includes(e.color))
                       ).length
                     }{" "}
@@ -336,7 +357,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Color: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter((el) =>
                     el.images.some((e) => colorArr.includes(e.color))
                   )
@@ -355,7 +376,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             brandArr.includes(el.brand) &&
@@ -372,7 +393,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Brand: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       brandArr.includes(el.brand) &&
@@ -393,7 +414,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             brandArr.includes(el.brand) &&
@@ -410,7 +431,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Brand: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       brandArr.includes(el.brand) &&
@@ -431,7 +452,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -448,7 +469,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Size: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -469,7 +490,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -490,7 +511,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -511,7 +532,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             numb.some(
@@ -531,7 +552,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       numb.some((e) => el.price >= e[0] && el.price <= e[1]) &&
@@ -552,7 +573,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             numb.some(
@@ -572,7 +593,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       numb.some((e) => el.price >= e[0] && el.price <= e[1]) &&
@@ -593,7 +614,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -614,7 +635,7 @@ const AllProductsWomen = () => {
                     <p className={styles.foundPrice}>Brand: {el}</p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -636,7 +657,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             sizeArr.some((e) => el.sizes.includes(e)) &&
@@ -662,7 +683,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       sizeArr.some((e) => el.sizes.includes(e)) &&
@@ -684,7 +705,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -709,7 +730,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -731,7 +752,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -756,7 +777,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -778,7 +799,7 @@ const AllProductsWomen = () => {
                 <li className={styles.foundItem}>
                   <h2 className={styles.foundTitle}>
                     {
-                      PRODUCTS.women.filter((el) =>
+                      allProducts.women.filter((el) =>
                         el.images.some(
                           (e) =>
                             el.images.some((e) => colorArr.includes(e.color)) &&
@@ -807,7 +828,7 @@ const AllProductsWomen = () => {
                     </p>
                   ))}
                 </li>
-                {PRODUCTS.women
+                {allProducts.women
                   .filter(
                     (el) =>
                       el.images.some((e) => colorArr.includes(e.color)) &&
@@ -827,11 +848,12 @@ const AllProductsWomen = () => {
             colorArr.length === 0 &&
             priceArr.length === 0 && (
               <>
-                {PRODUCTS.women.map((item) => (
-                  <li className={styles.item} key={item.id}>
-                    <CardsItem card={item} productType="women" />
-                  </li>
-                ))}
+                {allProducts.length !== 0 &&
+                  allProducts.women.map((item) => (
+                    <li className={styles.item} key={item.id}>
+                      <CardsItem card={item} productType="women" />
+                    </li>
+                  ))}
               </>
             )}
         </ul>

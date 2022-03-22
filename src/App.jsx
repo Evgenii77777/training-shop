@@ -11,11 +11,17 @@ import MenPage from "./pages/MenPage";
 import ProductPage from "./pages/ProductPage";
 import WomenPage from "./pages/WomenPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import { useSelector } from "react-redux";
+import Error from "./components/error/Error";
 
 function App() {
+  const isError = useSelector((state) => state.items.error);
+
   return (
     <div data-test-id="app">
       <Header />
+      {isError && <Error />}
+
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />

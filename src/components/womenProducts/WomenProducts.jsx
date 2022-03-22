@@ -1,21 +1,22 @@
 import React from "react";
 import styles from "./WomenProducts.module.css";
 import CardsItem from "../cardsItem/CardsItem";
-import { PRODUCTS } from "../../object/Products";
 
-const WomensProducts = ({ btn }) => {
+const WomensProducts = ({ btn, allProducts }) => {
   return (
     <>
       <div className={styles.superContainer}>
-        <ul className={styles.list}>
-          {PRODUCTS.women
-            .filter((el) => el.particulars[btn])
-            .map((item) => (
-              <li className={styles.item} key={item.id}>
-                <CardsItem card={item} productType="women" />
-              </li>
-            ))}
-        </ul>
+        {allProducts.length !== 0 && (
+          <ul className={styles.list}>
+            {allProducts.women
+              .filter((el) => el.particulars[btn])
+              .map((item) => (
+                <li className={styles.item} key={item.id}>
+                  <CardsItem card={item} productType="women" />
+                </li>
+              ))}
+          </ul>
+        )}
       </div>
     </>
   );

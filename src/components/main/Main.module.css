@@ -2,6 +2,23 @@
   border-bottom: 2px solid #f8f8f8;
   padding-top: 32px;
 }
+.seeAll {
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 16px;
+  display: block;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.8;
+  background: #f8f8f8;
+  border: 2px solid #f8f8f8;
+}
 .main {
   display: flex;
   justify-content: space-between;

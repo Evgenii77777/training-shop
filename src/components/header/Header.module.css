@@ -1,3 +1,15 @@
 .header {
   position: relative;
 }
+.loader {
+  position: fixed;
+  z-index: 12;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 18, 18, 0.1);
+}
+.spinner {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}

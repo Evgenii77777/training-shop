@@ -7,6 +7,8 @@ import { currentColor } from "../../../redux/btnBasket/btnBasket-actions";
 const Color = ({ images }) => {
   let bestColor = useMemo(() => [], []);
   let bestImg = useMemo(() => [], []);
+  bestColor = [];
+  bestImg = [];
   const dispatch = useDispatch();
 
   images.forEach((el) => {
@@ -14,25 +16,27 @@ const Color = ({ images }) => {
       return bestColor.push(el.color) && bestImg.push(el);
     }
   });
+
   let [btnContent, setBtnContent] = useState(`${bestColor[0]}`);
   const btnName = (e) => setBtnContent((btnContent = e.currentTarget.id));
 
+  const color = bestColor[0];
+  const img = bestImg[0].url;
   useEffect(() => {
     dispatch(
-      currentColor([
-        bestColor[0],
-        "https://training.cleverland.by/shop" + bestImg[0].url,
-      ])
+      currentColor([color, "https://training.cleverland.by/shop" + img])
     );
     const ite = document.querySelectorAll(".btnColor");
     ite[0].classList.add("btnColorActive");
-  }, [dispatch, bestColor, bestImg]);
+  }, [dispatch, color, img]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnColor");
     const target = e.currentTarget;
     Array.from(items).forEach((item) => {
-      item.classList.remove("btnColorActive");
+      if (item.classList.contains("btnColorActive")) {
+        item.classList.remove("btnColorActive");
+      }
     });
     target.classList.add("btnColorActive");
   };
@@ -72,11 +76,5 @@ const Color = ({ images }) => {
     </div>
   );
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onColor: (id) => dispatch(currentColor(id)),
-//   };
-// };
 
 export default Color;

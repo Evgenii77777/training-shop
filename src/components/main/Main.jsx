@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Main_Clothes_Block_Menu } from "../../object/MainBlockMenu";
 import Advantage from "../advantage/Advantage";
 import Blog from "../blog/Blog";
-import SeeAll from "../buttons/seeAll/SeeAll";
 import Form from "../form/Form";
 import MenProducts from "../menProducts/MenProducts";
 import Poster from "../poster/Poster";
 import Swip from "../swiper/Swip";
 import WomensProducts from "../womenProducts/WomenProducts";
 import styles from "./Main.module.css";
+import { fetchAllProducts } from "../../redux/thunk/getAllProducts";
 
 const Main = () => {
   let [btn, setBtn] = useState("isNewArrivals");
+  let [btnMens, setBtnMen] = useState("isNewArrivals");
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.items.products);
 
   useEffect(() => {
+    dispatch(fetchAllProducts());
     const itemWomen = document.querySelectorAll(".linksWomen");
     const itemMen = document.querySelectorAll(".linksMen");
     itemWomen[0].classList.add("linksWomenActive");
     itemMen[0].classList.add("linksWomenActive");
-  }, []);
+  }, [dispatch]);
 
   const onHandleWomen = function (e) {
     const items = document.querySelectorAll(".linksWomen");
@@ -37,6 +42,7 @@ const Main = () => {
     });
     target.classList.add("linksWomenActive");
   };
+
   return (
     <section className={styles.mainContainer}>
       <div className={styles.superContainer}>
@@ -80,9 +86,11 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <WomensProducts btn={btn} />
+            <WomensProducts btn={btn} allProducts={items} />
           </div>
-          <SeeAll />
+          <Link to="women" className={styles.seeAll}>
+            See All
+          </Link>
         </div>
       </section>
       <section className={styles.menContainer}>
@@ -95,7 +103,7 @@ const Main = () => {
                   <li
                     key={el.name}
                     data-test-id={`clothes-men-${el.particularName}`}
-                    onClick={() => setBtn((btn = el.particularName))}
+                    onClick={() => setBtnMen((btnMens = el.particularName))}
                     className={styles.linkBtn}
                   >
                     <button className="linksMen" onClick={onHandleMen}>
@@ -105,9 +113,11 @@ const Main = () => {
                 ))}
               </ul>
             </div>
-            <MenProducts btn={btn} />
+            <MenProducts btn={btnMens} allProducts={items} />
           </div>
-          <SeeAll />
+          <Link to="men" className={styles.seeAll}>
+            See All
+          </Link>
         </div>
       </section>
       <Poster />

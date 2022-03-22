@@ -1,20 +1,3 @@
-// export const basketReducer = (
-//   state = {
-//     visible: false,
-//   },
-//   { type, payload }
-// ) => {
-//   switch (type) {
-//     case "toggle/Basket":
-//       return {
-//         visible: !payload,
-//       };
-
-//     default:
-//       return state;
-//   }
-// };
-
 import { createReducer } from "@reduxjs/toolkit";
 import {
   toggleBasket,
