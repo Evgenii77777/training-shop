@@ -20,7 +20,7 @@ function App() {
   return (
     <div data-test-id="app">
       <Header />
-      {isError && <Error />}
+      {isError && <Error data-test-id="error" />}
 
       <div>
         <Routes>

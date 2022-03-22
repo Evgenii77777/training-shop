@@ -40,7 +40,7 @@ const ProductPage = () => {
 
   return (
     <section data-test-id={`product-page-${card.category}`}>
-      {isError && <Error />}
+      {isError && <Error data-test-id="error" />}
       {product.length !== 0 && (
         <>
           <TopClothesPage

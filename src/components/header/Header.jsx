@@ -13,14 +13,14 @@ const Header = () => {
   return (
     <header className={styles.header} data-test-id="header">
       {isLoading && (
-        <div className={styles.loader}>
+        <div className={styles.loader} data-test-id="loader">
           <div className={styles.spinner}>
             <Watch height="100" width="100" color="grey" ariaLabel="loading" />
           </div>
         </div>
       )}
       {isLoadings && (
-        <div className={styles.loader}>
+        <div className={styles.loader} data-test-id="loader">
           <div className={styles.spinner}>
             <Watch height="100" width="100" color="grey" ariaLabel="loading" />
           </div>
