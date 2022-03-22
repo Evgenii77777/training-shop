@@ -36,7 +36,7 @@ const ProductPage = () => {
     card = product[0];
   }
 
-  const isError = useSelector((state) => state.item.product);
+  const isError = useSelector((state) => state.item.error);
 
   return (
     <section data-test-id={`product-page-${card.category}`}>
