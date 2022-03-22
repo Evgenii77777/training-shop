@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Price.module.css";
 import S1 from "../../../assets/png/Group 26.png";
 import S2 from "../../../assets/png/Group 27.png";
 import { useParams, useLocation } from "react-router";
-import { PRODUCTS } from "../../../object/Products";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addItem,
@@ -14,6 +13,7 @@ import {
   getSize,
   getIsEmpty,
 } from "../../../redux/btnBasket/btnBasket-selectors";
+import { fetchAllProducts } from "../../../redux/thunk/getAllProducts";
 
 const Price = ({ price }) => {
   const params = useParams();
@@ -26,6 +26,11 @@ const Price = ({ price }) => {
   const isEmpty = useSelector(getIsEmpty);
   const dispatch = useDispatch();
 
+  const allProducts = useSelector((state) => state.items.products);
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+  }, [dispatch]);
+
   const getName = function () {
     if (history.pathname.includes("women")) {
       return (name = "women");
@@ -34,20 +39,26 @@ const Price = ({ price }) => {
   };
   getName();
 
-  const item = PRODUCTS[name].find((el) => {
-    if (el.id === params.id) {
-      return el;
-    }
-    return null;
-  });
+  let item = null;
+  if (allProducts.length !== 0) {
+    item = allProducts[name].find((el) => {
+      if (el.id === params.id) {
+        return el;
+      }
+      return null;
+    });
+  }
 
-  let obj = {
-    ...item,
-    quantity: 1,
-    color,
-    size,
-    newId: item.id + color + size,
-  };
+  let obj = {};
+  if (item !== null) {
+    obj = {
+      ...item,
+      quantity: 1,
+      color,
+      size,
+      newId: item.id + color + size,
+    };
+  }
 
   const isFind = function () {
     isEmpty.some((el) => {
@@ -84,15 +95,5 @@ const Price = ({ price }) => {
     </div>
   );
 };
-// const mapStateToProps = (state) => {
-//   return {
-//     color: getColor(state),
-//     size: getSize(state),
-//     isEmpty: getIsEmpty(state),
-//   };
-// };
-// const mapDispatchToProps = (dispatch) => ({
-//   onAddItem: (item) => dispatch(addItem(item)),
-//   onDeleteitem: (id) => dispatch(deleteItem(id)),
-// });
+
 export default Price;
