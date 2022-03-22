@@ -26,9 +26,11 @@ const ProductPage = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.item.product);
   const allProducts = useSelector((state) => state.items.products);
-
   useEffect(() => {
     dispatch(fetchAllProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchProduct(par.id));
   }, [dispatch, par.id]);
 
