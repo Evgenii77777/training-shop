@@ -7,7 +7,6 @@ import View from "../../assets/svg/view-list 1.svg";
 import Grid from "../../assets/svg/view-grid 1.svg";
 import Close from "../../assets/svg/x 1.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../redux/backend/backend-operations";
 import { fetchAllProducts } from "../../redux/thunk/getAllProducts";
 
 const AllProductsMen = () => {
@@ -23,9 +22,6 @@ const AllProductsMen = () => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(getAllProducts());
-  // }, [dispatch]);
 
   let arrColor = [];
   if (allProducts.length !== 0) {
