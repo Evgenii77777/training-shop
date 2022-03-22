@@ -5,7 +5,7 @@ export const fetchProduct = createAsyncThunk(
   async function (id, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `https://training.cleverland.by/shop/prsoduct/${id}`
+        `https://training.cleverland.by/shop/product/${id}`
       );
 
       if (!response.ok) {
