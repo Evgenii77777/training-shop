@@ -22,7 +22,6 @@ const AllProductsMen = () => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
-
   let arrColor = [];
   if (allProducts.length !== 0) {
     allProducts.men.map((el) => el.images.map((i) => arrColor.push(i.color)));
@@ -295,7 +294,7 @@ const AllProductsMen = () => {
                       allProducts.men.filter((el) =>
                         brandArr.includes(el.brand)
                       ).length
-                    }{" "}
+                    }
                     items Found
                   </h2>
                   {brandArr.map((el) => (

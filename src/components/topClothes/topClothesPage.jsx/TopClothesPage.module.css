@@ -11,6 +11,10 @@
   margin-left: auto;
   margin-right: auto;
 }
+.wrapperLink {
+  display: flex;
+  align-items: center;
+}
 .home,
 .path {
   font-family: Spartan;

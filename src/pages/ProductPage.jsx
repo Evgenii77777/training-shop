@@ -5,10 +5,10 @@ import RelatedProducts from "../components/relatedProducts/RelatedProducts";
 import Specifications from "../components/specifications/Specifications";
 import TopClothesPage from "../components/topClothes/topClothesPage.jsx/TopClothesPage";
 import styles from "./ProductPage.module.css";
-// import { PRODUCTS } from "../object/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../redux/thunk/getProduct";
 import Error from "../components/error/Error";
+import { fetchAllProducts } from "../redux/thunk/getAllProducts";
 
 const ProductPage = () => {
   const location = useLocation();
@@ -25,8 +25,10 @@ const ProductPage = () => {
 
   const dispatch = useDispatch();
   const product = useSelector((state) => state.item.product);
+  const allProducts = useSelector((state) => state.items.products);
 
   useEffect(() => {
+    dispatch(fetchAllProducts());
     dispatch(fetchProduct(par.id));
   }, [dispatch, par.id]);
 
@@ -54,10 +56,14 @@ const ProductPage = () => {
                 <Foto card={card} />
               </li>
               <li className={styles.item}>
-                <Specifications card={card} />
+                <Specifications card={card} allProducts={allProducts} />
               </li>
             </ul>
-            <RelatedProducts card={card} name={name} />
+            <RelatedProducts
+              card={card}
+              name={name}
+              allProducts={allProducts}
+            />
           </div>
         </>
       )}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,21 +11,13 @@ import ThreeStars from "../../stars/threeStars/ThreeStars";
 import FourStars from "../../stars/fourStars/FourStars";
 import FiveStars from "../../stars/fiveStars/FiveStars";
 import ZeroStars from "../../stars/zeroStar/ZeroStars";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProducts } from "../../../redux/thunk/getAllProducts";
 
-const SwiperRelated = ({ name, card }) => {
+const SwiperRelated = ({ name, card, allProducts }) => {
   let sumReviews = 0;
   card.reviews.forEach((el) => {
     return (sumReviews += el.rating);
   });
   sumReviews = Math.round(sumReviews / card.reviews.length);
-  const dispatch = useDispatch();
-
-  const allProducts = useSelector((state) => state.items.products);
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, [dispatch]);
 
   return (
     <Swiper

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Price.module.css";
 import S1 from "../../../assets/png/Group 26.png";
 import S2 from "../../../assets/png/Group 27.png";
@@ -13,9 +13,8 @@ import {
   getSize,
   getIsEmpty,
 } from "../../../redux/btnBasket/btnBasket-selectors";
-import { fetchAllProducts } from "../../../redux/thunk/getAllProducts";
 
-const Price = ({ price }) => {
+const Price = ({ price, allProducts }) => {
   const params = useParams();
   let history = useLocation();
   let name = "";
@@ -25,11 +24,6 @@ const Price = ({ price }) => {
   const size = useSelector(getSize);
   const isEmpty = useSelector(getIsEmpty);
   const dispatch = useDispatch();
-
-  const allProducts = useSelector((state) => state.items.products);
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, [dispatch]);
 
   const getName = function () {
     if (history.pathname.includes("women")) {

@@ -10,6 +10,15 @@
 .clothes {
   background: #f8f8f8;
 }
+.wrapperLink {
+  display: flex;
+  align-items: center;
+}
+.arrow {
+  display: block;
+  height: 7px;
+  width: 9px;
+}
 .home,
 .path {
   font-family: Spartan;

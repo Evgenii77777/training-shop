@@ -14,12 +14,16 @@ import Ask from "./ask/Ask";
 import Additional from "./additional/Additional";
 import Review from "./review/Review";
 
-const Specifications = ({ card: { images, price, sizes, reviews }, card }) => {
+const Specifications = ({
+  card: { images, price, sizes, reviews },
+  card,
+  allProducts,
+}) => {
   return (
     <div>
       <Color images={images} />
       <Size sizes={sizes} />
-      <Price price={price} />
+      <Price price={price} allProducts={allProducts} />
       <Ask />
       <div className={styles.payment}>
         <img src={P1} alt="stripe" />
