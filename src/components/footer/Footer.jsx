@@ -14,6 +14,11 @@ const Footer = () => {
   const dispatch = useDispatch();
   const handleAction = (email) => {
     dispatch(emailPostFooter(email));
+    setTimeout(() => {
+      if (status === "resolved") {
+        setText((text = ""));
+      }
+    }, 100);
   };
   const isLoading = useSelector((state) => state.mailFooter.loading);
   const isError = useSelector((state) => state.mailFooter.error);
@@ -23,6 +28,7 @@ const Footer = () => {
   const handleChange = (event) => {
     setText((text = event.target.value));
   };
+
   function ValidMail() {
     const re = /^[\w-.=.]+@[\w-]+\.[a-z]{2,4}$/i;
     const valid = re.test(text);
@@ -40,8 +46,8 @@ const Footer = () => {
               <input
                 className={styles.label}
                 data-test-id="footer-mail-field"
-                id="email"
-                name="email"
+                id="emailFooter"
+                name="emailFooter"
                 type="text"
                 value={text}
                 placeholder="Enter your email"
@@ -71,7 +77,7 @@ const Footer = () => {
               </button>
             </div>
             {status === "resolved" && (
-              <h4 className={styles.status}>{message}</h4>
+              <h4 className={styles.status}>Почта отправлена</h4>
             )}
             {isError && <h4 className={styles.error}>{message}</h4>}
           </div>

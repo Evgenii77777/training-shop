@@ -42,6 +42,7 @@ const todoSlice = createSlice({
       state.error = false;
     },
     [emailPostFooter.rejected]: (state) => {
+      state.status = "error";
       state.error = true;
       state.message = "Ошибка отправки почты";
       state.loading = false;

@@ -12,6 +12,11 @@ const Form = () => {
   const dispatch = useDispatch();
   const handleAction = (email) => {
     dispatch(emailPost(email));
+    setTimeout(() => {
+      if (status === "resolved") {
+        setText((text = ""));
+      }
+    }, 100);
   };
   const isLoading = useSelector((state) => state.mail.loading);
   const isError = useSelector((state) => state.mail.error);
@@ -51,8 +56,8 @@ const Form = () => {
           />
         </label>
         <div className={styles.loaderWrapper}>
-          {status === "resolved" && (
-            <h4 className={styles.status}>{message}</h4>
+          {isDis && status === "resolved" && (
+            <h4 className={styles.status}>Почта отправлена успешно</h4>
           )}
           {isError && <h4 className={styles.error}>{message}</h4>}
           <input

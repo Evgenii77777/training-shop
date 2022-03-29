@@ -1,11 +1,21 @@
 .container {
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  background: white;
+}
+.wrapper {
   position: absolute;
   top: 0;
-  left: -35%;
-  z-index: 10;
+  left: -146%;
+  width: 100vw;
+  height: 100vh;
+  background-color: inherit;
 }
 .form {
   position: relative;
+  z-index: 1;
   padding: 20px;
   background: white;
   border: 2px solid black;
@@ -25,8 +35,17 @@
   display: block;
   width: 100%;
 }
-.label {
+.input {
   margin-top: 20px;
+}
+.input::placeholder {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 0.6;
 }
 .input,
 .inputFirst {
@@ -94,7 +113,7 @@
   background-color: inherit;
 }
 @media (min-width: 320px) and (max-width: 1088px) {
-  .container {
-    left: 30%;
+  .wrapper {
+    left: -23%;
   }
 }

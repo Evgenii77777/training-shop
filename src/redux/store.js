@@ -1,6 +1,5 @@
 import { basketReducer } from "./btnBasket/btnBasket-reducer";
 import { configureStore } from "@reduxjs/toolkit";
-
 import itemsReducer from "./thunk/getAllProducts";
 import productReducer from "./thunk/getProduct";
 import mailReducer from "./thunk/postEmail";
