@@ -1,0 +1,100 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: -35%;
+  z-index: 10;
+}
+.form {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border: 2px solid black;
+}
+.text {
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.38;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #121212;
+}
+.label,
+.labelFirst {
+  display: block;
+  width: 100%;
+}
+.label {
+  margin-top: 20px;
+}
+.input,
+.inputFirst {
+  padding: 5px;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.send {
+  display: block;
+  padding: 10px 40px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  color: white;
+  background: #121212;
+  display: flex;
+  align-items: center;
+}
+.send:disabled {
+  opacity: 0.3;
+}
+.loader {
+  margin-right: 10px;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: inherit;
+  border: none;
+}
+.error {
+  color: red;
+}
+.errorReview {
+  color: red;
+  text-align: center;
+  padding-top: 10px;
+}
+.stars {
+  position: relative;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+.starsWrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+}
+.btnWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.btnStars {
+  display: block;
+  width: 46px;
+  height: 21px;
+  border: none;
+  background-color: inherit;
+}
+@media (min-width: 320px) and (max-width: 1088px) {
+  .container {
+    left: 30%;
+  }
+}

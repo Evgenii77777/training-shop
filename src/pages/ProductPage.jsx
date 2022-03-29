@@ -21,6 +21,7 @@ const ProductPage = () => {
     }
     return (name = "men");
   };
+
   namePath();
 
   const dispatch = useDispatch();

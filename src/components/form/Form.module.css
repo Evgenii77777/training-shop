@@ -88,6 +88,39 @@ span.sale {
   opacity: 0.9;
   background: #121212;
   border: 2px solid #121212;
+  cursor: pointer;
+}
+.input:disabled {
+  background: #121212;
+  opacity: 0.1;
+  cursor: auto;
+}
+.loaderWrapper {
+  position: relative;
+}
+.status,
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 5px;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: left;
+}
+.status {
+  color: green;
+}
+.error {
+  color: red;
+}
+.loader {
+  position: absolute;
+  top: 43px;
+  left: 22px;
 }
 @media (min-width: 320px) and (max-width: 740px) {
   .container {

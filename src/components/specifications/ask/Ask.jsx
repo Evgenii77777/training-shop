@@ -15,6 +15,7 @@ const Ask = () => {
           <p>Ask a question</p>
         </li>
       </ul>
+
       {/* <p className={styles.text}>Guaranted Safe Checkout</p> */}
     </div>
   );

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Review.module.css";
-
 import OneStar from "../../stars/oneStar/OneStar";
 import TwoStars from "../../stars/twoStar/TwoStars";
 import ZeroStars from "../../stars/zeroStar/ZeroStars";
 import ThreeStars from "../../stars/threeStars/ThreeStars";
 import FourStars from "../../stars/fourStars/FourStars";
 import FiveStars from "../../stars/fiveStars/FiveStars";
+import ReviewForm from "../../reviewForm/ReviewForm";
 
 const Review = ({ reviews }) => {
   let sumReviews = 0;
@@ -14,6 +14,16 @@ const Review = ({ reviews }) => {
     return (sumReviews += el.rating);
   });
   sumReviews = Math.round(sumReviews / reviews.length);
+  let [form, setForm] = useState(false);
+  const backSide = function () {
+    let body = document.querySelector("body");
+    if (form) {
+      body.classList.add("no__scroll");
+    } else {
+      body.classList.remove("no__scroll");
+    }
+  };
+  backSide();
 
   return (
     <div className={styles.review}>
@@ -35,8 +45,15 @@ const Review = ({ reviews }) => {
           )}
           <span className={styles.reviewSpan}>{reviews.length} Reviews</span>
         </div>
-        <p className={styles.reviewText}>Write a review</p>
+        <button
+          className={styles.btn}
+          onClick={() => setForm(!form)}
+          data-test-id="review-button"
+        >
+          Write a review
+        </button>
       </div>
+      {form && <ReviewForm form={form} setForm={setForm} />}
       <div>
         <ul className={styles.smallList}>
           {reviews.map((item) => (
