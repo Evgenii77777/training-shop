@@ -69,7 +69,7 @@ const Form = () => {
                 <label>
                   <input
                     className={styles.label}
-                    data-test-id="footer-mail-field"
+                    data-test-id="main-subscribe-mail-field"
                     id="email"
                     name="email"
                     type="text"
@@ -95,7 +95,7 @@ const Form = () => {
                   )}
                   <button
                     className={styles.input}
-                    data-test-id="footer-subscribe-mail-button"
+                    data-test-id="main-subscribe-mail-button"
                     disabled={!isValid || !dirty || isLoading || isEmpty}
                     type="submit"
                     onClick={() => handleAction(values)}
@@ -111,39 +111,6 @@ const Form = () => {
             )}
           </Formik>
         </div>
-
-        {/* <label>
-          <input
-            className={styles.label}
-            data-test-id="main-subscribe-mail-field"
-            required
-            id="email"
-            name="email"
-            type="text"
-            value={text}
-            placeholder="Enter your email"
-            onChange={(e) => handleChange(e)}
-          />
-        </label>
-        <div className={styles.loaderWrapper}>
-          {isDis && status === "resolved" && (
-            <h4 className={styles.status}>Почта отправлена успешно</h4>
-          )}
-          {isError && <h4 className={styles.error}>{message}</h4>}
-          <input
-            className={styles.input}
-            data-test-id="main-subscribe-mail-button"
-            disabled={isDis}
-            type="button"
-            value="Subscribe"
-            onClick={() => handleAction(text)}
-          />
-          {isLoading && (
-            <div className={styles.loader} data-test-id="loader">
-              <Watch height="30" width="30" color="white" ariaLabel="loading" />
-            </div>
-          )}
-        </div> */}
       </form>
     </section>
   );
