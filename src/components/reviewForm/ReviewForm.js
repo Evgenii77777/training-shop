@@ -132,18 +132,6 @@ const ReviewForm = ({ form, setForm }) => {
               {touched.name && errors.name && (
                 <p className={styles.error}>{errors.name}</p>
               )}
-              {/* <label htmlFor="text" className={styles.label}>
-                <input
-                  className={styles.input}
-                  data-test-id="review-text-field"
-                  name={`text`}
-                  type="text"
-                  placeholder="Enter your review"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.review}
-                />
-              </label> */}
               <textarea
                 className={styles.input}
                 data-test-id="review-text-field"

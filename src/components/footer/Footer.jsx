@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import InternetGroup from "../internetGroup/InternetGroup";
 import styles from "./Footer.module.css";
@@ -7,79 +7,115 @@ import { categories, infornation } from "../../routes/FooterRoutes";
 import { useDispatch, useSelector } from "react-redux";
 import { emailPostFooter } from "../../redux/thunk/postEmailFooter";
 import { Watch } from "react-loader-spinner";
+import { Formik } from "formik";
+import * as yup from "yup";
 
 const Footer = () => {
-  let isDis = true;
-  let [text, setText] = useState("");
+  const validationsSchema = yup.object().shape({
+    emailFooter: yup
+      .string()
+      .email("Невалидный email")
+      .required("Введите email"),
+  });
+  let isEmpty = true;
+  let input = null;
+  setTimeout(() => {
+    input = document.getElementById("emailFooter");
+    inp();
+  });
+  const inp = () => {
+    if (input.value === "") {
+      return (isEmpty = false);
+    } else {
+      return (isEmpty = true);
+    }
+  };
+
   const dispatch = useDispatch();
   const handleAction = (email) => {
     dispatch(emailPostFooter(email));
-    setTimeout(() => {
-      if (status === "resolved") {
-        setText((text = ""));
-      }
-    }, 100);
+    email.emailFooter = "";
   };
+
   const isLoading = useSelector((state) => state.mailFooter.loading);
   const isError = useSelector((state) => state.mailFooter.error);
   let message = useSelector((state) => state.mailFooter.message);
   const status = useSelector((state) => state.mailFooter.status);
 
-  const handleChange = (event) => {
-    setText((text = event.target.value));
-  };
-
-  function ValidMail() {
-    const re = /^[\w-.=.]+@[\w-]+\.[a-z]{2,4}$/i;
-    const valid = re.test(text);
-    if (valid && !isLoading) return (isDis = false);
-    else return (message = "");
-  }
-  ValidMail();
   return (
     <footer data-test-id="footer">
       <div className={styles.wrapper}>
         <div className={styles.superContainer}>
           <div className={styles.wrapperTop}>
             <h2 className={styles.title}>BE IN TOUCH WITH US:</h2>
-            <label>
-              <input
-                className={styles.label}
-                data-test-id="footer-mail-field"
-                id="emailFooter"
-                name="emailFooter"
-                type="text"
-                value={text}
-                placeholder="Enter your email"
-                onChange={(e) => handleChange(e)}
-              />
-            </label>
-            <div className={styles.wrapperLoader}>
-              {isLoading && (
-                <div className={styles.loader} data-test-id="loader">
-                  <Watch
-                    height="15"
-                    width="15"
-                    color="white"
-                    ariaLabel="loading"
-                  />
-                </div>
-              )}
-              <button
-                className={styles.input}
-                data-test-id="footer-subscribe-mail-button"
-                disabled={isDis}
-                type="button"
-                value="Subscribe"
-                onClick={() => handleAction(text)}
+            <div>
+              <Formik
+                initialValues={{
+                  emailFooter: "",
+                }}
+                validateOnBlur
+                onSubmit={(values) => {
+                  console.log(values);
+                }}
+                validationSchema={validationsSchema}
               >
-                Join Us
-              </button>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  isValid,
+                  handleSubmit,
+                  dirty,
+                }) => (
+                  <div className={styles.formikWrapper}>
+                    <label>
+                      <input
+                        className={styles.label}
+                        data-test-id="footer-mail-field"
+                        id="emailFooter"
+                        name="emailFooter"
+                        type="text"
+                        value={values.emailFooter}
+                        placeholder="Enter your email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                    </label>
+                    {touched.emailFooter && errors.emailFooter && (
+                      <p className={styles.error}>{errors.emailFooter}</p>
+                    )}
+                    <div className={styles.wrapperLoader}>
+                      {isLoading && (
+                        <div className={styles.loader} data-test-id="loader">
+                          <Watch
+                            height="15"
+                            width="15"
+                            color="white"
+                            ariaLabel="loading"
+                          />
+                        </div>
+                      )}
+
+                      <button
+                        className={styles.input}
+                        data-test-id="footer-subscribe-mail-button"
+                        disabled={!isValid || !dirty || isLoading || isEmpty}
+                        type="submit"
+                        onClick={() => handleAction(values)}
+                      >
+                        Join Us
+                      </button>
+                    </div>
+                    {status === "resolved" && (
+                      <h4 className={styles.status}>Почта отправлена</h4>
+                    )}
+                    {isError && <h4 className={styles.error}>{message}</h4>}
+                  </div>
+                )}
+              </Formik>
             </div>
-            {status === "resolved" && (
-              <h4 className={styles.status}>Почта отправлена</h4>
-            )}
-            {isError && <h4 className={styles.error}>{message}</h4>}
           </div>
           <InternetGroup className={styles.group} />
         </div>

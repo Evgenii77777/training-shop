@@ -100,9 +100,9 @@ span.sale {
 }
 .status,
 .error {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
   padding-top: 5px;
   font-family: "Spartan";
   font-style: normal;
@@ -117,10 +117,25 @@ span.sale {
 .error {
   color: red;
 }
+.errorEmail {
+  padding-left: 0;
+  color: red;
+  padding-top: 5px;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: left;
+}
+.wrapperLoader {
+  position: relative;
+}
 .loader {
+  z-index: 1;
   position: absolute;
-  top: 43px;
-  left: 22px;
+  top: 45px;
+  left: 58px;
 }
 @media (min-width: 320px) and (max-width: 740px) {
   .container {
