@@ -24,6 +24,7 @@
   justify-content: space-between;
 }
 .title {
+  margin-right: 20px;
   font-family: Spartan;
   font-style: normal;
   font-weight: 600;
@@ -159,7 +160,7 @@ div.group {
 }
 .status,
 .error {
-  margin-left: 5px;
+  padding-left: 0;
   font-family: "Spartan";
   font-style: normal;
   font-weight: 400;
@@ -169,9 +170,11 @@ div.group {
 }
 .status {
   color: green;
+  margin-left: 5px;
 }
 .error {
   color: red;
+  margin-right: 5px;
 }
 .wrapperLoader {
   position: relative;

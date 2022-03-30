@@ -8,7 +8,7 @@
 .wrapper {
   position: absolute;
   top: 0;
-  left: -146%;
+  left: -50vw;
   width: 100vw;
   height: 100vh;
   background-color: inherit;
@@ -114,6 +114,10 @@
 }
 @media (min-width: 320px) and (max-width: 1088px) {
   .wrapper {
-    left: -23%;
+    left: 0;
+    width: 100%;
+  }
+  .container {
+    width: 50%;
   }
 }
