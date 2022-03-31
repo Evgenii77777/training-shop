@@ -6,48 +6,54 @@ import { paymentSystems } from "../../object/PaymentSystems";
 import { categories, infornation } from "../../routes/FooterRoutes";
 import { useDispatch, useSelector } from "react-redux";
 import { Watch } from "react-loader-spinner";
-import { Formik } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import { emailPostFooter } from "../../redux/thunk/asincThunk/postEmailFooterThunk";
 
 const Footer = () => {
+  const isLoading = useSelector((state) => state.mailFooter.loading);
+  const isError = useSelector((state) => state.mailFooter.error);
+  let message = useSelector((state) => state.mailFooter.message);
+  const status = useSelector((state) => state.mailFooter.status);
+  let isEmpty = true;
+  const dispatch = useDispatch();
+
   const validationsSchema = yup.object().shape({
     emailFooter: yup
       .string()
       .email("Невалидный email")
       .required("Введите email"),
   });
-  let isEmpty = true;
-  let input = document.getElementById("emailFooter");
-  setTimeout(() => {
-    const inp = () => {
-      if (input.value === "" || status === "resolved") {
-        return (isEmpty = false);
-      } else if (input.value !== "" || status === "error") {
-        return (isEmpty = false);
-      } else {
-        return (isEmpty = true);
-      }
-    };
-    inp();
+  const formik = useFormik({
+    initialValues: {
+      emailFooter: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: validationsSchema,
   });
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(emailPostFooter());
-  }, [dispatch]);
-  const handleAction = (email) => {
-    dispatch(emailPostFooter(email));
-    if (status === "resolved") {
-      email.emailFooter = "";
+  const inp = () => {
+    if (formik.values.emailFooter === "" || status === "resolved") {
+      return (isEmpty = false);
+    } else if (formik.values.emailFooter !== "" || status === "error") {
+      return (isEmpty = false);
+    } else {
+      return (isEmpty = true);
     }
   };
+  inp();
 
-  const isLoading = useSelector((state) => state.mailFooter.loading);
-  const isError = useSelector((state) => state.mailFooter.error);
-  const isNumber = useSelector((state) => state.mailFooter.number);
-  let message = useSelector((state) => state.mailFooter.message);
-  const status = useSelector((state) => state.mailFooter.status);
+  useEffect(() => {
+    if (status === "resolved") {
+      formik.setFieldValue("emailFooter", "");
+    }
+  }, [status]);
+
+  const handleAction = (email) => {
+    dispatch(emailPostFooter(email.emailFooter));
+  };
 
   return (
     <footer data-test-id="footer">
@@ -56,74 +62,52 @@ const Footer = () => {
           <div className={styles.wrapperTop}>
             <h2 className={styles.title}>BE IN TOUCH WITH US:</h2>
             <div>
-              <Formik
-                initialValues={{
-                  emailFooter: "",
-                }}
-                validateOnBlur
-                onSubmit={(values) => {
-                  console.log(values);
-                }}
-                validationSchema={validationsSchema}
-              >
-                {({
-                  values,
-                  errors,
-                  touched,
-                  handleChange,
-                  handleBlur,
-                  isValid,
-                  handleSubmit,
-                  dirty,
-                }) => (
-                  <div className={styles.formikWrapper}>
-                    <label>
-                      <input
-                        className={styles.label}
-                        data-test-id="footer-mail-field"
-                        id="emailFooter"
-                        name="emailFooter"
-                        type="text"
-                        value={values.emailFooter}
-                        placeholder="Enter your email"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
-                    </label>
-                    {touched.emailFooter && errors.emailFooter && (
-                      <p className={styles.error}>{errors.emailFooter}</p>
-                    )}
-                    <div className={styles.wrapperLoader}>
-                      {isLoading && (
-                        <div className={styles.loader} data-test-id="loader">
-                          <Watch
-                            height="15"
-                            width="15"
-                            color="white"
-                            ariaLabel="loading"
-                          />
-                        </div>
-                      )}
-
-                      <button
-                        className={styles.input}
-                        data-test-id="footer-subscribe-mail-button"
-                        disabled={!isValid || !dirty || isLoading || isEmpty}
-                        type="submit"
-                        onClick={() => handleAction(values)}
-                      >
-                        Join Us
-                      </button>
-                    </div>
-                    {status === "resolved" && isNumber !== 1 && (
-                      <h4 className={styles.status}>Почта отправлена</h4>
-                    )}
-                    {isError && isNumber !== 1 && (
-                      <h4 className={styles.error}>{message}</h4>
-                    )}
-                  </div>
+              <div className={styles.formikWrapper}>
+                <label>
+                  <input
+                    className={styles.label}
+                    data-test-id="footer-mail-field"
+                    id="emailFooter"
+                    name="emailFooter"
+                    type="text"
+                    value={formik.values.emailFooter}
+                    placeholder="Enter your email"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                </label>
+                {formik.touched.emailFooter && formik.errors.emailFooter && (
+                  <p className={styles.error}>{formik.errors.emailFooter}</p>
                 )}
-              </Formik>
+                <div className={styles.wrapperLoader}>
+                  {isLoading && (
+                    <div className={styles.loader} data-test-id="loader">
+                      <Watch
+                        height="15"
+                        width="15"
+                        color="white"
+                        ariaLabel="loading"
+                      />
+                    </div>
+                  )}
+
+                  <button
+                    className={styles.input}
+                    data-test-id="footer-subscribe-mail-button"
+                    disabled={
+                      !formik.isValid || !formik.dirty || isLoading || isEmpty
+                    }
+                    type="submit"
+                    onClick={() => handleAction(formik.values)}
+                  >
+                    Join Us
+                  </button>
+                </div>
+                {status === "resolved" && (
+                  <h4 className={styles.status}>Почта отправлена</h4>
+                )}
+                {isError && <h4 className={styles.error}>{message}</h4>}
+              </div>
             </div>
           </div>
           <InternetGroup className={styles.group} />

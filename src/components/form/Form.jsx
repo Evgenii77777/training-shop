@@ -4,46 +4,51 @@ import M from "../../assets/img/bgm.png";
 import W from "../../assets/img/bgw.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Watch } from "react-loader-spinner";
-import { Formik } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import { emailPost } from "../../redux/thunk/asincThunk/postEmailThunk";
 
 const Form = () => {
   const validationsSchema = yup.object().shape({
-    email: yup.string().email("Невалидный email").required("Введите email"),
+    mail: yup.string().email("Невалидный email").required("Введите email"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      mail: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: validationsSchema,
   });
 
   const isLoading = useSelector((state) => state.mail.loading);
   const isError = useSelector((state) => state.mail.error);
-  const isNumber = useSelector((state) => state.mail.number);
   let message = useSelector((state) => state.mail.message);
   let status = useSelector((state) => state.mail.status);
-  const input = document.getElementById("email");
   let isEmpty = true;
-
-  setTimeout(() => {
-    const inp = () => {
-      if (input.value === "" || status === "resolved") {
-        return (isEmpty = false);
-      } else if (input.value !== "" || status === "error") {
-        return (isEmpty = false);
-      } else {
-        return (isEmpty = true);
-      }
-    };
-    inp();
-  });
-
   const dispatch = useDispatch();
+
+  const inp = () => {
+    if (formik.values.mail === "" || status === "resolved") {
+      return (isEmpty = false);
+    } else if (formik.values.mail !== "" || status === "error") {
+      return (isEmpty = false);
+    } else {
+      return (isEmpty = true);
+    }
+  };
+  inp();
+
   useEffect(() => {
-    dispatch(emailPost());
-  }, [dispatch]);
+    if (status === "resolved") {
+      formik.setFieldValue("mail", "");
+    }
+  }, [status]);
 
   const handleAction = (email) => {
     dispatch(emailPost(email));
-    if (status === "resolved") {
-      email.email = "";
-    }
   };
 
   return (
@@ -56,75 +61,57 @@ const Form = () => {
           Subscribe And <span className={styles.sale}> Get 10% Off</span>
         </h2>
         <div>
-          <Formik
-            initialValues={{
-              email: "",
-            }}
-            validateOnBlur
-            onSubmit={(values) => {
-              console.log(values);
-            }}
-            validationSchema={validationsSchema}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              isValid,
-              handleSubmit,
-              dirty,
-            }) => (
-              <form className={styles.formikWrapper}>
-                <label>
-                  <input
-                    className={styles.label}
-                    data-test-id="main-subscribe-mail-field"
-                    id="email"
-                    name="email"
-                    type="text"
-                    value={values.email}
-                    placeholder="Enter your email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                </label>
-                {touched.email && errors.email && (
-                  <p className={styles.errorEmail}>{errors.email}</p>
-                )}
-                <div className={styles.wrapperLoader}>
-                  {isLoading && (
-                    <div className={styles.loader} data-test-id="loader">
-                      <Watch
-                        height="25"
-                        width="25"
-                        color="white"
-                        ariaLabel="loading"
-                      />
-                    </div>
-                  )}
-                  <button
-                    className={styles.input}
-                    data-test-id="main-subscribe-mail-button"
-                    disabled={!isValid || !dirty || isLoading || isEmpty}
-                    type="submit"
-                    onClick={() => handleAction(values)}
-                  >
-                    Subscribe
-                  </button>
-                </div>
-                {status === "resolved" && isNumber !== 1 && (
-                  <h4 id="resolved" className={styles.status}>
-                    Почта отправлена
-                  </h4>
-                )}
-                {isError && isNumber !== 1 && (
-                  <h4 className={styles.error}>{message}</h4>
-                )}
-              </form>
+          <form className={styles.formikWrapper}>
+            <label>
+              <input
+                className={styles.label}
+                data-test-id="main-subscribe-mail-field"
+                id="email"
+                name="mail"
+                type="text"
+                value={formik.values.mail}
+                placeholder="Enter your email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+            </label>
+            {formik.touched.mail && formik.errors.mail && (
+              <p className={styles.errorEmail}>{formik.errors.mail}</p>
             )}
-          </Formik>
+            <div className={styles.wrapperLoader}>
+              {isLoading && (
+                <div className={styles.loader} data-test-id="loader">
+                  <Watch
+                    height="25"
+                    width="25"
+                    color="white"
+                    ariaLabel="loading"
+                  />
+                </div>
+              )}
+              <button
+                className={styles.input}
+                data-test-id="main-subscribe-mail-button"
+                disabled={
+                  !formik.isValid || !formik.dirty || isLoading || isEmpty
+                }
+                type="submit"
+                onClick={() =>
+                  handleAction(formik.values, () => {
+                    formik.values.mail = "";
+                  })
+                }
+              >
+                Subscribe
+              </button>
+            </div>
+            {status === "resolved" && (
+              <h4 id="resolved" className={styles.status}>
+                Почта отправлена
+              </h4>
+            )}
+            {isError && <h4 className={styles.error}>{message}</h4>}
+          </form>
         </div>
       </div>
     </section>
