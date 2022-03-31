@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import styles from "./Form.module.css";
 import M from "../../assets/img/bgm.png";
