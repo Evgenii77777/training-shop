@@ -45,6 +45,7 @@ const Form = () => {
   useEffect(() => {
     if (status === "resolved") {
       formik.setFieldValue("mail", "");
+      formik.touched.mail = false;
     }
   }, [status]);
 

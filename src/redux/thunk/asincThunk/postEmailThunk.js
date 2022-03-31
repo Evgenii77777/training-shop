@@ -20,9 +20,6 @@ export const emailPost = createAsyncThunk(
       if (!response.ok) {
         throw new Error("Can't add task. Server error.");
       }
-      console.log(response);
-      // const data = await response.json();
-      // return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

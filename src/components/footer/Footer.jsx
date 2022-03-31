@@ -49,6 +49,7 @@ const Footer = () => {
   useEffect(() => {
     if (status === "resolved") {
       formik.setFieldValue("emailFooter", "");
+      formik.touched.emailFooter = false;
     }
   }, [status]);
 
