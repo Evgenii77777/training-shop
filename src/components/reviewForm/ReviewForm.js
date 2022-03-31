@@ -123,7 +123,7 @@ const ReviewForm = ({ form, setForm }) => {
                   data-test-id="review-name-field"
                   id="input1"
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Имя"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
@@ -137,7 +137,7 @@ const ReviewForm = ({ form, setForm }) => {
                 data-test-id="review-text-field"
                 name={`text`}
                 type="text"
-                placeholder="Enter your review"
+                placeholder="Комментарий"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.review}

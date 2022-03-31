@@ -27,6 +27,7 @@ const todoSlice = createSlice({
     status: null,
     loading: false,
     error: false,
+    number: 0,
   },
 
   extraReducers: {
@@ -34,6 +35,7 @@ const todoSlice = createSlice({
       state.status = "loading";
       state.loading = true;
       state.error = false;
+      state.number += 1;
     },
     [emailPost.fulfilled]: (state) => {
       state.status = "resolved";
@@ -42,6 +44,7 @@ const todoSlice = createSlice({
       state.error = false;
     },
     [emailPost.rejected]: (state) => {
+      state.status = "error";
       state.error = true;
       state.message = "Ошибка при отправке почты";
       state.loading = false;

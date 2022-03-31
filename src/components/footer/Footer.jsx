@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import InternetGroup from "../internetGroup/InternetGroup";
 import styles from "./Footer.module.css";
@@ -18,27 +18,34 @@ const Footer = () => {
       .required("Введите email"),
   });
   let isEmpty = true;
-  let input = null;
+  let input = document.getElementById("emailFooter");
   setTimeout(() => {
-    input = document.getElementById("emailFooter");
+    const inp = () => {
+      if (input.value === "" || status === "resolved") {
+        return (isEmpty = false);
+      } else if (input.value !== "" || status === "error") {
+        return (isEmpty = false);
+      } else {
+        return (isEmpty = true);
+      }
+    };
     inp();
   });
-  const inp = () => {
-    if (input.value === "") {
-      return (isEmpty = false);
-    } else {
-      return (isEmpty = true);
-    }
-  };
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(emailPostFooter());
+  }, [dispatch]);
   const handleAction = (email) => {
     dispatch(emailPostFooter(email));
-    email.emailFooter = "";
+    if (status === "resolved") {
+      email.emailFooter = "";
+    }
   };
 
   const isLoading = useSelector((state) => state.mailFooter.loading);
   const isError = useSelector((state) => state.mailFooter.error);
+  const isNumber = useSelector((state) => state.mailFooter.number);
   let message = useSelector((state) => state.mailFooter.message);
   const status = useSelector((state) => state.mailFooter.status);
 
@@ -108,10 +115,12 @@ const Footer = () => {
                         Join Us
                       </button>
                     </div>
-                    {status === "resolved" && (
+                    {status === "resolved" && isNumber !== 1 && (
                       <h4 className={styles.status}>Почта отправлена</h4>
                     )}
-                    {isError && <h4 className={styles.error}>{message}</h4>}
+                    {isError && isNumber !== 1 && (
+                      <h4 className={styles.error}>{message}</h4>
+                    )}
                   </div>
                 )}
               </Formik>

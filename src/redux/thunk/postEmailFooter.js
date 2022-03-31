@@ -7,7 +7,7 @@ export const emailPostFooter = createAsyncThunk(
       const newMail = {
         mail: email,
       };
-      await fetch("https://training.cleverland.by/shop/email", {
+      await fetch("https://traisning.cleverland.by/shop/email", {
         method: "POST",
         headers: {
           "Content-Type": "text/plain",
@@ -27,6 +27,7 @@ const todoSlice = createSlice({
     status: null,
     loading: false,
     error: false,
+    number: 0,
   },
 
   extraReducers: {
@@ -34,6 +35,7 @@ const todoSlice = createSlice({
       state.status = "loading";
       state.loading = true;
       state.error = false;
+      state.number += 1;
     },
     [emailPostFooter.fulfilled]: (state) => {
       state.status = "resolved";

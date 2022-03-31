@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Form.module.css";
 import M from "../../assets/img/bgm.png";
 import W from "../../assets/img/bgw.png";
@@ -15,31 +15,42 @@ const Form = () => {
 
   const isLoading = useSelector((state) => state.mail.loading);
   const isError = useSelector((state) => state.mail.error);
+  const isNumber = useSelector((state) => state.mail.number);
   let message = useSelector((state) => state.mail.message);
-  const status = useSelector((state) => state.mail.status);
+  let status = useSelector((state) => state.mail.status);
   const input = document.getElementById("email");
   let isEmpty = true;
-  const inp = () => {
-    if (input.value === "") {
-      return (isEmpty = false);
-    } else {
-      return (isEmpty = true);
-    }
-  };
+
   setTimeout(() => {
+    const inp = () => {
+      if (input.value === "" || status === "resolved") {
+        return (isEmpty = false);
+      } else if (input.value !== "" || status === "error") {
+        return (isEmpty = false);
+      } else {
+        return (isEmpty = true);
+      }
+    };
     inp();
   });
+
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(emailPost());
+  }, [dispatch]);
+
   const handleAction = (email) => {
     dispatch(emailPost(email));
-    email.email = "";
+    if (status === "resolved") {
+      email.email = "";
+    }
   };
 
   return (
     <section className={styles.container}>
       <img className={styles.women} src={W} alt="women" />
       <img className={styles.men} src={M} alt="men" />
-      <form className={styles.form}>
+      <div className={styles.form}>
         <span>Special Offer</span>
         <h2>
           Subscribe And <span className={styles.sale}> Get 10% Off</span>
@@ -103,15 +114,19 @@ const Form = () => {
                     Subscribe
                   </button>
                 </div>
-                {status === "resolved" && (
-                  <h4 className={styles.status}>Почта отправлена</h4>
+                {status === "resolved" && isNumber !== 1 && (
+                  <h4 id="resolved" className={styles.status}>
+                    Почта отправлена
+                  </h4>
                 )}
-                {isError && <h4 className={styles.error}>{message}</h4>}
+                {isError && isNumber !== 1 && (
+                  <h4 className={styles.error}>{message}</h4>
+                )}
               </form>
             )}
           </Formik>
         </div>
-      </form>
+      </div>
     </section>
   );
 };
