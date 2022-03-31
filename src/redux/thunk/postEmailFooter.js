@@ -7,7 +7,7 @@ export const emailPostFooter = createAsyncThunk(
       const newMail = {
         mail: email,
       };
-      await fetch("https://traisning.cleverland.by/shop/email", {
+      await fetch("https://training.cleverland.by/shop/email", {
         method: "POST",
         headers: {
           "Content-Type": "text/plain",
