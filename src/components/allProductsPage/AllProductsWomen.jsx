@@ -7,7 +7,7 @@ import View from "../../assets/svg/view-list 1.svg";
 import Grid from "../../assets/svg/view-grid 1.svg";
 import Close from "../../assets/svg/x 1.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProducts } from "../../redux/thunk/getAllProducts";
+import { fetchAllProducts } from "../../redux/thunk/asincThunk/getAllProductsThunk";
 
 const AllProductsWomen = () => {
   const [activeState, setActiveState] = useState(true);

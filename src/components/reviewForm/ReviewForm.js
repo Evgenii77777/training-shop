@@ -4,7 +4,6 @@ import Close from "../../assets/svg/x 1.svg";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { reviewPost } from "../../redux/thunk/postReview";
 import { useParams } from "react-router-dom";
 import OneStar from "../stars/oneStar/OneStar";
 import TwoStars from "../stars/twoStar/TwoStars";
@@ -12,6 +11,7 @@ import ThreeStars from "../stars/threeStars/ThreeStars";
 import FourStars from "../stars/fourStars/FourStars";
 import FiveStars from "../stars/fiveStars/FiveStars";
 import { Watch } from "react-loader-spinner";
+import { reviewPost } from "../../redux/thunk/asincThunk/postReviewThunk";
 
 const ReviewForm = ({ form, setForm }) => {
   let [rating, setStars] = useState(1);

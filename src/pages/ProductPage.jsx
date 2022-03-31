@@ -6,9 +6,9 @@ import Specifications from "../components/specifications/Specifications";
 import TopClothesPage from "../components/topClothes/topClothesPage.jsx/TopClothesPage";
 import styles from "./ProductPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct } from "../redux/thunk/getProduct";
 import Error from "../components/error/Error";
-import { fetchAllProducts } from "../redux/thunk/getAllProducts";
+import { fetchAllProducts } from "../redux/thunk/asincThunk/getAllProductsThunk";
+import { fetchProduct } from "../redux/thunk/asincThunk/getProductThunk";
 
 const ProductPage = () => {
   const location = useLocation();

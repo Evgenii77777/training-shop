@@ -1,31 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchProduct } from "./getProduct";
-
-export const reviewPost = createAsyncThunk(
-  "review/addReview",
-  async function (text, { rejectWithValue, dispatch }) {
-    try {
-      const response = await fetch(
-        "https://training.cleverland.by/shop/product/review",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(text),
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Can't add task. Server error.");
-      }
-
-      const data = await response.json();
-      dispatch(fetchProduct(data.id));
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { reviewPost } from "../asincThunk/postReviewThunk";
 
 const todoSlice = createSlice({
   name: "review",

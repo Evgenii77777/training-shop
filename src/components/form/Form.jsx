@@ -3,10 +3,10 @@ import styles from "./Form.module.css";
 import M from "../../assets/img/bgm.png";
 import W from "../../assets/img/bgw.png";
 import { useDispatch, useSelector } from "react-redux";
-import { emailPost } from "../../redux/thunk/postEmail";
 import { Watch } from "react-loader-spinner";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { emailPost } from "../../redux/thunk/asincThunk/postEmailThunk";
 
 const Form = () => {
   const validationsSchema = yup.object().shape({

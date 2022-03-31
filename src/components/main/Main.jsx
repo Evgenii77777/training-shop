@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Main_Clothes_Block_Menu } from "../../object/MainBlockMenu";
+import { fetchAllProducts } from "../../redux/thunk/asincThunk/getAllProductsThunk";
 import Advantage from "../advantage/Advantage";
 import Blog from "../blog/Blog";
 import Form from "../form/Form";
@@ -10,7 +11,6 @@ import Poster from "../poster/Poster";
 import Swip from "../swiper/Swip";
 import WomensProducts from "../womenProducts/WomenProducts";
 import styles from "./Main.module.css";
-import { fetchAllProducts } from "../../redux/thunk/getAllProducts";
 
 const Main = () => {
   let [btn, setBtn] = useState("isNewArrivals");

@@ -5,10 +5,10 @@ import styles from "./Footer.module.css";
 import { paymentSystems } from "../../object/PaymentSystems";
 import { categories, infornation } from "../../routes/FooterRoutes";
 import { useDispatch, useSelector } from "react-redux";
-import { emailPostFooter } from "../../redux/thunk/postEmailFooter";
 import { Watch } from "react-loader-spinner";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { emailPostFooter } from "../../redux/thunk/asincThunk/postEmailFooterThunk";
 
 const Footer = () => {
   const validationsSchema = yup.object().shape({

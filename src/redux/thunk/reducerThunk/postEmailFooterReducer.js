@@ -1,24 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-export const emailPostFooter = createAsyncThunk(
-  "emailFooter/emailFooterPost",
-  async function (email, { rejectWithValue }) {
-    try {
-      const newMail = {
-        mail: email,
-      };
-      await fetch("https://training.cleverland.by/shop/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: JSON.stringify(newMail),
-      });
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { emailPostFooter } from "../asincThunk/postEmailFooterThunk";
 
 const todoSlice = createSlice({
   name: "emailFooter",

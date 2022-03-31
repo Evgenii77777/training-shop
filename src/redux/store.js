@@ -1,10 +1,10 @@
 import { basketReducer } from "./btnBasket/btnBasket-reducer";
 import { configureStore } from "@reduxjs/toolkit";
-import itemsReducer from "./thunk/getAllProducts";
-import productReducer from "./thunk/getProduct";
-import mailReducer from "./thunk/postEmail";
-import reviewReducer from "./thunk/postReview";
-import mailFooterReducer from "./thunk/postEmailFooter";
+import itemsReducer from "./thunk/reducerThunk/getAllProductsReducer";
+import productReducer from "./thunk/reducerThunk/getProductReducer";
+import mailReducer from "./thunk/reducerThunk/postEmailReducer";
+import reviewReducer from "./thunk/reducerThunk/postReviewReducer";
+import mailFooterReducer from "./thunk/reducerThunk/postEmailFooterReducer";
 
 const store = configureStore({
   reducer: {
