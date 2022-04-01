@@ -18,6 +18,7 @@ const Review = ({ reviews }) => {
   const backSide = function () {
     let body = document.querySelector("body");
     if (form) {
+      window.scrollTo(0, 0);
       body.classList.add("no__scroll");
     } else {
       body.classList.remove("no__scroll");
@@ -49,6 +50,7 @@ const Review = ({ reviews }) => {
           className={styles.btn}
           onClick={() => setForm(!form)}
           data-test-id="review-button"
+          id="btn"
         >
           Write a review
         </button>

@@ -12,7 +12,9 @@ import FourStars from "../stars/fourStars/FourStars";
 import FiveStars from "../stars/fiveStars/FiveStars";
 import { Watch } from "react-loader-spinner";
 import { reviewPost } from "../../redux/thunk/asincThunk/postReviewThunk";
+import { createPortal } from "react-dom";
 
+const modalRoot = document.getElementById("modal-root");
 const ReviewForm = ({ form, setForm }) => {
   let [rating, setStars] = useState(1);
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ const ReviewForm = ({ form, setForm }) => {
       setForm(!form);
     }
   };
-  return (
+  return createPortal(
     <div
       className={styles.wrapper}
       id="backSide"
@@ -68,7 +70,7 @@ const ReviewForm = ({ form, setForm }) => {
             handleSubmit,
             dirty,
           }) => (
-            <div className={styles.form} data-test-id="review-modal">
+            <div className={styles.form} data-test-id="review-modal" id="top">
               <button
                 type="button"
                 className={styles.close}
@@ -175,7 +177,8 @@ const ReviewForm = ({ form, setForm }) => {
           )}
         </Formik>
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 };
 

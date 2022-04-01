@@ -18,7 +18,7 @@ const Navbar = styled.div`
   color: rgb(248, 248, 248);
   flex-direction: row;
   justify-content: flex-start;
-  z-index: 500;
+  z-index: 10;
   @media (max-width: 500px) {
     left: 10px;
     top: 86px;
