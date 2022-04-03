@@ -238,4 +238,14 @@ div.group {
   .label {
     margin-bottom: 10px;
   }
+  .formikWrapper{
+    display: table;
+    width: 100%;
+  }
+  .input{
+    width: 100%;
+  }
+  .label{
+    margin-right: 0;
+  }
 }

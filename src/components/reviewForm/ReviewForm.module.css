@@ -52,6 +52,7 @@
 }
 .input,
 .inputFirst {
+  resize: none;
   padding: 5px;
   width: 100%;
   border: 2px solid black;
@@ -122,5 +123,20 @@
   }
   .container {
     width: 50%;
+  }
+}
+@media (min-width: 320px) and (max-width: 400px) {
+  .container{
+    width: 100%;
+  }
+}
+@media (min-width: 401px) and (max-width: 600px) {
+  .container {
+    width: 60%;
+  }
+  .close {
+    top: 0px;
+    right: 0px;
+    
   }
 }
