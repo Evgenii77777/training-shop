@@ -1,0 +1,43 @@
+.title{
+    margin-bottom: 12px;
+    font-family: 'Spartan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.57;
+    color: #000000;
+}
+.list{
+    margin-bottom: 32px;
+border-top: 2px solid #F8F8F8;
+box-sizing: border-box;
+}
+.item{
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 2px solid #F8F8F8;
+    box-sizing: border-box;
+}
+.itemText{
+    font-family: 'Spartan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.57;
+    color: #000000;
+    opacity: 1;
+}
+.containerAgree{
+    display: flex;
+}
+.textAgree{
+    padding-left: 12px;
+    text-align: left;
+    font-family: 'Spartan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.57;
+    color: #121212;
+    opacity: 1;
+}

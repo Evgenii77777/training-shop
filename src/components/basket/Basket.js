@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Basket.module.css";
 import Cur from "../../assets/png/наклон.png";
 import {
@@ -10,10 +10,11 @@ import {
 } from "../../redux/btnBasket/btnBasket-actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOpen, getIsEmpty } from "../../redux/btnBasket/btnBasket-selectors";
+import Delivery from "./delivery/Delivery";
+import Payment from "./payment/Payment";
 
 const Basket = () => {
   let total = 0;
-
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
   const dispatch = useDispatch();
@@ -29,6 +30,14 @@ const Basket = () => {
     }
   };
   backSide();
+
+  // новый код
+
+  let [type, setType] = useState("");
+  const handleChangeType = (name) => {
+    setType((type = name));
+    console.log(type);
+  };
 
   return (
     <div className={open ? styles.openBasketSide : null}>
@@ -62,63 +71,85 @@ const Basket = () => {
             ) : (
               <div className={styles.notEmptyBasket}>
                 <div className={styles.notEmpty}>
-                  <button className={styles.firstBtn}>Item in Cart</button>
+                  <button
+                    onClick={(e) => handleChangeType(e.target.id)}
+                    id="Item in Cart"
+                    className={styles.firstBtn}
+                  >
+                    Item in Cart
+                  </button>
                   <img src={Cur} alt="item" />
-                  <button>Delivery Info</button>
+                  <button
+                    onClick={(e) => handleChangeType(e.target.id)}
+                    id="Delivery Info"
+                  >
+                    Delivery Info
+                  </button>
                   <img src={Cur} alt="item" />
-                  <button>Payment</button>
+                  <button
+                    onClick={(e) => handleChangeType(e.target.id)}
+                    id="Payment"
+                  >
+                    Payment
+                  </button>
                 </div>
                 <div className={styles.listWrapper}>
-                  <ul className={styles.list}>
-                    {isEmpty.map((el, index) => (
-                      <li key={index} data-test-id="cart-card">
-                        <div>
-                          <img
-                            src={el.color[1]}
-                            alt="images"
-                            className={styles.notEmptyImg}
-                          />
-                        </div>
-                        <div className={styles.notEmptySpanContainer}>
-                          <span className={styles.name}>{el.name}</span>
-                          <span className={styles.color}>{el.color[0]},</span>
-                          <span className={styles.size}>{el.size}</span>
-                          <div className={styles.notEmptyBtnWrapper}>
-                            <div className={styles.notEmptyBtnContainer}>
-                              <button
-                                id={el.newId}
-                                onClick={(e) =>
-                                  dispatch(decrement(e.target.id))
-                                }
-                                data-test-id="minus-product"
-                              >
-                                -
-                              </button>
-                              <span>{el.quantity}</span>
-                              <button
-                                id={el.newId}
-                                onClick={(e) =>
-                                  dispatch(increment(e.target.id))
-                                }
-                                data-test-id="plus-product"
-                              >
-                                +
-                              </button>
-                            </div>
-                            <span id="price" className={styles.price}>
-                              $ {(el.price * el.quantity).toFixed(2)}
-                            </span>
-                            <button
-                              className={styles.trash}
-                              id={el.newId}
-                              onClick={(e) => dispatch(deleteItem(e.target.id))}
-                              data-test-id="remove-product"
-                            ></button>
+                  {type === "Item in Cart" && (
+                    <ul className={styles.list}>
+                      {isEmpty.map((el, index) => (
+                        <li key={index} data-test-id="cart-card">
+                          <div>
+                            <img
+                              src={el.color[1]}
+                              alt="images"
+                              className={styles.notEmptyImg}
+                            />
                           </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                          <div className={styles.notEmptySpanContainer}>
+                            <span className={styles.name}>{el.name}</span>
+                            <span className={styles.color}>{el.color[0]},</span>
+                            <span className={styles.size}>{el.size}</span>
+                            <div className={styles.notEmptyBtnWrapper}>
+                              <div className={styles.notEmptyBtnContainer}>
+                                <button
+                                  id={el.newId}
+                                  onClick={(e) =>
+                                    dispatch(decrement(e.target.id))
+                                  }
+                                  data-test-id="minus-product"
+                                >
+                                  -
+                                </button>
+                                <span>{el.quantity}</span>
+                                <button
+                                  id={el.newId}
+                                  onClick={(e) =>
+                                    dispatch(increment(e.target.id))
+                                  }
+                                  data-test-id="plus-product"
+                                >
+                                  +
+                                </button>
+                              </div>
+                              <span id="price" className={styles.price}>
+                                $ {(el.price * el.quantity).toFixed(2)}
+                              </span>
+                              <button
+                                className={styles.trash}
+                                id={el.newId}
+                                onClick={(e) =>
+                                  dispatch(deleteItem(e.target.id))
+                                }
+                                data-test-id="remove-product"
+                              ></button>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {type === "Delivery Info" && <Delivery />}
+                  {type === "Payment" && <Payment />}
                 </div>
                 <div className={styles.notEmptyWrapper}>
                   <div className={styles.spanWrapper}>

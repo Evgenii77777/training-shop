@@ -114,3 +114,7 @@ a:focus {
 .no__scroll {
   overflow: hidden;
 }
+
+p{
+  color: #121212;
+}
