@@ -46,7 +46,7 @@ const Delivery = ({
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
             />
-            <label for="1"></label>
+            <label htmlFor="1"></label>
           </div>
           <p className={styles.itemText}>Pickup from post offices</p>
         </li>
@@ -58,7 +58,7 @@ const Delivery = ({
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
             />
-            <label for="2"></label>
+            <label htmlFor="2"></label>
           </div>
           <p className={styles.itemText}>Express delivery</p>
         </li>
@@ -70,7 +70,7 @@ const Delivery = ({
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
             />
-            <label for="3"></label>
+            <label htmlFor="3"></label>
           </div>
 
           <p className={styles.itemText}>Store pickup</p>

@@ -11,12 +11,14 @@ const ButtonFurther = ({
   setType,
   errorCheckbox,
   setErrorCheckbox,
+  formik,
 }) => {
   const dispatch = useDispatch();
+
   const onHandlePayment = () => {
     const agree = document.getElementById("agree");
 
-    if (isValid) {
+    if (isValid && dirty) {
       if (agree !== null && agree.checked === true) {
         setType((type = "Payment"));
         dispatch(addPickup({ ...values }));
@@ -46,7 +48,6 @@ const ButtonFurther = ({
     <div className={styles.btnWrapper}>
       <button
         className={styles.btnWrapperFirst}
-        // disabled={!isValid || !dirty}
         onClick={() => onHandlePayment()}
       >
         Further
