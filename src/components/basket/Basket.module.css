@@ -99,6 +99,8 @@
 .notEmptyWrapper {
   /* margin-left: auto;
   margin-right: auto; */
+  width: calc(100% - 48px);
+
   position: absolute;
   bottom: 14px;
   left: 24px;
@@ -125,6 +127,7 @@
   color: #e6e6e6;
 }
 .notEmpty .firstBtn {
+  padding-left: 0;
   font-family: "Spartan";
   font-style: normal;
   font-weight: 400;
@@ -165,7 +168,8 @@
 .btnWrapperFirst {
   margin-bottom: 12px;
   width: 100%;
-  padding: 17px 119px;
+  padding: 17px 0;
+  justify-content: center;
   font-family: "Spartan";
   font-style: normal;
   font-weight: 500;
@@ -181,10 +185,14 @@
   background: #121212;
   border: 2px solid #121212;
 }
+.btnWrapperFirst:disabled{
+  opacity: 0.2;
+}
 .btnWrapperSecond {
   margin-bottom: 12px;
   width: 100%;
-  padding: 17px 119px;
+padding: 17px 0;
+justify-content: center;
   font-family: "Spartan";
   font-style: normal;
   font-weight: 500;
@@ -300,6 +308,14 @@
   background-color: inherit;
   background-image: url(../../assets/svg/trash\ 1.svg);
   background-repeat: no-repeat;
+}
+.textBar{
+  padding-left: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 130%;
+  color: #E6E6E6;
 }
 @media (min-width: 381px) and (max-width: 1000px) {
   .listWrapper {
