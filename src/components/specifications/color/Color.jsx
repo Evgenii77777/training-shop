@@ -59,7 +59,7 @@ const Color = ({ images }) => {
               <button
                 className="btnColor"
                 index={item.color}
-                onClick={onHandle}
+                onClick={(e) => onHandle(e)}
                 id={item.color}
               >
                 <img

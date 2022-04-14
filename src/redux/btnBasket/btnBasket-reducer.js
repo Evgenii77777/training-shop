@@ -8,6 +8,8 @@ import {
   currentSize,
   increment,
   decrement,
+  message,
+  clearCard,
 } from "./btnBasket-actions";
 
 export const basketReducer = createReducer(
@@ -16,6 +18,8 @@ export const basketReducer = createReducer(
     card: [],
     color: "",
     size: "",
+    error: false,
+    message: "",
   },
   {
     [toggleBasket]: (state, { payload }) => {
@@ -53,6 +57,13 @@ export const basketReducer = createReducer(
         }
         return null;
       });
+    },
+
+    [message]: (state, { payload }) => {
+      state.message = payload;
+    },
+    [clearCard]: (state) => {
+      state.card = [];
     },
   }
 );

@@ -118,3 +118,21 @@ a:focus {
 p{
   color: #121212;
 }
+.textBar {
+  padding-left: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 130%;
+  color: #E6E6E6;
+}
+.firstBtn {
+  padding-left: 0;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 130%;
+  opacity: 1;
+  color: #121212;
+}

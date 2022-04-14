@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Delivery.module.css";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
 import StorePickup from "./storePickup/StorePickup";
 
-const Delivery = () => {
+const Delivery = ({
+  type,
+  setType,
+  total,
+  formik,
+  formikExpress,
+  formikStore,
+  setValues,
+  valuesNew,
+}) => {
   let [radio, setRadio] = useState("1");
+  let [errorCheckbox, setErrorCheckbox] = useState(false);
+
   const handleChangeRadio = (id) => {
     setRadio((radio = id));
   };
+
+  useEffect(() => {
+    const radioInput = document.getElementById("1");
+    return (radioInput.checked = true);
+  }, []);
+
   return (
     <>
       <h4 className={styles.title}>
@@ -16,42 +33,76 @@ const Delivery = () => {
       </h4>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <input
-            onClick={(e) => handleChangeRadio(e.target.id)}
-            id="1"
-            name="radioBtn"
-            type="radio"
-          />
+          <div className={styles.form_radio}>
+            <input
+              id="1"
+              type="radio"
+              name="radio"
+              onClick={(e) => handleChangeRadio(e.target.id)}
+            />
+            <label for="1"></label>
+          </div>
           <p className={styles.itemText}>Pickup from post offices</p>
         </li>
         <li className={styles.item}>
-          <input
-            onClick={(e) => handleChangeRadio(e.target.id)}
-            name="radioBtn"
-            id="2"
-            type="radio"
-          />
+          <div className={styles.form_radio}>
+            <input
+              id="2"
+              type="radio"
+              name="radio"
+              onClick={(e) => handleChangeRadio(e.target.id)}
+            />
+            <label for="2"></label>
+          </div>
           <p className={styles.itemText}>Express delivery</p>
         </li>
         <li className={styles.item}>
-          <input
-            onClick={(e) => handleChangeRadio(e.target.id)}
-            name="radioBtn"
-            id="3"
-            type="radio"
-          />
+          <div className={styles.form_radio}>
+            <input
+              id="3"
+              type="radio"
+              name="radio"
+              onClick={(e) => handleChangeRadio(e.target.id)}
+            />
+            <label for="3"></label>
+          </div>
+
           <p className={styles.itemText}>Store pickup</p>
         </li>
       </ul>
-      {radio === "1" && <PickupPost />}
-      {radio === "2" && <Express />}
-      {radio === "3" && <StorePickup />}
-      <div className={styles.containerAgree}>
-        <input type="checkbox" name="" id="" />
-        <p className={styles.textAgree}>
-          I agree to the processing of my personal information
-        </p>
-      </div>
+
+      {radio === "1" && (
+        <PickupPost
+          type={type}
+          setType={setType}
+          total={total}
+          formik={formik}
+          errorCheckbox={errorCheckbox}
+          setErrorCheckbox={setErrorCheckbox}
+        />
+      )}
+      {radio === "2" && (
+        <Express
+          type={type}
+          setType={setType}
+          total={total}
+          errorCheckbox={errorCheckbox}
+          setErrorCheckbox={setErrorCheckbox}
+          formik={formikExpress}
+        />
+      )}
+      {radio === "3" && (
+        <StorePickup
+          type={type}
+          setType={setType}
+          total={total}
+          errorCheckbox={errorCheckbox}
+          setErrorCheckbox={setErrorCheckbox}
+          formik={formikStore}
+          setValues={setValues}
+          valuesNew={valuesNew}
+        />
+      )}
     </>
   );
 };
