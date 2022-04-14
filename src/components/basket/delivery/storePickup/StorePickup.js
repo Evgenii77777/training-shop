@@ -20,13 +20,15 @@ const StorePickup = ({
   let [showCities, setShowCities] = useState(false);
   let [arrow, setArrow] = useState(null);
 
-  let [showCountry, setShowCountry] = useState(false);
+  let [showCountry, setShowCountry] = useState(true);
   let [arrowCountry, setArrowCountry] = useState(null);
 
   const cities = useSelector((state) => state.cities.cities);
   const countryName = useSelector((state) => state.country.country);
 
-  countryName.map((el) => el.map((item) => console.log(item.name)));
+  const handleFocusCountry = () => {
+    setShowCountry((showCountry = false));
+  };
 
   const handleChange = (event) => {
     setValues((prevValues) => ({
@@ -156,6 +158,7 @@ const StorePickup = ({
                 placeholder="Country"
                 onChange={(e) => handleChangeCountry(e)}
                 onBlur={formik.handleBlur}
+                onMouseEnter={() => handleFocusCountry()}
                 value={valuesNew.country}
               />
               {countryName !== null && countryName.length !== 0 && (
@@ -172,11 +175,7 @@ const StorePickup = ({
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M19.5 15L12 7.5L4.5 15"
-                          stroke="#9C9C9C"
-                          stroke-linecap="round"
-                        />
+                        <path d="M19.5 15L12 7.5L4.5 15" stroke="#9C9C9C" />
                       </svg>
                     </button>
                   ) : (
@@ -192,12 +191,7 @@ const StorePickup = ({
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <g opacity="0.6">
-                          <path
-                            d="M19 9L12 16L5 9"
-                            stroke="#121212"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
+                          <path d="M19 9L12 16L5 9" stroke="#121212" />
                         </g>
                       </svg>
                     </button>
@@ -270,11 +264,7 @@ const StorePickup = ({
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M19.5 15L12 7.5L4.5 15"
-                          stroke="#9C9C9C"
-                          stroke-linecap="round"
-                        />
+                        <path d="M19.5 15L12 7.5L4.5 15" stroke="#9C9C9C" />
                       </svg>
                     </button>
                   ) : (
@@ -290,12 +280,7 @@ const StorePickup = ({
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <g opacity="0.6">
-                          <path
-                            d="M19 9L12 16L5 9"
-                            stroke="#121212"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
+                          <path d="M19 9L12 16L5 9" stroke="#121212" />
                         </g>
                       </svg>
                     </button>

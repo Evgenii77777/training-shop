@@ -12,6 +12,13 @@ const PickupPost = ({
   errorCheckbox,
   setErrorCheckbox,
 }) => {
+  // const inp = document.getElementById("house");
+  // if (inp !== null && inp !== undefined) {
+  //   console.log(inp.value);
+  // }
+  // console.log(formik.values.house);
+  // console.log("ha");
+
   return (
     <>
       <div className={styles.form} data-test-id="review-modal" id="top">
@@ -231,6 +238,7 @@ const PickupPost = ({
             ...formik.values,
             deliveryMethod: "Pickup from post offices",
           }}
+          formik={formik}
           isValid={formik.isValid}
           dirty={formik.dirty}
           type={type}
