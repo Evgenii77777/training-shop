@@ -16,19 +16,23 @@ const ButtonFurther = ({
   const onHandlePayment = () => {
     const agree = document.getElementById("agree");
 
-    if (agree !== null && agree.checked === true) {
-      setType((type = "Payment"));
-      dispatch(addPickup({ ...values }));
-      const navBar = document.querySelectorAll(".textBar");
-      if (navBar.length !== 0) {
-        navBar[1].classList.remove("firstBtn");
-        navBar[2].classList.add("firstBtn");
+    if (isValid) {
+      if (agree !== null && agree.checked === true) {
+        setType((type = "Payment"));
+        dispatch(addPickup({ ...values }));
+        const navBar = document.querySelectorAll(".textBar");
+        if (navBar.length !== 0) {
+          navBar[1].classList.remove("firstBtn");
+          navBar[2].classList.add("firstBtn");
+        }
+      } else {
+        setErrorCheckbox((errorCheckbox = true));
+      }
+      if (agree.checked === false) {
+        setErrorCheckbox((errorCheckbox = true));
       }
     } else {
-      setErrorCheckbox((errorCheckbox = true));
-    }
-    if (agree.checked === false) {
-      setErrorCheckbox((errorCheckbox = true));
+      agree.checked = false;
     }
   };
   const onHandleBackToItem = () => {
@@ -42,7 +46,7 @@ const ButtonFurther = ({
     <div className={styles.btnWrapper}>
       <button
         className={styles.btnWrapperFirst}
-        disabled={!isValid || !dirty}
+        // disabled={!isValid || !dirty}
         onClick={() => onHandlePayment()}
       >
         Further

@@ -76,7 +76,7 @@ const Express = ({
                 placeholder="Country"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.adress}
+                value={formik.values.country}
               />
             </label>
             {formik.touched.country && formik.errors.country && (
