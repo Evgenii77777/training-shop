@@ -52,7 +52,7 @@ const Payment = ({
               <input
                 id="paypal"
                 type="radio"
-                name="radio"
+                name="card"
                 onClick={(e) => onChangeCash(e)}
               />
               <label htmlFor="paypal"></label>
@@ -67,7 +67,7 @@ const Payment = ({
               <input
                 id="cardVisa"
                 type="radio"
-                name="radio"
+                name="card"
                 onClick={(e) => onChangeCash(e)}
               />
               <label htmlFor="cardVisa"></label>
@@ -81,7 +81,7 @@ const Payment = ({
               <input
                 id="card"
                 type="radio"
-                name="radio"
+                name="card"
                 onClick={(e) => onChangeCash(e)}
               />
               <label htmlFor="card"></label>
@@ -95,7 +95,7 @@ const Payment = ({
               <input
                 id="cash"
                 type="radio"
-                name="radio"
+                name="card"
                 onClick={(e) => onChangeCash(e)}
               />
               <label htmlFor="cash"></label>

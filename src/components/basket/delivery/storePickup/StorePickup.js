@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../pickupPost/PickupPost.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
-import { fetchCountry } from "../../../../redux/thunk/asincThunk/getCountryThunk";
 import ButtonFurther from "../../buttonFurther/ButtonFurther";
 import Total from "../../total/Total";
 import { postCity } from "../../../../redux/thunk/asincThunk/postDeliveryCity";
@@ -23,10 +22,6 @@ const StorePickup = ({
 
   let [showCountry, setShowCountry] = useState(false);
   let [arrowCountry, setArrowCountry] = useState(null);
-
-  useEffect(() => {
-    dispatch(fetchCountry());
-  }, [dispatch]);
 
   const cities = useSelector((state) => state.cities.cities);
   const countryName = useSelector((state) => state.country.country);
