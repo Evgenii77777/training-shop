@@ -35,6 +35,8 @@ const ButtonFurther = ({
       }
     } else {
       agree.checked = false;
+      formik.handleSubmit();
+      setErrorCheckbox((errorCheckbox = true));
     }
   };
   const onHandleBackToItem = () => {

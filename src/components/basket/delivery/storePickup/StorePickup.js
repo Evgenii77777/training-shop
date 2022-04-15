@@ -36,7 +36,7 @@ const StorePickup = ({
       [event.target.name]: event.target.value,
     }));
     formik.values.storeAddress = event.target.value;
-    if (valuesNew.storeAddress.length >= 3) {
+    if (valuesNew.storeAddress.length >= 2) {
       dispatch(
         postCity({
           city: valuesNew.storeAddress,
@@ -158,7 +158,8 @@ const StorePickup = ({
                 placeholder="Country"
                 onChange={(e) => handleChangeCountry(e)}
                 onBlur={formik.handleBlur}
-                onMouseEnter={() => handleFocusCountry()}
+                // onMouseEnter={() => handleFocusCountry()}
+                onFocus={() => handleFocusCountry()}
                 value={valuesNew.country}
               />
               {countryName !== null && countryName.length !== 0 && (
@@ -366,6 +367,7 @@ const StorePickup = ({
             ...formik.values,
             deliveryMethod: "Store pickup",
           }}
+          formik={formik}
           isValid={formik.isValid}
           dirty={formik.dirty}
           type={type}

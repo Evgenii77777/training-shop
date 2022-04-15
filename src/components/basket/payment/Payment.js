@@ -22,9 +22,18 @@ const Payment = ({
   setCash,
 }) => {
   let [show, setShow] = useState(true);
-
   const onChangeCash = (e) => {
     setCash((cash = e.target.id));
+    const allRad = document.querySelectorAll(".noChecked");
+    if (e.target.checked) {
+      allRad.forEach(
+        (el) => el.classList.remove("checked") && el.classList.add("noChecked")
+      );
+      e.target.parentElement.classList.add("checked");
+    } else {
+      e.target.parentElement.classList.remove("checked");
+      e.target.parentElement.classList.add("noChecked");
+    }
   };
 
   useEffect(() => {
@@ -49,13 +58,20 @@ const Payment = ({
         <ul className={styles.list}>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <input
+              {/* <input
                 id="paypal"
                 type="radio"
                 name="card"
                 onClick={(e) => onChangeCash(e)}
-              />
-              <label htmlFor="paypal"></label>
+              /> */}
+              <label htmlFor="paypal" className="noChecked">
+                <input
+                  id="paypal"
+                  type="radio"
+                  name="card"
+                  onClick={(e) => onChangeCash(e)}
+                />
+              </label>
             </div>
 
             <div className={styles.container}>
@@ -64,13 +80,14 @@ const Payment = ({
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <input
-                id="cardVisa"
-                type="radio"
-                name="card"
-                onClick={(e) => onChangeCash(e)}
-              />
-              <label htmlFor="cardVisa"></label>
+              <label htmlFor="cardVisa" className="noChecked checked">
+                <input
+                  id="cardVisa"
+                  type="radio"
+                  name="card"
+                  onClick={(e) => onChangeCash(e)}
+                />
+              </label>
             </div>
             <div className={styles.container}>
               <img src={Im2} alt="Visa" />
@@ -78,13 +95,14 @@ const Payment = ({
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <input
-                id="card"
-                type="radio"
-                name="card"
-                onClick={(e) => onChangeCash(e)}
-              />
-              <label htmlFor="card"></label>
+              <label htmlFor="card" className="noChecked">
+                <input
+                  id="card"
+                  type="radio"
+                  name="card"
+                  onClick={(e) => onChangeCash(e)}
+                />
+              </label>
             </div>
             <div className={styles.container}>
               <img src={Im3} alt="Master" />
@@ -92,15 +110,16 @@ const Payment = ({
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <input
-                id="cash"
-                type="radio"
-                name="card"
-                onClick={(e) => onChangeCash(e)}
-              />
-              <label htmlFor="cash"></label>
+              <label htmlFor="cash" className="noChecked">
+                <input
+                  id="cash"
+                  type="radio"
+                  name="card"
+                  onClick={(e) => onChangeCash(e)}
+                />
+                <p className={styles.text}>Cash</p>
+              </label>
             </div>
-            <p className={styles.text}>Cash</p>
           </li>
         </ul>
         <form>
