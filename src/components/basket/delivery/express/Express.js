@@ -212,6 +212,7 @@ const Express = ({
           setType={setType}
           errorCheckbox={errorCheckbox}
           setErrorCheckbox={setErrorCheckbox}
+          formik={formik}
         />
       </div>
     </>

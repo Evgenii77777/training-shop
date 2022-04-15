@@ -144,9 +144,9 @@ const Basket = () => {
       house: "",
       apartment: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    // onSubmit: (values) => {
+    //   console.log(values);
+    // },
     validationSchema: validationsSchemaExpress,
   });
 

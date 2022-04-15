@@ -20,10 +20,20 @@ const Delivery = ({
   let [errorCheckbox, setErrorCheckbox] = useState(false);
   const dispatch = useDispatch();
 
-  const handleChangeRadio = (id) => {
+  const handleChangeRadio = (id, e) => {
     setRadio((radio = id));
     if (radio === "3") {
       dispatch(fetchCountry());
+    }
+    const allRad = document.querySelectorAll(".noChecked");
+    if (e.target.checked) {
+      allRad.forEach(
+        (el) => el.classList.remove("checked") && el.classList.add("noChecked")
+      );
+      e.target.parentElement.classList.add("checked");
+    } else {
+      e.target.parentElement.classList.remove("checked");
+      e.target.parentElement.classList.add("noChecked");
     }
   };
 
@@ -40,37 +50,58 @@ const Delivery = ({
       <ul className={styles.list}>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <input
+            {/* <input
               id="1"
               type="radio"
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
-            />
-            <label htmlFor="1"></label>
+            /> */}
+            <label htmlFor="1" className="noChecked checked">
+              <input
+                id="1"
+                type="radio"
+                name="radio"
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
+              />
+            </label>
           </div>
           <p className={styles.itemText}>Pickup from post offices</p>
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <input
+            {/* <input
               id="2"
               type="radio"
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
-            />
-            <label htmlFor="2"></label>
+            /> */}
+            <label htmlFor="2" className="noChecked">
+              <input
+                id="2"
+                type="radio"
+                name="radio"
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
+              />
+            </label>
           </div>
           <p className={styles.itemText}>Express delivery</p>
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <input
+            {/* <input
               id="3"
               type="radio"
               name="radio"
               onClick={(e) => handleChangeRadio(e.target.id)}
-            />
-            <label htmlFor="3"></label>
+            /> */}
+            <label htmlFor="3" className="noChecked">
+              <input
+                id="3"
+                type="radio"
+                name="radio"
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
+              />
+            </label>
           </div>
 
           <p className={styles.itemText}>Store pickup</p>
