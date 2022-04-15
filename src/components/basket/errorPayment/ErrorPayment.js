@@ -3,7 +3,15 @@ import { useSelector } from "react-redux";
 import ButtonError from "../buttonError/ButtonError";
 import styles from "../fulfieldPayment/FulfieldPayment.module.css";
 
-const ErrorPayment = ({ type, setType }) => {
+const ErrorPayment = ({
+  type,
+  setType,
+  formik,
+  formikStore,
+  formikExpress,
+  formikPayment,
+  formikPaymentPaypal,
+}) => {
   const message = useSelector((state) => state.basket.message);
   console.log(message);
   return (
@@ -16,7 +24,15 @@ const ErrorPayment = ({ type, setType }) => {
         {message && <p className={styles.text}>{message}</p>}
       </div>
       <div>
-        <ButtonError type={type} setType={setType} />
+        <ButtonError
+          type={type}
+          setType={setType}
+          formik={formik}
+          formikExpress={formikExpress}
+          formikPayment={formikPayment}
+          formikStore={formikStore}
+          formikPaymentPaypal={formikPaymentPaypal}
+        />
       </div>
     </>
   );
