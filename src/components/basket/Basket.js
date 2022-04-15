@@ -221,7 +221,7 @@ const Basket = () => {
 
   const formikPayment = useFormik({
     initialValues: {
-      cart: "",
+      cashEmail: "",
       cardDate: "",
       cardCVV: "",
     },
@@ -293,8 +293,32 @@ const Basket = () => {
               </div>
             ) : (
               <div className={styles.notEmptyBasket}>
+                {status === "error" && (
+                  <ErrorPayment
+                    type={type}
+                    setType={setType}
+                    error={error}
+                    setError={setError}
+                  />
+                )}
+                {status === "resolved" && (
+                  <FulfieldPayment
+                    open={open}
+                    toggleBasket={toggleBasket}
+                    dispatch={dispatch}
+                    fulfield={fulfield}
+                    setFulfield={setFulfield}
+                    type={type}
+                    setType={setType}
+                    formik={formik}
+                    formikExpress={formikExpress}
+                    formikPayment={formikPayment}
+                    formikStore={formikStore}
+                    formikPaymentPaypal={formikPaymentPaypal}
+                  />
+                )}
                 {status === undefined || status === null || status === "" ? (
-                  <div>
+                  <div className={styles.deliveryContainer}>
                     <NavBarBasket />
                     {type === "Item in Cart" && (
                       <>
@@ -399,32 +423,7 @@ const Basket = () => {
                     )}
                   </div>
                 ) : (
-                  <div>
-                    {status === "error" && (
-                      <ErrorPayment
-                        type={type}
-                        setType={setType}
-                        error={error}
-                        setError={setError}
-                      />
-                    )}
-                    {status === "resolved" && (
-                      <FulfieldPayment
-                        open={open}
-                        toggleBasket={toggleBasket}
-                        dispatch={dispatch}
-                        fulfield={fulfield}
-                        setFulfield={setFulfield}
-                        type={type}
-                        setType={setType}
-                        formik={formik}
-                        formikExpress={formikExpress}
-                        formikPayment={formikPayment}
-                        formikStore={formikStore}
-                        formikPaymentPaypal={formikPaymentPaypal}
-                      />
-                    )}
-                  </div>
+                  <></>
                 )}
               </div>
             )}

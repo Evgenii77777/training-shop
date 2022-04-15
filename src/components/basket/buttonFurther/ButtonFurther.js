@@ -48,7 +48,7 @@ const ButtonFurther = ({
   };
   return (
     <div className={styles.btnWrapper}>
-      <button
+      <button type="button"
         className={styles.btnWrapperFirst}
         onClick={() => onHandlePayment()}
       >

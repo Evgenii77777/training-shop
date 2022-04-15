@@ -17,8 +17,8 @@ const Express = ({
       <div className={styles.form} data-test-id="review-modal" id="top">
         <ul>
           <li className={styles.item}>
-            <p className={styles.text}>PHONE</p>
             <label htmlFor="phone" className={styles.labelFirst}>
+              <p className={styles.text}>PHONE</p>
               <InputMask
                 mask="+999 (99)9999999"
                 className={
@@ -62,8 +62,8 @@ const Express = ({
             )}
           </li>
           <li className={styles.item}>
-            <p className={styles.text}>ADRESS</p>
             <label htmlFor="country" className={styles.labelFirst}>
+              <p className={styles.text}>ADRESS</p>
               <input
                 className={
                   formik.touched.adress && formik.errors.adress
@@ -198,7 +198,7 @@ const Express = ({
           </p>
         )}
       </div>
-      <div>
+      <div className={styles.bottomDelivery}>
         <Total total={total} />
 
         <ButtonFurther

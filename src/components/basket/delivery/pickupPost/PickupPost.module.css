@@ -1,179 +1,181 @@
-.form{
-    height: 30vh;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+.form {
+  height: 30vh;
+  width: 100%;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
 }
-.text{
-    padding-left: 0;
-    margin-bottom: 8px;
-    text-align: left;
-    font-family: 'Spartan';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 1.5;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #121212;
-    opacity: 1;
+.text {
+  padding-left: 0;
+  margin-bottom: 8px;
+  text-align: left;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 1;
 }
-.item{
-    margin-bottom: 36px;
+.item {
+  margin-bottom: 36px;
 }
-.inputFirst{
-    width: 100%;
-    padding: 15px 0 15px 16px;
-    background: #F8F8F8;
-    border: 1px solid #FFFFFF;
-    box-sizing: border-box;
+.inputFirst {
+  width: 100%;
+  padding: 15px 0 15px 16px;
+  background: #f8f8f8;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
 }
-.inputError{
-    width: 100%;
-    padding: 15px 0 15px 16px;
-    background: #F8F8F8;
-    border: 1px solid #D61313;
-    box-sizing: border-box;
+.inputError {
+  width: 100%;
+  padding: 15px 0 15px 16px;
+  background: #f8f8f8;
+  border: 1px solid #d61313;
+  box-sizing: border-box;
 }
-.inputFirst::placeholder{
-    font-family: 'Spartan';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.29;
-    color: #9C9C9C;
+.inputFirst::placeholder {
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #9c9c9c;
 }
-.wrapperAdress{
-    display: flex;
+.wrapperAdress {
+  display: flex;
 }
-.errorEmail{
-    padding-left: 0;
-    margin-top: 6px;
-    text-align: left;
-    font-family: 'Spartan';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 1.64;
-    color: #D61313;
+.errorEmail {
+  padding-left: 0;
+  margin-top: 6px;
+  text-align: left;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.64;
+  color: #d61313;
 }
 
-.option{     
-    color: #121212;
-    width: 100%;
-    height: 20px;
-    padding: 15px 0 15px 16px;
-    background: #F8F8F8;
-    border: 1px solid #FFFFFF;
-    box-sizing: border-box;
+.option {
+  color: #121212;
+  width: 100%;
+  height: 20px;
+  padding: 15px 0 15px 16px;
+  background: #f8f8f8;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
 }
 .containerAgree {
-    display: flex;
+  display: flex;
 }
 .textAgree {
-    padding-left: 12px;
-    text-align: left;
-    font-family: 'Spartan';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.57;
-    color: #121212;
-    opacity: 1;
+  padding-left: 12px;
+  text-align: left;
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #121212;
+  opacity: 1;
 }
-
 
 /* checkbox */
 
 .customcheckbox {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
 }
-.checkbox{
-    width: 24px;
-    height: 24px;
+.checkbox {
+  width: 24px;
+  height: 24px;
 }
-
 
 .customcheckbox input {
-    -webkit-appearance: none; 
-    position: absolute;
-    z-index: -1;
-    opacity: 1;
-    width: 0;
-    height: 0;
+  -webkit-appearance: none;
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+  width: 0;
+  height: 0;
 }
 .errorCheck {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #D61313;
-    background-color: inherit;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d61313;
+  background-color: inherit;
 }
 
 .checkbox {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #E6E6E6;
-    background: inherit;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e6e6e6;
+  background: inherit;
 }
 
 .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: auto;
-    display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  display: none;
 }
 
-.customcheckbox input:checked~.checkbox .checkmark {
-    display: block; 
+.customcheckbox input:checked ~ .checkbox .checkmark {
+  display: block;
 }
 
-.customcheckbox input:checked~.checkbox {
-border: 1px solid #121212;
-    background: inherit;
- 
+.customcheckbox input:checked ~ .checkbox {
+  border: 1px solid #121212;
+  background: inherit;
 }
 
-
-.citiesContainerShow{
-    display: none;
+.citiesContainerShow {
+  display: none;
 }
 .citiesItem {
-    width: 100%;
+  width: 100%;
 }
 
 .citiesBtn {
-    width: 100%;
-    padding: 15px 0 15px 16px;
-    border: none;
-    text-align: left;
-    align-items: left;
-    background: #FFFFFF;
-    border: 1px solid #F8F8F8;
+  width: 100%;
+  padding: 15px 0 15px 16px;
+  border: none;
+  text-align: left;
+  align-items: left;
+  background: #ffffff;
+  border: 1px solid #f8f8f8;
 }
-.citiesBtnBlack{
-width: 100%;
-padding: 15px 0 15px 16px;
-border: none;
-text-align: left;
-align-items: left;
-background: #F8F8F8;
+.citiesBtnBlack {
+  width: 100%;
+  padding: 15px 0 15px 16px;
+  border: none;
+  text-align: left;
+  align-items: left;
+  background: #f8f8f8;
 }
-.labelFirst{
-    position: relative;
+.labelFirst {
+  position: relative;
 }
-.citiesBtnTop{
-    position: absolute;
-    top: 0;
-    right: 12px;
-    border: none;
-    background-color: inherit;
+.citiesBtnTop {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  border: none;
+  background-color: inherit;
+}
+.bottomDelivery {
+  width: calc(100% - 48px);
+  position: absolute;
+  bottom: 0;
+  left: 24px;
 }

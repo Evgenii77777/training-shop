@@ -6,14 +6,23 @@ import styles from "../Basket.module.css";
 const ButtonError = ({ type, setType }) => {
   const status = useSelector((state) => state.cart.status);
   const dispatch = useDispatch();
-
+  const navBar = document.querySelectorAll(".textBar");
+  console.log(navBar);
   const onHandleBackToPayment = () => {
     setType((type = "Payment"));
     dispatch(order(status));
+    // const navBar = document.querySelectorAll(".textBar");
+
+    // navBar[2].classList.add("firstBtn");
   };
   const onHandleBackToCart = () => {
     setType((type = "Item in Cart"));
     dispatch(order(status));
+    const navBar = document.querySelectorAll(".textBar");
+    if (navBar.length !== 0) {
+      navBar[2].classList.remove("firstBtn");
+      navBar[0].classList.add("firstBtn");
+    }
   };
 
   return (
