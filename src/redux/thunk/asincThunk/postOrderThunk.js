@@ -5,16 +5,13 @@ export const orderPost = createAsyncThunk(
   "order/postOrderCountry",
   async function (text, { rejectWithValue, dispatch }) {
     try {
-      const response = await fetch(
-        "https://training.ccleverland.by/shop/cart",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(text),
-        }
-      );
+      const response = await fetch("https://training.cleverland.by/shop/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(text),
+      });
       if (!response.ok) {
         throw new Error("Can't add task. Server error.");
       }
