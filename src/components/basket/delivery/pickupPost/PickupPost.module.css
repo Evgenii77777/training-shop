@@ -168,7 +168,14 @@
 }
 .citiesBtnTop {
   position: absolute;
-  top: 0;
+  top: 36px;
+  right: 12px;
+  border: none;
+  background-color: inherit;
+}
+.citiesBtnTopSecond {
+  position: absolute;
+  top: 0px;
   right: 12px;
   border: none;
   background-color: inherit;

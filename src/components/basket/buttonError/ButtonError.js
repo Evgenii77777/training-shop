@@ -11,6 +11,8 @@ const ButtonError = ({
   formikExpress,
   formikPayment,
   formikPaymentPaypal,
+  setValues,
+  valuesNew,
 }) => {
   const status = useSelector((state) => state.cart.status);
   const dispatch = useDispatch();
@@ -36,6 +38,14 @@ const ButtonError = ({
     formikExpress.resetForm();
     formikPayment.resetForm();
     formikPaymentPaypal.resetForm();
+    setValues(
+      (valuesNew = {
+        phone: "",
+        email: "",
+        storeAddress: "",
+        country: "",
+      })
+    );
   };
 
   return (
