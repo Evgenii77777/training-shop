@@ -3,7 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { order } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";
 
-const ButtonError = ({ type, setType }) => {
+const ButtonError = ({
+  type,
+  setType,
+  formik,
+  formikStore,
+  formikExpress,
+  formikPayment,
+  formikPaymentPaypal,
+}) => {
   const status = useSelector((state) => state.cart.status);
   const dispatch = useDispatch();
   const navBar = document.querySelectorAll(".textBar");
@@ -23,6 +31,11 @@ const ButtonError = ({ type, setType }) => {
       navBar[2].classList.remove("firstBtn");
       navBar[0].classList.add("firstBtn");
     }
+    formik.resetForm();
+    formikStore.resetForm();
+    formikExpress.resetForm();
+    formikPayment.resetForm();
+    formikPaymentPaypal.resetForm();
   };
 
   return (

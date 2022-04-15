@@ -205,7 +205,7 @@ const Basket = () => {
   const yearRegExp = /(\d{2})(\/)(\d{2})/;
   const cvvRegExp = /(\d{3})/;
   const validationsSchemaPayment = yup.object().shape({
-    cart: yup
+    card: yup
       .string()
       .required("Поле должно быть заполнено")
       .matches(cartRegExp, "Неправильный номер"),
@@ -221,7 +221,7 @@ const Basket = () => {
 
   const formikPayment = useFormik({
     initialValues: {
-      cashEmail: "",
+      card: "",
       cardDate: "",
       cardCVV: "",
     },
@@ -299,6 +299,11 @@ const Basket = () => {
                     setType={setType}
                     error={error}
                     setError={setError}
+                    formik={formik}
+                    formikExpress={formikExpress}
+                    formikPayment={formikPayment}
+                    formikStore={formikStore}
+                    formikPaymentPaypal={formikPaymentPaypal}
                   />
                 )}
                 {status === "resolved" && (
