@@ -59,12 +59,6 @@ const Payment = ({
         <ul className={styles.list}>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              {/* <input
-                id="paypal"
-                type="radio"
-                name="card"
-                onClick={(e) => onChangeCash(e)}
-              /> */}
               <label htmlFor="paypal" className="noChecked">
                 <input
                   id="paypal"
@@ -112,14 +106,13 @@ const Payment = ({
           <li className={styles.item}>
             <div className={styles.form_radio}>
               <label htmlFor="cash" className="noChecked cashText">
-                {/* Cash */}
                 <input
                   id="cash"
                   type="radio"
                   name="card"
                   onClick={(e) => onChangeCash(e)}
                 />
-                <p className={styles.text}>Cash</p>
+                {/* <p className={styles.text}>Cash</p> */}Cash
               </label>
             </div>
           </li>
