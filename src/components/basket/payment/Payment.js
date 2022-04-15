@@ -22,6 +22,7 @@ const Payment = ({
   setCash,
 }) => {
   let [show, setShow] = useState(true);
+
   const onChangeCash = (e) => {
     setCash((cash = e.target.id));
     const allRad = document.querySelectorAll(".noChecked");
@@ -53,7 +54,7 @@ const Payment = ({
 
   return (
     <>
-      <div>
+      <div className={styles.paymentContainer}>
         <h4 className={styles.title}>Method of payments</h4>
         <ul className={styles.list}>
           <li className={styles.item}>
@@ -95,9 +96,9 @@ const Payment = ({
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label htmlFor="card" className="noChecked">
+              <label htmlFor="masterCard" className="noChecked">
                 <input
-                  id="card"
+                  id="masterCard"
                   type="radio"
                   name="card"
                   onClick={(e) => onChangeCash(e)}
@@ -110,7 +111,8 @@ const Payment = ({
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label htmlFor="cash" className="noChecked">
+              <label htmlFor="cash" className="noChecked cashText">
+                {/* Cash */}
                 <input
                   id="cash"
                   type="radio"
@@ -123,10 +125,10 @@ const Payment = ({
           </li>
         </ul>
         <form>
-          {cash === "cardVisa" || cash === "card" ? (
+          {cash === "cardVisa" || cash === "masterCard" ? (
             <>
-              <p className={styles.formText}>CARD</p>
               <label htmlFor="cart">
+                <p className={styles.formText}>Card</p>
                 <InputMask
                   mask="9999 9999 9999 9999"
                   className={
@@ -256,8 +258,8 @@ const Payment = ({
           )}
           {cash === "paypal" && (
             <>
-              <p className={styles.formText}>E-MAIL</p>
               <label htmlFor="cashEmail" className={styles.labelFirst}>
+                <p className={styles.formText}>E-mail</p>
                 <input
                   className={
                     formikPaypal.touched.cart && formikPaypal.errors.cart
@@ -275,7 +277,7 @@ const Payment = ({
               </label>
               {formikPaypal.touched.cashEmail &&
                 formikPaypal.errors.cashEmail && (
-                  <p formikPaypalclassName={styles.errorEmail}>
+                  <p className={styles.errorEmail}>
                     {formikPaypal.errors.cashEmail}
                   </p>
                 )}
@@ -283,7 +285,7 @@ const Payment = ({
           )}
           {cash === "cash" && <></>}
         </form>
-        <div>
+        <div className={styles.topPayment}>
           <Total total={total} />
           <ButtonPayment
             type={type}
@@ -300,7 +302,7 @@ const Payment = ({
             fulfield={fulfield}
             setFulfield={setFulfield}
             status={status}
-            formikPayment={formikPaypal}
+            formikPaypal={formikPaypal}
           />
         </div>
       </div>

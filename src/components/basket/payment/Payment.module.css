@@ -131,3 +131,10 @@
   border: none;
   background-color: inherit;
 }
+
+.topPayment {
+  width: calc(100% - 48px);
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+}

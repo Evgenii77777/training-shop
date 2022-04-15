@@ -50,12 +50,6 @@ const Delivery = ({
       <ul className={styles.list}>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            {/* <input
-              id="1"
-              type="radio"
-              name="radio"
-              onClick={(e) => handleChangeRadio(e.target.id)}
-            /> */}
             <label htmlFor="1" className="noChecked checked">
               <input
                 id="1"
@@ -69,12 +63,6 @@ const Delivery = ({
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            {/* <input
-              id="2"
-              type="radio"
-              name="radio"
-              onClick={(e) => handleChangeRadio(e.target.id)}
-            /> */}
             <label htmlFor="2" className="noChecked">
               <input
                 id="2"
@@ -88,12 +76,6 @@ const Delivery = ({
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            {/* <input
-              id="3"
-              type="radio"
-              name="radio"
-              onClick={(e) => handleChangeRadio(e.target.id)}
-            /> */}
             <label htmlFor="3" className="noChecked">
               <input
                 id="3"

@@ -25,9 +25,8 @@ const PickupPost = ({
         <div className={styles.form} data-test-id="review-modal" id="top">
           <ul>
             <li className={styles.item}>
-              <p className={styles.text}>PHONE</p>
-
               <label htmlFor="phone" className={styles.labelFirst}>
+                <p className={styles.text}>PHONE</p>
                 <InputMask
                   mask="+999 (99)9999999"
                   className={
@@ -49,8 +48,8 @@ const PickupPost = ({
               )}
             </li>
             <li className={styles.item}>
-              <p className={styles.text}>e-mail</p>
               <label htmlFor="email" className={styles.labelFirst}>
+                <p className={styles.text}>e-mail</p>
                 <input
                   className={
                     formik.touched.email && formik.errors.email
@@ -71,8 +70,8 @@ const PickupPost = ({
               )}
             </li>
             <li className={styles.item}>
-              <p className={styles.text}>ADRESS</p>
               <label htmlFor="country" className={styles.labelFirst}>
+                <p className={styles.text}>ADRESS</p>
                 <input
                   className={
                     formik.touched.country && formik.errors.country
@@ -170,9 +169,8 @@ const PickupPost = ({
               </div>
             </li>
             <li className={styles.item}>
-              <p className={styles.text}>POSTcode</p>
-
               <label htmlFor="postcode" className={styles.labelFirst}>
+                <p className={styles.text}>POSTcode</p>
                 <InputMask
                   mask="BY 999999"
                   className={
@@ -233,7 +231,7 @@ const PickupPost = ({
           )}
         </div>
       </form>
-      <div>
+      <div className={styles.bottomDelivery}>
         <Total total={total} />
         <ButtonFurther
           values={{

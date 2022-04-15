@@ -98,8 +98,8 @@ const StorePickup = ({
       <div className={styles.form} data-test-id="review-modal" id="top">
         <ul>
           <li className={styles.item}>
-            <p className={styles.text}>PHONE</p>
             <label htmlFor="phone" className={styles.labelFirst}>
+              <p className={styles.text}>PHONE</p>
               <InputMask
                 mask="+999 (99)9999999"
                 className={
@@ -144,8 +144,8 @@ const StorePickup = ({
           </li>
 
           <li className={styles.item}>
-            <p className={styles.text}>ADRESS of store</p>
             <label htmlFor="country" className={styles.labelFirst}>
+              <p className={styles.text}>ADRESS of store</p>
               <input
                 className={
                   formik.touched.email && formik.errors.email
@@ -359,7 +359,7 @@ const StorePickup = ({
           </p>
         )}
       </div>
-      <div>
+      <div className={styles.bottomDelivery}>
         <Total total={total} />
 
         <ButtonFurther

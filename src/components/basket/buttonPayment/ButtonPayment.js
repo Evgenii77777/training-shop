@@ -4,43 +4,47 @@ import { orderPost } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";
 
 const ButtonPayment = ({
-  isValid,
-  dirty,
-  type,
   setType,
+  type,
   cash,
-  isValidPaypal,
-  dirtyPaypal,
   total,
   formik,
-  formikPayment,
+  formikPaypal,
 }) => {
   const dispatch = useDispatch();
   const delivery = useSelector((state) => state.order.pickup);
   const orderProducts = useSelector((state) => state.order.products);
 
   const onHandleOrder = () => {
-    dispatch(
-      orderPost({
-        products: [orderProducts],
-        ...delivery,
-        totalPrice: `${total}`,
-        ...formik.values,
-        paymentMethod: "Card",
-      })
-    );
+    if (formik.isValid && formik.dirty) {
+      dispatch(
+        orderPost({
+          products: [orderProducts],
+          ...delivery,
+          totalPrice: `${total}`,
+          ...formik.values,
+          paymentMethod: "Card",
+        })
+      );
+    } else {
+      formik.handleSubmit();
+    }
   };
 
   const onHandleOrderPayment = () => {
-    dispatch(
-      orderPost({
-        products: [orderProducts],
-        ...delivery,
-        totalPrice: `${total}`,
-        ...formikPayment.values,
-        paymentMethod: "PayPal",
-      })
-    );
+    if (formikPaypal.isValid && formikPaypal.dirty) {
+      dispatch(
+        orderPost({
+          products: [orderProducts],
+          ...delivery,
+          totalPrice: `${total}`,
+          ...formikPaypal.values,
+          paymentMethod: "PayPal",
+        })
+      );
+    } else {
+      formikPaypal.handleSubmit();
+    }
   };
 
   const onHandleOrderCash = () => {
@@ -65,10 +69,10 @@ const ButtonPayment = ({
 
   return (
     <div className={styles.btnWrapper}>
-      {cash === "card" || cash === "cardVisa" ? (
+      {cash === "masterCard" || cash === "cardVisa" ? (
         <button
+          type="button"
           className={styles.btnWrapperFirst}
-          disabled={!isValid || !dirty}
           onClick={() => onHandleOrder()}
         >
           Check Out
@@ -78,8 +82,8 @@ const ButtonPayment = ({
       )}
       {cash === "paypal" && (
         <button
+          type="button"
           className={styles.btnWrapperFirst}
-          disabled={!isValidPaypal || !dirtyPaypal}
           onClick={() => onHandleOrderPayment()}
         >
           Check Out
@@ -87,6 +91,7 @@ const ButtonPayment = ({
       )}
       {cash === "cash" && (
         <button
+          type="button"
           className={styles.btnWrapperFirst}
           onClick={() => onHandleOrderCash()}
         >
