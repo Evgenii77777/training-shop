@@ -234,11 +234,12 @@ const StorePickup = ({
               <p className={styles.errorEmail}>{formik.errors.country}</p>
             )}
           </li>
+
           <li className={styles.item}>
             <label htmlFor="storeAddress" className={styles.labelFirst}>
               <input
                 className={
-                  formik.touched.adress && formik.errors.adress
+                  formik.touched.storeAddress && formik.errors.storeAddress
                     ? styles.inputError
                     : styles.inputFirst
                 }
@@ -255,7 +256,7 @@ const StorePickup = ({
                 <>
                   {arrow === true ? (
                     <button
-                      className={styles.citiesBtnTop}
+                      className={styles.citiesBtnTopSecond}
                       onClick={() => handleArrow()}
                     >
                       <svg
@@ -270,7 +271,7 @@ const StorePickup = ({
                     </button>
                   ) : (
                     <button
-                      className={styles.citiesBtnTop}
+                      className={styles.citiesBtnTopSecond}
                       onClick={() => handleArrowShow()}
                     >
                       <svg

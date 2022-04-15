@@ -94,7 +94,7 @@ const Basket = () => {
     country: yup.string().required("Поле должно быть заполнено"),
     city: yup.string().required("Поле должно быть заполнено"),
     street: yup.string().required("Поле должно быть заполнено"),
-    house: yup.number().required("Поле должно быть заполнено"),
+    house: yup.string().required("Поле должно быть заполнено"),
     apartment: yup.number(),
     postcode: yup
       .string()
@@ -113,7 +113,7 @@ const Basket = () => {
     country: yup.string().required("Поле должно быть заполнено"),
     city: yup.string().required("Поле должно быть заполнено"),
     street: yup.string().required("Поле должно быть заполнено"),
-    house: yup.number().required("Поле должно быть заполнено"),
+    house: yup.string().required("Поле должно быть заполнено"),
     apartment: yup.number(),
   });
 
@@ -144,9 +144,9 @@ const Basket = () => {
       house: "",
       apartment: "",
     },
-    // onSubmit: (values) => {
-    //   console.log(values);
-    // },
+    onSubmit: (values) => {
+      console.log(values);
+    },
     validationSchema: validationsSchemaExpress,
   });
 
@@ -304,6 +304,8 @@ const Basket = () => {
                     formikPayment={formikPayment}
                     formikStore={formikStore}
                     formikPaymentPaypal={formikPaymentPaypal}
+                    setValues={setValues}
+                    valuesNew={valuesNew}
                   />
                 )}
                 {status === "resolved" && (
@@ -320,6 +322,8 @@ const Basket = () => {
                     formikPayment={formikPayment}
                     formikStore={formikStore}
                     formikPaymentPaypal={formikPaymentPaypal}
+                    setValues={setValues}
+                    valuesNew={valuesNew}
                   />
                 )}
                 {status === undefined || status === null || status === "" ? (

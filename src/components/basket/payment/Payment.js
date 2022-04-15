@@ -25,16 +25,6 @@ const Payment = ({
 
   const onChangeCash = (e) => {
     setCash((cash = e.target.id));
-    // const allRad = document.querySelectorAll(".noChecked");
-    // if (e.target.checked) {
-    //   allRad.forEach(
-    //     (el) => el.classList.remove("checked") && el.classList.add("noChecked")
-    //   );
-    //   e.target.parentElement.classList.add("checked");
-    // } else {
-    //   e.target.parentElement.classList.remove("checked");
-    //   e.target.parentElement.classList.add("noChecked");
-    // }
   };
 
   useEffect(() => {
@@ -58,25 +48,14 @@ const Payment = ({
         <h4 className={styles.title}>Method of payments</h4>
         <ul className={styles.list}>
           <li className={styles.item}>
-            {/* <div className={styles.form_radio}>
-              <label htmlFor="paypal" className="noChecked">
-                <input
-                  id="paypal"
-                  type="radio"
-                  name="payment"
-                  onClick={(e) => onChangeCash(e)}
-                />
-              </label>
-            </div> */}
             <div className={styles.form_radio}>
               <input
                 id="paypal"
                 type="radio"
                 name="payment"
-                // value="Cash"
                 onClick={(e) => onChangeCash(e)}
               />
-              <label for="paypal"></label>
+              <label htmlFor="paypal"></label>
             </div>
 
             <div className={styles.container}>
@@ -84,25 +63,14 @@ const Payment = ({
             </div>
           </li>
           <li className={styles.item}>
-            {/* <div className={styles.form_radio}>
-              <label htmlFor="cardVisa" className="noChecked checked">
-                <input
-                  id="cardVisa"
-                  type="radio"
-                  name="payment"
-                  onClick={(e) => onChangeCash(e)}
-                />
-              </label>
-            </div> */}
             <div className={styles.form_radio}>
               <input
                 id="cardVisa"
                 type="radio"
                 name="payment"
-                // value="Cash"
                 onClick={(e) => onChangeCash(e)}
               />
-              <label for="cardVisa"></label>
+              <label htmlFor="cardVisa"></label>
             </div>
             <div className={styles.container}>
               <img src={Im2} alt="Visa" />
@@ -116,7 +84,7 @@ const Payment = ({
                 name="payment"
                 onClick={(e) => onChangeCash(e)}
               />
-              <label for="masterCard"></label>
+              <label htmlFor="masterCard"></label>
             </div>
             <div className={styles.container}>
               <img src={Im3} alt="Master" />
@@ -130,7 +98,7 @@ const Payment = ({
                 name="payment"
                 onClick={(e) => onChangeCash(e)}
               />
-              <label className={styles.paymentLabel} for="cash">
+              <label className={styles.paymentLabel} htmlFor="cash">
                 Cash
               </label>
             </div>
@@ -139,7 +107,7 @@ const Payment = ({
         <form>
           {cash === "cardVisa" || cash === "masterCard" ? (
             <>
-              <label htmlFor="card">
+              <label htmlFor="cardpassword">
                 <p className={styles.formText}>Card</p>
                 <InputMask
                   mask="9999 9999 9999 9999"
@@ -148,8 +116,8 @@ const Payment = ({
                       ? styles.inputError
                       : styles.formInput
                   }
-                  name={`card`}
-                  id="card"
+                  name="card"
+                  id="cardpassword"
                   type="text"
                   placeholder="____ ____ ____ ____"
                   onChange={formik.handleChange}
@@ -170,7 +138,7 @@ const Payment = ({
                           ? styles.inputError
                           : styles.formInput
                       }
-                      name={`cardDate`}
+                      name="cardDate"
                       id="cardDate"
                       type="text"
                       placeholder="MM/YY"
@@ -194,7 +162,7 @@ const Payment = ({
                           ? styles.inputError
                           : styles.formInput
                       }
-                      name={`cardCVV`}
+                      name="cardCVV"
                       id="cardCVV"
                       type="password"
                       placeholder="CVV"

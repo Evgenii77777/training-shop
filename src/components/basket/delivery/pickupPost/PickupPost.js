@@ -12,13 +12,6 @@ const PickupPost = ({
   errorCheckbox,
   setErrorCheckbox,
 }) => {
-  // const inp = document.getElementById("house");
-  // if (inp !== null && inp !== undefined) {
-  //   console.log(inp.value);
-  // }
-  // console.log(formik.values.house);
-  // console.log("ha");
-
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
@@ -135,37 +128,41 @@ const PickupPost = ({
             </li>
             <li className={styles.item}>
               <div className={styles.wrapperAdress}>
-                <label htmlFor="house" className={styles.labelFirst}>
-                  <input
-                    className={
-                      formik.touched.house && formik.errors.house
-                        ? styles.inputError
-                        : styles.inputFirst
-                    }
-                    name={`house`}
-                    id="house"
-                    type="text"
-                    placeholder="House"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.house}
-                  />
-                </label>
-                {formik.touched.house && formik.errors.house && (
-                  <p className={styles.errorEmail}>{formik.errors.house}</p>
-                )}
-                <label htmlFor="apartment" className={styles.labelFirst}>
-                  <input
-                    className={styles.inputFirst}
-                    name={`apartment`}
-                    id="apartment"
-                    type="text"
-                    placeholder="Apartment"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.apartment}
-                  />
-                </label>
+                <div>
+                  <label htmlFor="house" className={styles.labelFirst}>
+                    <input
+                      className={
+                        formik.touched.house && formik.errors.house
+                          ? styles.inputError
+                          : styles.inputFirst
+                      }
+                      name="house"
+                      id="house"
+                      type="text"
+                      placeholder="House"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.house}
+                    />
+                  </label>
+                  {formik.touched.house && formik.errors.house && (
+                    <p className={styles.errorEmail}>{formik.errors.house}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="apartment" className={styles.labelFirst}>
+                    <input
+                      className={styles.inputFirst}
+                      name={`apartment`}
+                      id="apartment"
+                      type="text"
+                      placeholder="Apartment"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.apartment}
+                    />
+                  </label>
+                </div>
               </div>
             </li>
             <li className={styles.item}>
@@ -178,7 +175,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`postcode`}
+                  name="postcode"
                   id="postcode"
                   type="text"
                   placeholder="BY ______"

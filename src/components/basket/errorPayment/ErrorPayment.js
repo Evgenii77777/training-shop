@@ -11,6 +11,8 @@ const ErrorPayment = ({
   formikExpress,
   formikPayment,
   formikPaymentPaypal,
+  setValues,
+  valuesNew,
 }) => {
   const message = useSelector((state) => state.basket.message);
   console.log(message);
@@ -32,6 +34,8 @@ const ErrorPayment = ({
           formikPayment={formikPayment}
           formikStore={formikStore}
           formikPaymentPaypal={formikPaymentPaypal}
+          setValues={setValues}
+          valuesNew={valuesNew}
         />
       </div>
     </>

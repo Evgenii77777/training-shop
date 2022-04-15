@@ -14,6 +14,8 @@ const FulfieldPayment = ({
   formikExpress,
   formikPayment,
   formikPaymentPaypal,
+  setValues,
+  valuesNew,
 }) => {
   const onHandleBackToShopping = () => {
     setType((type = "Item in Cart"));
@@ -25,6 +27,14 @@ const FulfieldPayment = ({
     formikExpress.resetForm();
     formikPayment.resetForm();
     formikPaymentPaypal.resetForm();
+    setValues(
+      (valuesNew = {
+        phone: "",
+        email: "",
+        storeAddress: "",
+        country: "",
+      })
+    );
   };
   return (
     <div>
