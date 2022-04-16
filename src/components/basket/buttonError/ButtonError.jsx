@@ -29,14 +29,12 @@ const ButtonError = ({
     formikExpress.resetForm();
     formikPayment.resetForm();
     formikPaymentPaypal.resetForm();
-    setValues(
-      (valuesNew = {
-        phone: "",
-        email: "",
-        storeAddress: "",
-        country: "",
-      })
-    );
+    setValues({
+      phone: "",
+      email: "",
+      storeAddress: "",
+      country: "",
+    });
   };
 
   return (

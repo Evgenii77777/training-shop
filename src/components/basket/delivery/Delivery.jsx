@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
@@ -19,12 +19,14 @@ const Delivery = ({
   const [radio, setRadio] = useState("1");
   const [errorCheckbox, setErrorCheckbox] = useState(false);
   const dispatch = useDispatch();
-
-  const handleChangeRadio = (id, e) => {
-    setRadio(id);
+  useEffect(() => {
     if (radio === "3") {
       dispatch(fetchCountry());
     }
+  }, [dispatch, radio]);
+
+  const handleChangeRadio = (id) => {
+    setRadio(id);
   };
 
   return (
@@ -44,7 +46,7 @@ const Delivery = ({
                 id="1"
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
             </label>
           </div>
@@ -60,7 +62,7 @@ const Delivery = ({
                 id="2"
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
             </label>
           </div>
@@ -76,7 +78,7 @@ const Delivery = ({
                 id="3"
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
             </label>
           </div>

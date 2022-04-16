@@ -39,7 +39,7 @@ const Basket = () => {
   const isEmpty = useSelector(getIsEmpty);
   const status = useSelector((state) => state.cart.status);
 
-  let [valuesNew, setValues] = useState({
+  const [valuesNew, setValues] = useState({
     phone: "",
     email: "",
     storeAddress: "",
@@ -155,14 +155,12 @@ const Basket = () => {
     formikPayment.resetForm();
     formikPaymentPaypal.resetForm();
     dispatch(toggleBasket(open));
-    setValues(
-      (valuesNew = {
-        phone: "",
-        email: "",
-        storeAddress: "",
-        country: "",
-      })
-    );
+    setValues({
+      phone: "",
+      email: "",
+      storeAddress: "",
+      country: "",
+    });
   };
 
   return (
