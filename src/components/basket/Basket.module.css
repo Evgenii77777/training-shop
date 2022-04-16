@@ -31,14 +31,12 @@
   display: none;
 }
 .wrapper {
-  padding: 13px 24px;
+  padding: 14px 24px;
   background: #121212;
   display: flex;
   justify-content: space-between;
 }
 .title {
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.57;
@@ -70,8 +68,6 @@
   margin-left: auto;
   margin-right: auto;
   width: 191px;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 600;
   font-size: 26px;
   line-height: 150%;
@@ -83,8 +79,6 @@
   left: 24px;
   padding: 17px 91px;
   width: calc(100% - 48px);
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
@@ -103,10 +97,7 @@
   padding-right: 24px;
 }
 .notEmptyWrapper {
-  /* margin-left: auto;
-  margin-right: auto; */
   width: calc(100% - 48px);
-
   position: absolute;
   bottom: 14px;
   left: 24px;
@@ -125,18 +116,12 @@
   display: block;
   border: none;
   background-color: inherit;
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 15px;
   line-height: 130%;
   color: #e6e6e6;
 }
 .notEmpty .firstBtn {
   padding-left: 0;
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 15px;
   line-height: 130%;
   opacity: 1;
@@ -151,17 +136,12 @@
   display: block;
 }
 .spanWrapperFirst {
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #121212;
   opacity: 1;
 }
 .spanWrapperSecond {
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
@@ -176,8 +156,6 @@
   width: 100%;
   padding: 17px 0;
   justify-content: center;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
@@ -199,8 +177,6 @@
   width: 100%;
   padding: 17px 0;
   justify-content: center;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
@@ -241,9 +217,6 @@
 }
 .name {
   display: block;
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #121212;
@@ -251,8 +224,6 @@
 }
 .color,
 .size {
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
@@ -283,17 +254,12 @@
   background-color: inherit;
 }
 .notEmptyBtnContainer span {
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #121212;
   opacity: 1;
 }
 .price {
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.57;
@@ -317,8 +283,6 @@
 }
 .textBar {
   padding-left: 0;
-  font-style: normal;
-  font-weight: 400;
   font-size: 15px;
   line-height: 130%;
   color: #e6e6e6;
@@ -333,7 +297,7 @@
   .btnWrapperSecond,
   .btnWrapperFirst {
     display: block;
-    padding: 17px 0;
+    padding: 18px 0;
   }
   .notEmptyWrapper {
     width: calc(100% - 48px);
@@ -343,7 +307,7 @@
   .btnWrapperSecond,
   .btnWrapperFirst {
     display: block;
-    padding: 17px 0;
+    padding: 18px 0;
   }
   .list {
     width: 100%;

@@ -1,5 +1,20 @@
 import React, { useState } from "react";
-import styles from "./Basket.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
+
+import Delivery from "./delivery/Delivery";
+import Payment from "./payment/Payment";
+import NavBarBasket from "./navBarBasket/NavBarBasket";
+import Total from "./total/Total";
+import ErrorPayment from "./errorPayment/ErrorPayment";
+import FulfieldPayment from "./fulfieldPayment/FulfieldPayment";
+
+import { validationsSchema } from "../validation/validation-pickup";
+import { validationsSchemaExpress } from "../validation/validation-express";
+import { validationsSchemaStore } from "../validation/validation-store";
+import { validationsSchemaPayment } from "../validation/validation-payment";
+import { validationsSchemaPaymentPaypal } from "../validation/validation-paypal";
+
 import {
   decrement,
   deleteItem,
@@ -7,24 +22,30 @@ import {
   toggleBasket,
   toggleBasketSide,
 } from "../../redux/btnBasket/btnBasket-actions";
-import { useDispatch, useSelector } from "react-redux";
 import { getOpen, getIsEmpty } from "../../redux/btnBasket/btnBasket-selectors";
-import Delivery from "./delivery/Delivery";
-import Payment from "./payment/Payment";
-import NavBarBasket from "./navBarBasket/NavBarBasket";
-import Total from "./total/Total";
-import ErrorPayment from "./errorPayment/ErrorPayment";
 import { addProducts } from "../../redux/order/order-actions";
-import FulfieldPayment from "./fulfieldPayment/FulfieldPayment";
-import { useFormik } from "formik";
-import * as yup from "yup";
 import { postCity } from "../../redux/thunk/asincThunk/postDeliveryCity";
+import styles from "./Basket.module.css";
 
 const Basket = () => {
   let total = 0;
+  let newProducts = {};
+  const dispatch = useDispatch();
+  const [type, setType] = useState("Item in Cart");
+  const [error, setError] = useState(false);
+  const [fulfield, setFulfield] = useState(false);
+  const [cash, setCash] = useState("cardVisa");
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
-  let newProducts = {};
+  const status = useSelector((state) => state.cart.status);
+
+  let [valuesNew, setValues] = useState({
+    phone: "",
+    email: "",
+    storeAddress: "",
+    country: "",
+  });
+
   isEmpty.map(
     (el) =>
       (newProducts = {
@@ -35,7 +56,6 @@ const Basket = () => {
       })
   );
 
-  const dispatch = useDispatch();
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
 
   const backSide = function () {
@@ -47,11 +67,6 @@ const Basket = () => {
     }
   };
   backSide();
-
-  let [type, setType] = useState("Item in Cart");
-  let [error, setError] = useState(false);
-  let [fulfield, setFulfield] = useState(false);
-  let [cash, setCash] = useState("cardVisa");
 
   const addClass = () => {
     const navBar = document.querySelectorAll(".textBar");
@@ -73,49 +88,8 @@ const Basket = () => {
       }
     };
     addClass2();
-    setType((type = "Delivery Info"));
+    setType("Delivery Info");
   };
-
-  const status = useSelector((state) => state.cart.status);
-
-  const phoneRegExp =
-    /(\+375|80)( )(\()(29|25|(44)|33)(\))(\d{3})(\d{2})(\d{2})$/;
-  const postRegExp = /(\BY)( )(\d{6})/;
-
-  const validationsSchema = yup.object().shape({
-    phone: yup
-      .string()
-      .required("Поле должно быть заполнено")
-      .matches(phoneRegExp, "Неправильный номер"),
-    email: yup
-      .string()
-      .email("Невалидный email")
-      .required("Поле должно быть заполнено"),
-    country: yup.string().required("Поле должно быть заполнено"),
-    city: yup.string().required("Поле должно быть заполнено"),
-    street: yup.string().required("Поле должно быть заполнено"),
-    house: yup.string().required("Поле должно быть заполнено"),
-    apartment: yup.number(),
-    postcode: yup
-      .string()
-      .required("Поле должно быть заполнено")
-      .matches(postRegExp, "Неправильный индекс"),
-  });
-  const validationsSchemaExpress = yup.object().shape({
-    phone: yup
-      .string()
-      .required("Поле должно быть заполнено")
-      .matches(phoneRegExp, "Неправильный номер"),
-    email: yup
-      .string()
-      .email("Невалидный email")
-      .required("Поле должно быть заполнено"),
-    country: yup.string().required("Поле должно быть заполнено"),
-    city: yup.string().required("Поле должно быть заполнено"),
-    street: yup.string().required("Поле должно быть заполнено"),
-    house: yup.string().required("Поле должно быть заполнено"),
-    apartment: yup.number(),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -128,9 +102,7 @@ const Basket = () => {
       apartment: "",
       postcode: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+
     validationSchema: validationsSchema,
   });
 
@@ -144,38 +116,13 @@ const Basket = () => {
       house: "",
       apartment: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+
     validationSchema: validationsSchemaExpress,
-  });
-
-  let [valuesNew, setValues] = useState({
-    phone: "",
-    email: "",
-    storeAddress: "",
-    country: "",
-  });
-
-  const validationsSchemaStore = yup.object().shape({
-    phone: yup
-      .string()
-      .required("Поле должно быть заполнено")
-      .matches(phoneRegExp, "Неправильный номер"),
-    email: yup
-      .string()
-      .email("Невалидный email")
-      .required("Поле должно быть заполнено"),
-    country: yup.string().required("Поле должно быть заполнено"),
-    storeAddress: yup.string().required("Поле должно быть заполнено"),
   });
 
   const formikStore = useFormik({
     initialValues: valuesNew,
 
-    onSubmit: (values) => {
-      console.log(values);
-    },
     handleChange: (event) => {
       setValues((prevValues) => ({
         ...prevValues,
@@ -201,50 +148,21 @@ const Basket = () => {
     validationSchema: validationsSchemaStore,
   });
 
-  const cartRegExp = /(\d{4})( )(\d{4})( )(\d{4})( )(\d{4})/;
-  const yearRegExp = /(\d{2})(\/)(\d{2})/;
-  const cvvRegExp = /(\d{3})/;
-  const validationsSchemaPayment = yup.object().shape({
-    card: yup
-      .string()
-      .required("Поле должно быть заполнено")
-      .matches(cartRegExp, "Неправильный номер"),
-    cardDate: yup
-      .string()
-      .matches(yearRegExp, "Неправильный номер")
-      .required("Поле должно быть заполнено"),
-    cardCVV: yup
-      .string()
-      .matches(cvvRegExp, "Неправильный номер")
-      .required("Поле должно быть заполнено"),
-  });
-
   const formikPayment = useFormik({
     initialValues: {
       card: "",
       cardDate: "",
       cardCVV: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
-    validationSchema: validationsSchemaPayment,
-  });
 
-  const validationsSchemaPaymentPaypal = yup.object().shape({
-    cashEmail: yup
-      .string()
-      .email("Невалидный email")
-      .required("Поле должно быть заполнено"),
+    validationSchema: validationsSchemaPayment,
   });
 
   const formikPaymentPaypal = useFormik({
     initialValues: {
       cashEmail: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+
     validationSchema: validationsSchemaPaymentPaypal,
   });
 

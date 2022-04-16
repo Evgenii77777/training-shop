@@ -7,7 +7,6 @@
 }
 span.priceSpan {
   margin-right: 24px;
-  font-style: normal;
   font-weight: bold;
   font-size: 22px;
   line-height: 1.64;
@@ -19,9 +18,7 @@ button.priceBtn {
   margin-right: 16px;
   width: auto;
   height: auto;
-  padding: 16.5px 24px;
-  font-family: Spartan;
-  font-style: normal;
+  padding: 16px 24px;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
@@ -30,7 +27,6 @@ button.priceBtn {
   color: #ffffff;
   opacity: 0.9;
   background: #121212;
-
   border: 2px solid #121212;
 }
 @media (min-width: 320px) and (max-width: 740px) {

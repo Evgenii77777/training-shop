@@ -14,8 +14,6 @@
   margin-right: 16px;
 }
 .relatedTitle {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 25px;
@@ -32,8 +30,6 @@
   padding-left: 0;
   margin-top: 16px;
   margin-bottom: 12px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -41,7 +37,6 @@
   opacity: 0.6;
 }
 .relatedList span {
-  font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -73,8 +68,6 @@
   margin-top: 10px;
   margin-bottom: 9px;
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -83,8 +76,6 @@
   opacity: 0.6;
 }
 span.darkSpan {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 13px;

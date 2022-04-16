@@ -1,11 +1,9 @@
 .title {
   margin-bottom: 12px;
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #000000;
+  font-weight: 400;
 }
 .list {
   margin-bottom: 32px;
@@ -19,9 +17,6 @@
   box-sizing: border-box;
 }
 .itemText {
-  font-family: "Spartan";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
   color: #000000;
@@ -36,54 +31,6 @@
   display: inline-block;
   cursor: pointer;
   position: relative;
-  /* padding-left: 25px; */
-  /* margin-right: 0; */
-  /* line-height: 18px; */
   -webkit-user-select: none;
   user-select: none;
-  /* display: inline-block;
-  cursor: pointer;
-  position: relative;
-  padding-left: 25px;
-  margin-right: 0;
-  line-height: 18px;
-  user-select: none; */
 }
-
-/* .form_radio input[type="radio"] {
-  display: none;
-}
-
-.form_radio label {
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  padding-left: 25px;
-  margin-right: 0;
-  line-height: 18px;
-  user-select: none;
-} */
-
-/* .form_radio label:before {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    background: inherit;
-border: 1px solid #E6E6E6;
-    border-radius: 20px;
-
-}
-
-
-.form_radio input[type=radio]:checked+label:before {
-
-    border: 1px solid black;
-    border-radius: 20px;
-    background: inherit;
-    background: url(../../../assets/svg/Rad.svg) center no-repeat;
-    background-size: 10px 10px;
-} */

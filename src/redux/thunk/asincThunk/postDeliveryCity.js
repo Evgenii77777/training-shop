@@ -15,9 +15,6 @@ export const postCity = createAsyncThunk(
           body: JSON.stringify(text),
         }
       );
-      if (!response.ok) {
-        throw new Error("Can't add task. Server error.");
-      }
 
       const data = await response.json();
       dispatch(addCities(data));

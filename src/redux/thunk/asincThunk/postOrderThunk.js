@@ -12,12 +12,8 @@ export const orderPost = createAsyncThunk(
         },
         body: JSON.stringify(text),
       });
-      if (!response.ok) {
-        throw new Error("Can't add task. Server error.");
-      }
-
       const data = await response.json();
-      console.log(data);
+
       dispatch(message(data.message));
     } catch (error) {
       dispatch(message(error.message));
@@ -27,9 +23,8 @@ export const orderPost = createAsyncThunk(
 );
 export const order = createAsyncThunk(
   "order/post",
-  async function (text, { rejectWithValue }) {
+  async function (_, { rejectWithValue }) {
     try {
-      console.log("haaaaa");
     } catch (error) {
       return rejectWithValue(error.message);
     }

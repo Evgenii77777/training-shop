@@ -59,7 +59,7 @@ const ButtonPayment = ({
   };
 
   const onHandleBackToCart = () => {
-    setType((type = "Delivery Info"));
+    setType(("Delivery Info"));
     const navBar = document.querySelectorAll(".textBar");
     if (navBar.length !== 0 && navBar[2].classList.contains("firstBtn")) {
       navBar[2].classList.remove("firstBtn");

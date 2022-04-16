@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./PickupPost.module.css";
 import InputMask from "react-input-mask";
-import ButtonFurther from "../../buttonFurther/ButtonFurther";
+import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
+import styles from "./PickupPost.module.css";
 
 const PickupPost = ({
   type,

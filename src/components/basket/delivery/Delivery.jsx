@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Delivery.module.css";
+import { useDispatch } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
 import StorePickup from "./storePickup/StorePickup";
 import { fetchCountry } from "../../../redux/thunk/asincThunk/getCountryThunk";
-import { useDispatch } from "react-redux";
+import styles from "./Delivery.module.css";
 
 const Delivery = ({
   type,
@@ -16,12 +16,12 @@ const Delivery = ({
   setValues,
   valuesNew,
 }) => {
-  let [radio, setRadio] = useState("1");
-  let [errorCheckbox, setErrorCheckbox] = useState(false);
+  const [radio, setRadio] = useState("1");
+  const [errorCheckbox, setErrorCheckbox] = useState(false);
   const dispatch = useDispatch();
 
   const handleChangeRadio = (id, e) => {
-    setRadio((radio = id));
+    setRadio(id);
     if (radio === "3") {
       dispatch(fetchCountry());
     }

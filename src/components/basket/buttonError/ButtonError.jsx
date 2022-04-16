@@ -4,7 +4,6 @@ import { order } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";
 
 const ButtonError = ({
-  type,
   setType,
   formik,
   formikStore,
@@ -16,17 +15,14 @@ const ButtonError = ({
 }) => {
   const status = useSelector((state) => state.cart.status);
   const dispatch = useDispatch();
-  const navBar = document.querySelectorAll(".textBar");
-  console.log(navBar);
-  const onHandleBackToPayment = () => {
-    setType((type = "Payment"));
-    dispatch(order(status));
-    // const navBar = document.querySelectorAll(".textBar");
 
-    // navBar[2].classList.add("firstBtn");
+  const onHandleBackToPayment = () => {
+    setType("Payment");
+    dispatch(order(status));
   };
+
   const onHandleBackToCart = () => {
-    setType((type = "Item in Cart"));
+    setType("Item in Cart");
     dispatch(order(status));
     const navBar = document.querySelectorAll(".textBar");
     if (navBar.length !== 0) {

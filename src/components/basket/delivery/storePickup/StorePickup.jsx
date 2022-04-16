@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styles from "../pickupPost/PickupPost.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
-import ButtonFurther from "../../buttonFurther/ButtonFurther";
+import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
 import { postCity } from "../../../../redux/thunk/asincThunk/postDeliveryCity";
+import styles from "../pickupPost/PickupPost.module.css";
 
 const StorePickup = ({
   type,
@@ -17,17 +17,15 @@ const StorePickup = ({
   setValues,
 }) => {
   const dispatch = useDispatch();
-  let [showCities, setShowCities] = useState(false);
-  let [arrow, setArrow] = useState(null);
-
-  let [showCountry, setShowCountry] = useState(true);
-  let [arrowCountry, setArrowCountry] = useState(null);
-
+  const [showCities, setShowCities] = useState(false);
+  const [arrow, setArrow] = useState(null);
+  const [showCountry, setShowCountry] = useState(true);
+  const [arrowCountry, setArrowCountry] = useState(null);
   const cities = useSelector((state) => state.cities.cities);
   const countryName = useSelector((state) => state.country.country);
 
   const handleFocusCountry = () => {
-    setShowCountry((showCountry = false));
+    setShowCountry(false);
   };
 
   const handleChange = (event) => {
@@ -43,7 +41,7 @@ const StorePickup = ({
           country: formik.values.country,
         })
       );
-      setArrow((arrow = true));
+      setArrow(true);
     }
   };
 
@@ -62,7 +60,7 @@ const StorePickup = ({
     }));
     formik.values.storeAddress = e.target.textContent;
     setShowCities(!showCities);
-    setArrow((arrow = false));
+    setArrow(false);
   };
 
   const handleChoiseCountry = (e) => {
@@ -72,24 +70,24 @@ const StorePickup = ({
     }));
     formik.values.country = e.target.textContent;
     setShowCountry(!showCountry);
-    setArrowCountry((arrowCountry = false));
+    setArrowCountry(false);
   };
 
   const handleArrow = () => {
-    setArrow((arrow = false));
+    setArrow(false);
     setShowCities(!showCities);
   };
   const handleArrowShow = () => {
-    setArrow((arrow = true));
+    setArrow(true);
     setShowCities(!showCities);
   };
 
   const handleArrowCountry = () => {
-    setArrowCountry((arrowCountry = false));
+    setArrowCountry(false);
     setShowCountry(!showCountry);
   };
   const handleArrowShowCountry = () => {
-    setArrowCountry((arrowCountry = true));
+    setArrowCountry(true);
     setShowCountry(!showCountry);
   };
 
