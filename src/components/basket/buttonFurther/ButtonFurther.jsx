@@ -37,10 +37,6 @@ const ButtonFurther = ({
 
   const onHandleBackToItem = () => {
     setType("Item in Cart");
-    const navBar = document.querySelectorAll(".textBar");
-    if (navBar.length !== 0 && navBar[1].classList.contains("firstBtn")) {
-      navBar[1].classList.remove("firstBtn");
-    }
   };
 
   return (

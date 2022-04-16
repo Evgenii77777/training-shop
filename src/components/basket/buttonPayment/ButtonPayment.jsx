@@ -64,7 +64,7 @@ const ButtonPayment = ({
 
   return (
     <div className={styles.btnWrapper}>
-      {cash === "masterCard" || cash === "cardVisa" ? (
+      {(cash === "masterCard" || cash === "cardVisa") && (
         <button
           type="button"
           className={styles.btnWrapperFirst}
@@ -72,8 +72,6 @@ const ButtonPayment = ({
         >
           Check Out
         </button>
-      ) : (
-        ""
       )}
       {cash === "paypal" && (
         <button
