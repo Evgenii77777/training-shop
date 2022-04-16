@@ -7,11 +7,6 @@ export const fetchCountry = createAsyncThunk(
       const response = await fetch(
         "https://training.cleverland.by/shop/countries"
       );
-
-      if (!response.ok) {
-        throw new Error("Server Error!");
-      }
-
       const data = await response.json();
 
       return data;

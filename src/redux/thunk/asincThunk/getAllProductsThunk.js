@@ -8,10 +8,6 @@ export const fetchAllProducts = createAsyncThunk(
         "https://training.cleverland.by/shop/products"
       );
 
-      if (!response.ok) {
-        throw new Error("Server Error!");
-      }
-
       const data = await response.json();
 
       return data;

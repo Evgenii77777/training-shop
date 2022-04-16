@@ -15,9 +15,6 @@ export const reviewPost = createAsyncThunk(
           body: JSON.stringify(text),
         }
       );
-      if (!response.ok) {
-        throw new Error("Can't add task. Server error.");
-      }
 
       const data = await response.json();
       dispatch(fetchProduct(data.id));

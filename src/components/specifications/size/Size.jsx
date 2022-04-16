@@ -5,7 +5,6 @@ import { currentSize } from "../../../redux/btnBasket/btnBasket-actions";
 import { useDispatch } from "react-redux";
 
 const Size = ({ sizes }) => {
-  console.log(sizes);
   let [btnContent, setBtnContent] = useState(`${sizes[0]}`);
   const dispatch = useDispatch();
 

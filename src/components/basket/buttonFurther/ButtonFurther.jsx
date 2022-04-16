@@ -20,7 +20,7 @@ const ButtonFurther = ({
 
     if (isValid && dirty) {
       if (agree !== null && agree.checked === true) {
-        setType((type = "Payment"));
+        setType("Payment");
         dispatch(addPickup({ ...values }));
         const navBar = document.querySelectorAll(".textBar");
         if (navBar.length !== 0) {
@@ -28,27 +28,30 @@ const ButtonFurther = ({
           navBar[2].classList.add("firstBtn");
         }
       } else {
-        setErrorCheckbox((errorCheckbox = true));
+        setErrorCheckbox(true);
       }
       if (agree.checked === false) {
-        setErrorCheckbox((errorCheckbox = true));
+        setErrorCheckbox(true);
       }
     } else {
       agree.checked = false;
       formik.handleSubmit();
-      setErrorCheckbox((errorCheckbox = true));
+      setErrorCheckbox(true);
     }
   };
+
   const onHandleBackToItem = () => {
-    setType((type = "Item in Cart"));
+    setType("Item in Cart");
     const navBar = document.querySelectorAll(".textBar");
     if (navBar.length !== 0 && navBar[1].classList.contains("firstBtn")) {
       navBar[1].classList.remove("firstBtn");
     }
   };
+
   return (
     <div className={styles.btnWrapper}>
-      <button type="button"
+      <button
+        type="button"
         className={styles.btnWrapperFirst}
         onClick={() => onHandlePayment()}
       >

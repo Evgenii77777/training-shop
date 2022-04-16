@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ButtonError from "../buttonError/ButtonError";
+import ButtonError from "../buttonError/ButtonError.jsx";
 import styles from "../fulfieldPayment/FulfieldPayment.module.css";
 
 const ErrorPayment = ({
@@ -15,7 +15,7 @@ const ErrorPayment = ({
   valuesNew,
 }) => {
   const message = useSelector((state) => state.basket.message);
-  console.log(message);
+
   return (
     <>
       <div className={styles.errorWrapper}>

@@ -30,7 +30,6 @@
   opacity: 0.4;
 }
 span.sale {
-  font-style: normal;
   font-weight: 600;
   font-size: 26px;
   line-height: 1.38;
@@ -45,7 +44,6 @@ span.sale {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 32px;
-  font-style: normal;
   font-weight: 600;
   font-size: 26px;
   line-height: 1.38;
@@ -63,8 +61,6 @@ span.sale {
   border: none;
 }
 .label::placeholder {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 18px;
@@ -76,9 +72,7 @@ span.sale {
 .input {
   width: 340px;
   margin-top: 24px;
-  padding: 23px 118px;
-  font-family: Spartan;
-  font-style: normal;
+  padding: 24px 118px;
   font-weight: 500;
   font-size: 16px;
   line-height: 18px;
@@ -100,12 +94,7 @@ span.sale {
 }
 .status,
 .error {
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   padding-top: 5px;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -121,8 +110,6 @@ span.sale {
   padding-left: 0;
   color: red;
   padding-top: 5px;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;

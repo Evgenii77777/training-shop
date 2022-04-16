@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Payment.module.css";
-import Im1 from "../../../assets/png/pp3.png";
-import Im2 from "../../../assets/png/pp4.png";
-import Im3 from "../../../assets/png/pp5.png";
 import InputMask from "react-input-mask";
 import ButtonPayment from "../buttonPayment/ButtonPayment";
 import Total from "../total/Total";
+import Im1 from "../../../assets/png/pp3.png";
+import Im2 from "../../../assets/png/pp4.png";
+import Im3 from "../../../assets/png/pp5.png";
+import styles from "./Payment.module.css";
 
 const Payment = ({
   type,
@@ -21,16 +21,16 @@ const Payment = ({
   cash,
   setCash,
 }) => {
-  let [show, setShow] = useState(true);
-
-  const onChangeCash = (e) => {
-    setCash((cash = e.target.id));
-  };
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const radioInput = document.getElementById("cardVisa");
     return (radioInput.checked = true);
   }, []);
+
+  const onChangeCash = (e) => {
+    setCash((cash = e.target.id));
+  };
 
   const handleChangeShow = (e) => {
     setShow(!show);

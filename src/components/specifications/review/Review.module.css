@@ -6,8 +6,6 @@
 }
 .reviewTitle {
   margin-bottom: 32px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
@@ -42,7 +40,6 @@
 }
 .reviewText {
   padding-left: 30px;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
@@ -54,8 +51,6 @@
 }
 .reviewSpan {
   margin-left: 8px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 1.64;
@@ -78,8 +73,6 @@
 .reviewName {
   opacity: 1;
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.57;
@@ -95,8 +88,6 @@
 }
 .reviewPar {
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
@@ -104,7 +95,6 @@
   opacity: 0.8;
 }
 .btn {
-  font-style: normal;
   padding-left: 0;
   font-weight: 500;
   font-size: 12px;

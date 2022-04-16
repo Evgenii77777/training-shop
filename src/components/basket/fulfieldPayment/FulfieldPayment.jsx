@@ -18,7 +18,7 @@ const FulfieldPayment = ({
   valuesNew,
 }) => {
   const onHandleBackToShopping = () => {
-    setType((type = "Item in Cart"));
+    setType("Item in Cart");
     dispatch(toggleBasket(open));
     dispatch(order());
     dispatch(clearCard());
