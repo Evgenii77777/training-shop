@@ -287,6 +287,21 @@
   line-height: 130%;
   color: #e6e6e6;
 }
+.textBar {
+  padding-left: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 130%;
+  color: #e6e6e6;
+}
+.firstBtn {
+  padding-left: 0;
+  font-size: 15px;
+  line-height: 130%;
+  opacity: 1;
+  color: #121212;
+}
 @media (min-width: 381px) and (max-width: 1000px) {
   .listWrapper {
     height: 40vh;

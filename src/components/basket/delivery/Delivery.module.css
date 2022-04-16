@@ -12,6 +12,7 @@
 }
 .item {
   display: flex;
+  align-items: center;
   padding: 12px 0;
   border-bottom: 2px solid #f8f8f8;
   box-sizing: border-box;
@@ -33,4 +34,31 @@
   position: relative;
   -webkit-user-select: none;
   user-select: none;
+}
+
+.noChecked {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  background: inherit;
+  border: 1px solid #e6e6e6;
+  border-radius: 20px;
+}
+.checked {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background: inherit;
+  background: url(../../../assets/svg/Rad.svg) 4px 4px no-repeat;
+  background-size: 10px 10px;
 }

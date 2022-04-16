@@ -59,7 +59,7 @@ const Basket = () => {
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
 
   const backSide = function () {
-    let body = document.querySelector("body");
+    const body = document.querySelector("body");
     if (open) {
       body.classList.add("no__scroll");
     } else {
@@ -68,26 +68,8 @@ const Basket = () => {
   };
   backSide();
 
-  const addClass = () => {
-    const navBar = document.querySelectorAll(".textBar");
-    if (navBar.length !== 0 && type === "Item in Cart") {
-      navBar[0].classList.add("firstBtn");
-    }
-  };
-  addClass();
-
   const onHandleDelivery = (newProducts) => {
-    const navBar = document.querySelectorAll(".textBar");
     dispatch(addProducts(newProducts));
-    const addClass2 = () => {
-      if (navBar.length !== 0) {
-        if (navBar[0].classList.contains("firstBtn")) {
-          navBar[0].classList.remove("firstBtn");
-        }
-        navBar[1].classList.add("firstBtn");
-      }
-    };
-    addClass2();
     setType("Delivery Info");
   };
 
@@ -244,9 +226,9 @@ const Basket = () => {
                     valuesNew={valuesNew}
                   />
                 )}
-                {status === undefined || status === null || status === "" ? (
+                {!status && (
                   <div className={styles.deliveryContainer}>
-                    <NavBarBasket />
+                    <NavBarBasket type={type} />
                     {type === "Item in Cart" && (
                       <>
                         <div className={styles.listWrapper}>
@@ -349,8 +331,6 @@ const Basket = () => {
                       />
                     )}
                   </div>
-                ) : (
-                  <></>
                 )}
               </div>
             )}
