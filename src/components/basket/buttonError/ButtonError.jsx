@@ -24,11 +24,6 @@ const ButtonError = ({
   const onHandleBackToCart = () => {
     setType("Item in Cart");
     dispatch(order(status));
-    const navBar = document.querySelectorAll(".textBar");
-    if (navBar.length !== 0) {
-      navBar[2].classList.remove("firstBtn");
-      navBar[0].classList.add("firstBtn");
-    }
     formik.resetForm();
     formikStore.resetForm();
     formikExpress.resetForm();

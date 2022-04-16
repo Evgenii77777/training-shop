@@ -59,12 +59,7 @@ const ButtonPayment = ({
   };
 
   const onHandleBackToCart = () => {
-    setType(("Delivery Info"));
-    const navBar = document.querySelectorAll(".textBar");
-    if (navBar.length !== 0 && navBar[2].classList.contains("firstBtn")) {
-      navBar[2].classList.remove("firstBtn");
-      navBar[1].classList.add("firstBtn");
-    }
+    setType("Delivery Info");
   };
 
   return (

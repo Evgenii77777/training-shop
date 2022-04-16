@@ -22,11 +22,6 @@ const ButtonFurther = ({
       if (agree !== null && agree.checked === true) {
         setType("Payment");
         dispatch(addPickup({ ...values }));
-        const navBar = document.querySelectorAll(".textBar");
-        if (navBar.length !== 0) {
-          navBar[1].classList.remove("firstBtn");
-          navBar[2].classList.add("firstBtn");
-        }
       } else {
         setErrorCheckbox(true);
       }

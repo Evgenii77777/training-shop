@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
@@ -25,22 +25,7 @@ const Delivery = ({
     if (radio === "3") {
       dispatch(fetchCountry());
     }
-    const allRad = document.querySelectorAll(".noChecked");
-    if (e.target.checked) {
-      allRad.forEach(
-        (el) => el.classList.remove("checked") && el.classList.add("noChecked")
-      );
-      e.target.parentElement.classList.add("checked");
-    } else {
-      e.target.parentElement.classList.remove("checked");
-      e.target.parentElement.classList.add("noChecked");
-    }
   };
-
-  useEffect(() => {
-    const radioInput = document.getElementById("1");
-    return (radioInput.checked = true);
-  }, []);
 
   return (
     <>
@@ -50,7 +35,11 @@ const Delivery = ({
       <ul className={styles.list}>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label htmlFor="1" className="noChecked checked">
+            <label
+              htmlFor="1"
+              className={radio === "1" ? styles.checked : styles.noChecked}
+              checked
+            >
               <input
                 id="1"
                 type="radio"
@@ -63,7 +52,10 @@ const Delivery = ({
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label htmlFor="2" className="noChecked">
+            <label
+              htmlFor="2"
+              className={radio === "2" ? styles.checked : styles.noChecked}
+            >
               <input
                 id="2"
                 type="radio"
@@ -76,7 +68,10 @@ const Delivery = ({
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label htmlFor="3" className="noChecked">
+            <label
+              htmlFor="3"
+              className={radio === "3" ? styles.checked : styles.noChecked}
+            >
               <input
                 id="3"
                 type="radio"

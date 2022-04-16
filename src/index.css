@@ -116,38 +116,3 @@ a:focus {
 p {
   color: #121212;
 }
-.textBar {
-  padding-left: 0;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 130%;
-  color: #e6e6e6;
-}
-.firstBtn {
-  padding-left: 0;
-  font-size: 15px;
-  line-height: 130%;
-  opacity: 1;
-  color: #121212;
-}
-
-.noChecked {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  background: inherit;
-  border: 1px solid #e6e6e6;
-  border-radius: 20px;
-}
-.checked {
-  border: 1px solid black;
-  border-radius: 20px;
-  background: inherit;
-  background: url(./assets/svg/Rad.svg) 4px 4px no-repeat;
-  background-size: 10px 10px;
-}
