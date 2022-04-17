@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import ButtonPayment from "../buttonPayment/ButtonPayment";
 import Total from "../total/Total";
 import Im1 from "../../../assets/png/pp3.png";
@@ -130,11 +131,11 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
           </li>
         </ul>
         <form>
-          {cash === "cardVisa" || cash === "masterCard" ? (
+          {(cash === "cardVisa" || cash === "masterCard") && (
             <>
               <label htmlFor="cardpassword">
                 <p className={styles.formText}>Card</p>
-                <input
+                <InputMask
                   mask="9999999999999999"
                   className={
                     formik.touched.cart && formik.errors.cart
@@ -156,7 +157,7 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
               <div className={styles.formWrapper}>
                 <div>
                   <label htmlFor="cardDate">
-                    <input
+                    <InputMask
                       mask="99/99"
                       className={
                         formik.touched.year && formik.errors.year
@@ -180,7 +181,7 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
                 </div>
                 <div>
                   <label htmlFor="cardCVV" className={styles.labelShow}>
-                    <input
+                    <InputMask
                       mask="999"
                       className={
                         formik.touched.cardCVV && formik.errors.cardCVV
@@ -219,8 +220,6 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
                 </div>
               </div>
             </>
-          ) : (
-            ""
           )}
           {cash === "paypal" && (
             <>
