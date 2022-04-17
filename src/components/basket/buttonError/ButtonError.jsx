@@ -11,7 +11,6 @@ const ButtonError = ({
   formikPayment,
   formikPaymentPaypal,
   setValues,
-  valuesNew,
 }) => {
   const status = useSelector((state) => state.cart.status);
   const dispatch = useDispatch();

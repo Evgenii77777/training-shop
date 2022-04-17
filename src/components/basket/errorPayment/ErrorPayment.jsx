@@ -4,7 +4,6 @@ import ButtonError from "../buttonError/ButtonError.jsx";
 import styles from "../fulfieldPayment/FulfieldPayment.module.css";
 
 const ErrorPayment = ({
-  type,
   setType,
   formik,
   formikStore,
@@ -12,7 +11,6 @@ const ErrorPayment = ({
   formikPayment,
   formikPaymentPaypal,
   setValues,
-  valuesNew,
 }) => {
   const message = useSelector((state) => state.basket.message);
 
@@ -27,7 +25,6 @@ const ErrorPayment = ({
       </div>
       <div>
         <ButtonError
-          type={type}
           setType={setType}
           formik={formik}
           formikExpress={formikExpress}
@@ -35,7 +32,6 @@ const ErrorPayment = ({
           formikStore={formikStore}
           formikPaymentPaypal={formikPaymentPaypal}
           setValues={setValues}
-          valuesNew={valuesNew}
         />
       </div>
     </>

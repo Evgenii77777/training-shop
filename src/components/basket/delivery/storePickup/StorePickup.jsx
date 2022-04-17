@@ -10,7 +10,6 @@ import Care from "../../../../assets/svg/icon-CareUp.svg";
 import styles from "../pickupPost/PickupPost.module.css";
 
 const StorePickup = ({
-  type,
   setType,
   total,
   errorCheckbox,
@@ -325,11 +324,7 @@ const StorePickup = ({
             deliveryMethod: "Store pickup",
           }}
           formik={formik}
-          isValid={formik.isValid}
-          dirty={formik.dirty}
-          type={type}
           setType={setType}
-          errorCheckbox={errorCheckbox}
           setErrorCheckbox={setErrorCheckbox}
         />
       </div>

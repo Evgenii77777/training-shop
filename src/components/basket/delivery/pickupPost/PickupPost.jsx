@@ -6,7 +6,6 @@ import Checkmark from "../../../../assets/svg/Check.svg";
 import styles from "./PickupPost.module.css";
 
 const PickupPost = ({
-  type,
   setType,
   total,
   formik,
@@ -229,11 +228,7 @@ const PickupPost = ({
             deliveryMethod: "Pickup from post offices",
           }}
           formik={formik}
-          isValid={formik.isValid}
-          dirty={formik.dirty}
-          type={type}
           setType={setType}
-          errorCheckbox={errorCheckbox}
           setErrorCheckbox={setErrorCheckbox}
         />
       </div>

@@ -7,7 +7,6 @@ import { fetchCountry } from "../../../redux/thunk/asincThunk/getCountryThunk";
 import styles from "./Delivery.module.css";
 
 const Delivery = ({
-  type,
   setType,
   total,
   formik,
@@ -89,7 +88,6 @@ const Delivery = ({
 
       {radio === "1" && (
         <PickupPost
-          type={type}
           setType={setType}
           total={total}
           formik={formik}
@@ -99,7 +97,6 @@ const Delivery = ({
       )}
       {radio === "2" && (
         <Express
-          type={type}
           setType={setType}
           total={total}
           errorCheckbox={errorCheckbox}
@@ -109,7 +106,6 @@ const Delivery = ({
       )}
       {radio === "3" && (
         <StorePickup
-          type={type}
           setType={setType}
           total={total}
           errorCheckbox={errorCheckbox}
