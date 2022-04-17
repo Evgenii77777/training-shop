@@ -9,21 +9,30 @@ import Eye from "../../../assets/svg/eye.svg";
 import EyeSlash from "../../../assets/svg/icon-EyeSlash.svg";
 import styles from "./Payment.module.css";
 
-const Payment = ({
-  type,
-  setType,
-  total,
-  error,
-  setError,
-  status,
-  setFulfield,
-  fulfield,
-  formik,
-  formikPaypal,
-  cash,
-  setCash,
-}) => {
+const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
   const [show, setShow] = useState(true);
+
+  const Data = new Date();
+  let Year = Data.getFullYear();
+  const Month = Data.getMonth() + 1;
+  Year = String(Year).split("");
+  let year = [Year[2], Year[3]].join("");
+
+  console.log(formik.isValid);
+
+  if (formik.values.cardDate) {
+    const dayFormik = Number(formik.values.cardDate.split("/")[0]);
+    const yearFormik = Number(formik.values.cardDate.split("/")[1]);
+    if (dayFormik < 1 || dayFormik > 12 || dayFormik < Month) {
+      formik.errors.cardDate = "Неправильный месяц";
+      formik.isValid = false;
+    } else if (yearFormik < year) {
+      formik.errors.cardDate = "Неправильный год";
+      formik.isValid = false;
+    } else {
+      formik.isValid = true;
+    }
+  }
 
   const onChangeCash = (e) => {
     setCash((cash = e.target.id));
@@ -129,7 +138,7 @@ const Payment = ({
               <label htmlFor="cardpassword">
                 <p className={styles.formText}>Card</p>
                 <InputMask
-                  mask="9999 9999 9999 9999"
+                  mask="9999999999999999"
                   className={
                     formik.touched.cart && formik.errors.cart
                       ? styles.inputError
@@ -248,20 +257,10 @@ const Payment = ({
         <div className={styles.topPayment}>
           <Total total={total} />
           <ButtonPayment
-            type={type}
             setType={setType}
             cash={cash}
-            isValid={formik.isValid}
-            dirty={formik.dirty}
-            isValidPaypal={formikPaypal.isValid}
-            dirtyPaypal={formikPaypal.dirty}
-            error={error}
-            setError={setError}
             total={total}
             formik={formik}
-            fulfield={fulfield}
-            setFulfield={setFulfield}
-            status={status}
             formikPaypal={formikPaypal}
           />
         </div>

@@ -193,7 +193,6 @@ const Basket = () => {
               <div className={styles.notEmptyBasket}>
                 {status === "error" && (
                   <ErrorPayment
-                    type={type}
                     setType={setType}
                     error={error}
                     setError={setError}
@@ -203,7 +202,6 @@ const Basket = () => {
                     formikStore={formikStore}
                     formikPaymentPaypal={formikPaymentPaypal}
                     setValues={setValues}
-                    valuesNew={valuesNew}
                   />
                 )}
                 {status === "resolved" && (
@@ -213,7 +211,6 @@ const Basket = () => {
                     dispatch={dispatch}
                     fulfield={fulfield}
                     setFulfield={setFulfield}
-                    type={type}
                     setType={setType}
                     formik={formik}
                     formikExpress={formikExpress}
@@ -302,7 +299,6 @@ const Basket = () => {
                     )}
                     {type === "Delivery Info" && (
                       <Delivery
-                        type={type}
                         setType={setType}
                         total={total}
                         formik={formik}
@@ -314,14 +310,8 @@ const Basket = () => {
                     )}
                     {type === "Payment" && (
                       <Payment
-                        type={type}
                         setType={setType}
                         total={total}
-                        error={error}
-                        setError={setError}
-                        fulfield={fulfield}
-                        setFulfield={setFulfield}
-                        status={status}
                         formik={formikPayment}
                         formikPaypal={formikPaymentPaypal}
                         cash={cash}

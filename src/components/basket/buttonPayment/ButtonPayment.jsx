@@ -3,14 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { orderPost } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";
 
-const ButtonPayment = ({
-  setType,
-  type,
-  cash,
-  total,
-  formik,
-  formikPaypal,
-}) => {
+const ButtonPayment = ({ setType, cash, total, formik, formikPaypal }) => {
   const dispatch = useDispatch();
   const delivery = useSelector((state) => state.order.pickup);
   const orderProducts = useSelector((state) => state.order.products);

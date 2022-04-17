@@ -3,22 +3,13 @@ import { useDispatch } from "react-redux";
 import { addPickup } from "../../../redux/order/order-actions";
 import styles from "../Basket.module.css";
 
-const ButtonFurther = ({
-  values,
-  isValid,
-  dirty,
-  type,
-  setType,
-  errorCheckbox,
-  setErrorCheckbox,
-  formik,
-}) => {
+const ButtonFurther = ({ values, setType, setErrorCheckbox, formik }) => {
   const dispatch = useDispatch();
 
   const onHandlePayment = () => {
     const agree = document.getElementById("agree");
 
-    if (isValid && dirty) {
+    if (formik.isValid && formik.dirty) {
       if (agree !== null && agree.checked === true) {
         setType("Payment");
         dispatch(addPickup({ ...values }));

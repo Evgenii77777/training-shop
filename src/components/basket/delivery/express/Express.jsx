@@ -6,7 +6,6 @@ import Checkmark from "../../../../assets/svg/Check.svg";
 import styles from "../pickupPost/PickupPost.module.css";
 
 const Express = ({
-  type,
   setType,
   total,
   errorCheckbox,
@@ -203,11 +202,7 @@ const Express = ({
             ...formik.values,
             deliveryMethod: "Express delivery",
           }}
-          isValid={formik.isValid}
-          dirty={formik.dirty}
-          type={type}
           setType={setType}
-          errorCheckbox={errorCheckbox}
           setErrorCheckbox={setErrorCheckbox}
           formik={formik}
         />

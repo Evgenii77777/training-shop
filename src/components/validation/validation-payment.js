@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
-const cartRegExp = /(\d{4})( )(\d{4})( )(\d{4})( )(\d{4})/;
+// const cartRegExp = /(\d{4})( )(\d{4})( )(\d{4})( )(\d{4})/;
+const cartRegExp = /(\d{16})/;
 const yearRegExp = /(\d{2})(\/)(\d{2})/;
 const cvvRegExp = /(\d{3})/;
 

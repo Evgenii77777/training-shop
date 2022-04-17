@@ -7,7 +7,6 @@ const FulfieldPayment = ({
   open,
   toggleBasket,
   dispatch,
-  type,
   setType,
   formik,
   formikStore,
