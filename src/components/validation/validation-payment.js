@@ -8,6 +8,7 @@ const cvvRegExp = /(\d{3})/;
 export const validationsSchemaPayment = yup.object().shape({
   card: yup
     .string()
+    .max(16)
     .required("Поле должно быть заполнено")
     .matches(cartRegExp, "Неправильный номер"),
   cardDate: yup
@@ -16,6 +17,7 @@ export const validationsSchemaPayment = yup.object().shape({
     .required("Поле должно быть заполнено"),
   cardCVV: yup
     .string()
+    .max(3)
     .matches(cvvRegExp, "Неправильный номер")
     .required("Поле должно быть заполнено"),
 });
