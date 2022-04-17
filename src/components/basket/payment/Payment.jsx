@@ -18,8 +18,6 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
   Year = String(Year).split("");
   let year = [Year[2], Year[3]].join("");
 
-  console.log(formik.isValid);
-
   if (formik.values.cardDate) {
     const dayFormik = Number(formik.values.cardDate.split("/")[0]);
     const yearFormik = Number(formik.values.cardDate.split("/")[1]);
