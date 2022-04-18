@@ -20,7 +20,7 @@ const Express = ({
             <label htmlFor="phone" className={styles.labelFirst}>
               <p className={styles.text}>PHONE</p>
               <InputMask
-                mask="+999 (99)9999999"
+                mask="+375 (99)9999999"
                 className={
                   formik.touched.phone && formik.errors.phone
                     ? styles.inputError
