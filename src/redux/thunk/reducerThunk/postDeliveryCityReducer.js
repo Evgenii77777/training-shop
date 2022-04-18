@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { postCity } from "../asincThunk/postDeliveryCity";
 
 const todoSlice = createSlice({
-  name: "review",
+  name: "deliveryCities",
   initialState: {
     status: null,
     loading: false,

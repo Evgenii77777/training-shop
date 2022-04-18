@@ -5,25 +5,22 @@ import { useFormik } from "formik";
 import Delivery from "./delivery/Delivery";
 import Payment from "./payment/Payment";
 import NavBarBasket from "./navBarBasket/NavBarBasket";
-import Total from "./total/Total";
 import ErrorPayment from "./errorPayment/ErrorPayment";
 import FulfieldPayment from "./fulfieldPayment/FulfieldPayment";
+import ItemCart from "./itemCart/ItemCart";
 
 import { validationsSchema } from "../validation/validation-pickup";
 import { validationsSchemaExpress } from "../validation/validation-express";
 import { validationsSchemaStore } from "../validation/validation-store";
 import { validationsSchemaPayment } from "../validation/validation-payment";
 import { validationsSchemaPaymentPaypal } from "../validation/validation-paypal";
+import { initial } from "../validation/initial-values/initial-state";
 
 import {
-  decrement,
-  deleteItem,
-  increment,
   toggleBasket,
   toggleBasketSide,
 } from "../../redux/btnBasket/btnBasket-actions";
 import { getOpen, getIsEmpty } from "../../redux/btnBasket/btnBasket-selectors";
-import { addProducts } from "../../redux/order/order-actions";
 import { postCity } from "../../redux/thunk/asincThunk/postDeliveryCity";
 import styles from "./Basket.module.css";
 
@@ -35,16 +32,10 @@ const Basket = () => {
   const [error, setError] = useState(false);
   const [fulfield, setFulfield] = useState(false);
   const [cash, setCash] = useState("cardVisa");
+  const [valuesNew, setValues] = useState(initial.initialStore);
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
   const status = useSelector((state) => state.cart.status);
-
-  const [valuesNew, setValues] = useState({
-    phone: "",
-    email: "",
-    storeAddress: "",
-    country: "",
-  });
 
   isEmpty.map(
     (el) =>
@@ -55,7 +46,6 @@ const Basket = () => {
         quantity: el.quantity,
       })
   );
-
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
 
   const backSide = function () {
@@ -68,43 +58,18 @@ const Basket = () => {
   };
   backSide();
 
-  const onHandleDelivery = (newProducts) => {
-    dispatch(addProducts(newProducts));
-    setType("Delivery Info");
-  };
-
   const formik = useFormik({
-    initialValues: {
-      phone: "",
-      email: "",
-      country: "",
-      city: "",
-      street: "",
-      house: "",
-      apartment: "",
-      postcode: "",
-    },
-
+    initialValues: initial.initialPickup,
     validationSchema: validationsSchema,
   });
 
   const formikExpress = useFormik({
-    initialValues: {
-      phone: "",
-      email: "",
-      country: "",
-      city: "",
-      street: "",
-      house: "",
-      apartment: "",
-    },
-
+    initialValues: initial.initialExpress,
     validationSchema: validationsSchemaExpress,
   });
 
   const formikStore = useFormik({
     initialValues: valuesNew,
-
     handleChange: (event) => {
       setValues((prevValues) => ({
         ...prevValues,
@@ -126,25 +91,16 @@ const Basket = () => {
       }));
       formik.values.country = event.target.value;
     },
-
     validationSchema: validationsSchemaStore,
   });
 
   const formikPayment = useFormik({
-    initialValues: {
-      card: "",
-      cardDate: "",
-      cardCVV: "",
-    },
-
+    initialValues: initial.initialPayment,
     validationSchema: validationsSchemaPayment,
   });
 
   const formikPaymentPaypal = useFormik({
-    initialValues: {
-      cashEmail: "",
-    },
-
+    initialValues: initial.initialPaypal,
     validationSchema: validationsSchemaPaymentPaypal,
   });
 
@@ -225,77 +181,12 @@ const Basket = () => {
                   <div className={styles.deliveryContainer}>
                     <NavBarBasket type={type} />
                     {type === "Item in Cart" && (
-                      <>
-                        <div className={styles.listWrapper}>
-                          <ul className={styles.list}>
-                            {isEmpty.map((el, index) => (
-                              <li key={index} data-test-id="cart-card">
-                                <div>
-                                  <img
-                                    src={el.color[1]}
-                                    alt="images"
-                                    className={styles.notEmptyImg}
-                                  />
-                                </div>
-                                <div className={styles.notEmptySpanContainer}>
-                                  <span className={styles.name}>{el.name}</span>
-                                  <span className={styles.color}>
-                                    {el.color[0]},
-                                  </span>
-                                  <span className={styles.size}>{el.size}</span>
-                                  <div className={styles.notEmptyBtnWrapper}>
-                                    <div
-                                      className={styles.notEmptyBtnContainer}
-                                    >
-                                      <button
-                                        id={el.newId}
-                                        onClick={(e) =>
-                                          dispatch(decrement(e.target.id))
-                                        }
-                                        data-test-id="minus-product"
-                                      >
-                                        -
-                                      </button>
-                                      <span>{el.quantity}</span>
-                                      <button
-                                        id={el.newId}
-                                        onClick={(e) =>
-                                          dispatch(increment(e.target.id))
-                                        }
-                                        data-test-id="plus-product"
-                                      >
-                                        +
-                                      </button>
-                                    </div>
-                                    <span id="price" className={styles.price}>
-                                      $ {(el.price * el.quantity).toFixed(2)}
-                                    </span>
-                                    <button
-                                      className={styles.trash}
-                                      id={el.newId}
-                                      onClick={(e) =>
-                                        dispatch(deleteItem(e.target.id))
-                                      }
-                                      data-test-id="remove-product"
-                                    ></button>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className={styles.notEmptyWrapper}>
-                          <Total total={total} />
-                          <div className={styles.btnWrapper}>
-                            <button
-                              className={styles.btnWrapperFirst}
-                              onClick={() => onHandleDelivery(newProducts)}
-                            >
-                              Further
-                            </button>
-                          </div>
-                        </div>
-                      </>
+                      <ItemCart
+                        setType={setType}
+                        total={total}
+                        isEmpty={isEmpty}
+                        newProducts={newProducts}
+                      />
                     )}
                     {type === "Delivery Info" && (
                       <Delivery

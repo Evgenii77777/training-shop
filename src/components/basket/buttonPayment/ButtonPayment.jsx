@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { orderPost } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";
@@ -6,7 +5,7 @@ import styles from "../Basket.module.css";
 const ButtonPayment = ({ setType, cash, total, formik, formikPaypal }) => {
   const dispatch = useDispatch();
   const delivery = useSelector((state) => state.order.pickup);
-  const orderProducts = useSelector((state) => state.order.products);
+  const orderProducts = useSelector((state) => state.order.cart);
 
   const onHandleOrder = () => {
     if (formik.isValid && formik.dirty) {
@@ -16,6 +15,7 @@ const ButtonPayment = ({ setType, cash, total, formik, formikPaypal }) => {
           ...delivery,
           totalPrice: `${total}`,
           ...formik.values,
+          card: formik.values.card.replace(/\s/g, ""),
           paymentMethod: "Card",
         })
       );

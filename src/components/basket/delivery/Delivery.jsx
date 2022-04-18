@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
 import StorePickup from "./storePickup/StorePickup";
@@ -17,16 +17,17 @@ const Delivery = ({
 }) => {
   const [radio, setRadio] = useState("1");
   const [errorCheckbox, setErrorCheckbox] = useState(false);
+  const country = useSelector((state) => state.country.country);
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (radio === "3") {
-      dispatch(fetchCountry());
-    }
-  }, [dispatch, radio]);
 
   const handleChangeRadio = (id) => {
     setRadio(id);
   };
+  useEffect(() => {
+    if (radio === "3" && country.length === 0) {
+      dispatch(fetchCountry());
+    }
+  }, [dispatch, country, radio]);
 
   return (
     <>
@@ -88,6 +89,7 @@ const Delivery = ({
 
       {radio === "1" && (
         <PickupPost
+          radio={radio}
           setType={setType}
           total={total}
           formik={formik}
@@ -97,6 +99,7 @@ const Delivery = ({
       )}
       {radio === "2" && (
         <Express
+          radio={radio}
           setType={setType}
           total={total}
           errorCheckbox={errorCheckbox}
@@ -106,6 +109,7 @@ const Delivery = ({
       )}
       {radio === "3" && (
         <StorePickup
+          radio={radio}
           setType={setType}
           total={total}
           errorCheckbox={errorCheckbox}

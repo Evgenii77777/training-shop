@@ -8,7 +8,6 @@ export const fetchCountry = createAsyncThunk(
         "https://training.cleverland.by/shop/countries"
       );
       const data = await response.json();
-
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
