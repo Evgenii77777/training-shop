@@ -118,7 +118,7 @@ const StorePickup = ({
                     ? styles.inputError
                     : styles.inputFirst
                 }
-                name={`phone`}
+                name="phone"
                 id="phone"
                 type="text"
                 placeholder="+375  (__) _______"
@@ -140,7 +140,7 @@ const StorePickup = ({
                     ? styles.inputError
                     : styles.inputFirst
                 }
-                name={`email`}
+                name="email"
                 id="email"
                 type="text"
                 placeholder="e-mail"
@@ -167,7 +167,7 @@ const StorePickup = ({
                     ? styles.inputError
                     : styles.inputFirst
                 }
-                name={`country`}
+                name="country"
                 id="country"
                 type="text"
                 placeholder="Country"
@@ -247,7 +247,7 @@ const StorePickup = ({
                     ? styles.inputError
                     : styles.inputFirst
                 }
-                name={`storeAddress`}
+                name="storeAddress"
                 id="storeAddress"
                 type="text"
                 placeholder="Store adress"

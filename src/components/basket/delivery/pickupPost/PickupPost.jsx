@@ -27,7 +27,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`phone`}
+                  name="phone"
                   id="phone"
                   type="text"
                   placeholder="+375  (__) _______"
@@ -49,7 +49,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`email`}
+                  name="email"
                   id="email"
                   type="text"
                   placeholder="e-mail"
@@ -72,7 +72,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`country`}
+                  name="country"
                   id="country"
                   type="text"
                   placeholder="Country"
@@ -93,7 +93,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`city`}
+                  name="city"
                   id="city"
                   type="text"
                   placeholder="City"
@@ -114,7 +114,7 @@ const PickupPost = ({
                       ? styles.inputError
                       : styles.inputFirst
                   }
-                  name={`street`}
+                  name="street"
                   id="street"
                   type="text"
                   placeholder="Street"
@@ -154,7 +154,7 @@ const PickupPost = ({
                   <label htmlFor="apartment" className={styles.labelFirst}>
                     <input
                       className={styles.inputFirst}
-                      name={`apartment`}
+                      name="apartment"
                       id="apartment"
                       type="text"
                       placeholder="Apartment"

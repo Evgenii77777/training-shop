@@ -240,7 +240,7 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
                       ? styles.inputError
                       : styles.formInput
                   }
-                  name={`cashEmail`}
+                  name="cashEmail"
                   id="cashEmail"
                   type="text"
                   placeholder="e-mail"
