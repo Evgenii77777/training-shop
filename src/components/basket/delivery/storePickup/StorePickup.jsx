@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
@@ -25,6 +25,8 @@ const StorePickup = ({
   const [arrowCountry, setArrowCountry] = useState(null);
   const cities = useSelector((state) => state.cities.cities);
   const countryName = useSelector((state) => state.country.country);
+  const countryError = useSelector((state) => state.country.error);
+  const citiesError = useSelector((state) => state.city.error);
 
   const handleFocusCountry = () => {
     setShowCountry(false);
@@ -47,15 +49,17 @@ const StorePickup = ({
     }
   };
 
-  const handleChangeCountry = (event) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleChangeCountry = useCallback((event) => {
     setValues((prevValues) => ({
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
     formik.values.country = event.target.value;
-  };
+  });
 
-  const handleChoiseCity = (e) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleChoiseCity = useCallback((e) => {
     setValues((prevValues) => ({
       ...prevValues,
       storeAddress: e.target.textContent,
@@ -63,9 +67,10 @@ const StorePickup = ({
     formik.values.storeAddress = e.target.textContent;
     setShowCities(!showCities);
     setArrow(false);
-  };
+  });
 
-  const handleChoiseCountry = (e) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleChoiseCountry = useCallback((e) => {
     setValues((prevValues) => ({
       ...prevValues,
       country: e.target.textContent,
@@ -73,7 +78,9 @@ const StorePickup = ({
     formik.values.country = e.target.textContent;
     setShowCountry(!showCountry);
     setArrowCountry(false);
-  };
+    console.log(formik.values);
+    console.log(valuesNew);
+  });
 
   const handleArrow = () => {
     setArrow(false);
@@ -101,7 +108,7 @@ const StorePickup = ({
             <label htmlFor="phone" className={styles.labelFirst}>
               <p className={styles.text}>PHONE</p>
               <InputMask
-                mask="+999 (99)9999999"
+                mask="+375 (99)9999999"
                 className={
                   formik.touched.phone && formik.errors.phone
                     ? styles.inputError
@@ -146,6 +153,9 @@ const StorePickup = ({
           <li className={styles.item}>
             <label htmlFor="country" className={styles.labelFirst}>
               <p className={styles.text}>ADRESS of store</p>
+              {countryError && (
+                <h3 className={styles.errorEmail}>Ошибка получения стран</h3>
+              )}
               <input
                 className={
                   formik.touched.email && formik.errors.email
@@ -156,11 +166,13 @@ const StorePickup = ({
                 id="country"
                 type="text"
                 placeholder="Country"
+                autocomplete="off"
                 onChange={(e) => handleChangeCountry(e)}
                 onBlur={formik.handleBlur}
                 onFocus={() => handleFocusCountry()}
                 value={valuesNew.country}
               />
+
               {countryName !== null && countryName.length !== 0 && (
                 <>
                   {arrowCountry === true ? (
@@ -218,6 +230,9 @@ const StorePickup = ({
 
           <li className={styles.item}>
             <label htmlFor="storeAddress" className={styles.labelFirst}>
+              {citiesError && (
+                <h3 className={styles.errorEmail}>Ошибка получения городов</h3>
+              )}
               <input
                 className={
                   formik.touched.storeAddress && formik.errors.storeAddress
@@ -228,6 +243,7 @@ const StorePickup = ({
                 id="storeAddress"
                 type="text"
                 placeholder="Store adress"
+                autocomplete="off"
                 onChange={(e) => handleChange(e)}
                 onBlur={formik.handleBlur}
                 value={valuesNew.storeAddress}

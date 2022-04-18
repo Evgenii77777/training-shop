@@ -15,7 +15,7 @@ const todoSlice = createSlice({
       state.loading = true;
       state.error = false;
     },
-    [postCity.fulfilled]: (state, action) => {
+    [postCity.fulfilled]: (state) => {
       state.status = "resolved";
       state.loading = false;
       state.error = false;
