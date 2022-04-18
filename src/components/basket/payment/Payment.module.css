@@ -29,6 +29,7 @@
   height: 22px;
 }
 .formText {
+  display: block;
   margin-top: 38px;
   margin-bottom: 8px;
   text-align: left;
@@ -40,7 +41,10 @@
   text-transform: uppercase;
   color: #121212;
 }
+
 .formInput {
+  position: relative;
+  margin-top: 8px;
   width: 100%;
   padding: 16px 0 16px 16px;
   background: #f8f8f8;
@@ -48,6 +52,8 @@
   box-sizing: border-box;
 }
 .inputError {
+  position: relative;
+  margin-top: 8px;
   width: 100%;
   padding: 16px 0 16px 16px;
   background: #f8f8f8;

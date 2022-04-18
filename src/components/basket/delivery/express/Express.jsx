@@ -1,4 +1,3 @@
-import React from "react";
 import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
@@ -11,14 +10,15 @@ const Express = ({
   errorCheckbox,
   setErrorCheckbox,
   formik,
+  radio,
 }) => {
   return (
     <>
       <div className={styles.form} data-test-id="review-modal" id="top">
         <ul>
           <li className={styles.item}>
-            <label htmlFor="phone" className={styles.labelFirst}>
-              <p className={styles.text}>PHONE</p>
+            <label htmlFor="phone" className={styles.formText}>
+              Phone
               <InputMask
                 mask="+375 (99)9999999"
                 className={
@@ -40,8 +40,8 @@ const Express = ({
             )}
           </li>
           <li className={styles.item}>
-            <p className={styles.text}>e-mail</p>
-            <label htmlFor="email" className={styles.labelFirst}>
+            <label htmlFor="email" className={styles.formText}>
+              e-mail
               <input
                 className={
                   formik.touched.email && formik.errors.email
@@ -52,6 +52,7 @@ const Express = ({
                 id="email"
                 type="text"
                 placeholder="e-mail"
+                onFocus={(e) => (e.target.placeholder = "")}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -62,8 +63,8 @@ const Express = ({
             )}
           </li>
           <li className={styles.item}>
-            <label htmlFor="country" className={styles.labelFirst}>
-              <p className={styles.text}>ADRESS</p>
+            <label htmlFor="country" className={styles.formText}>
+              Adress
               <input
                 className={
                   formik.touched.adress && formik.errors.adress
@@ -172,7 +173,7 @@ const Express = ({
               type="checkbox"
               name="agree"
               id="agree"
-              onClick={() => setErrorCheckbox((errorCheckbox = false))}
+              onChange={() => setErrorCheckbox(false)}
             />
             <div
               className={errorCheckbox ? styles.errorCheck : styles.checkbox}
@@ -205,6 +206,7 @@ const Express = ({
           setType={setType}
           setErrorCheckbox={setErrorCheckbox}
           formik={formik}
+          radio={radio}
         />
       </div>
     </>

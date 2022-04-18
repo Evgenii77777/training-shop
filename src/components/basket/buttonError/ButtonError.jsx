@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { order } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "../Basket.module.css";

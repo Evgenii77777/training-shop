@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
@@ -17,6 +17,7 @@ const StorePickup = ({
   formik,
   valuesNew,
   setValues,
+  radio,
 }) => {
   const dispatch = useDispatch();
   const [showCities, setShowCities] = useState(false);
@@ -27,6 +28,14 @@ const StorePickup = ({
   const countryName = useSelector((state) => state.country.country);
   const countryError = useSelector((state) => state.country.error);
   const citiesError = useSelector((state) => state.city.error);
+  let newCountryArr = [];
+  let newCities = [];
+
+  countryName.map((el) => el.map((item) => newCountryArr.push(item.name)));
+  cities.map((el) => newCities.push(el.city));
+
+  const incl = newCountryArr.includes(formik.values.country);
+  const inclCities = newCities.includes(formik.values.storeAddress);
 
   const handleFocusCountry = () => {
     setShowCountry(false);
@@ -38,7 +47,7 @@ const StorePickup = ({
       [event.target.name]: event.target.value,
     }));
     formik.values.storeAddress = event.target.value;
-    if (valuesNew.storeAddress.length >= 2) {
+    if (valuesNew.storeAddress.length === 3) {
       dispatch(
         postCity({
           city: valuesNew.storeAddress,
@@ -49,17 +58,15 @@ const StorePickup = ({
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleChangeCountry = useCallback((event) => {
+  const handleChangeCountry = (event) => {
     setValues((prevValues) => ({
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
     formik.values.country = event.target.value;
-  });
+  };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleChoiseCity = useCallback((e) => {
+  const handleChoiseCity = (e) => {
     setValues((prevValues) => ({
       ...prevValues,
       storeAddress: e.target.textContent,
@@ -67,10 +74,9 @@ const StorePickup = ({
     formik.values.storeAddress = e.target.textContent;
     setShowCities(!showCities);
     setArrow(false);
-  });
+  };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleChoiseCountry = useCallback((e) => {
+  const handleChoiseCountry = (e) => {
     setValues((prevValues) => ({
       ...prevValues,
       country: e.target.textContent,
@@ -78,9 +84,7 @@ const StorePickup = ({
     formik.values.country = e.target.textContent;
     setShowCountry(!showCountry);
     setArrowCountry(false);
-    console.log(formik.values);
-    console.log(valuesNew);
-  });
+  };
 
   const handleArrow = () => {
     setArrow(false);
@@ -105,8 +109,8 @@ const StorePickup = ({
       <div className={styles.form} data-test-id="review-modal" id="top">
         <ul>
           <li className={styles.item}>
-            <label htmlFor="phone" className={styles.labelFirst}>
-              <p className={styles.text}>PHONE</p>
+            <label htmlFor="phone" className={styles.formText}>
+              Phone
               <InputMask
                 mask="+375 (99)9999999"
                 className={
@@ -128,8 +132,8 @@ const StorePickup = ({
             )}
           </li>
           <li className={styles.item}>
-            <p className={styles.text}>e-mail</p>
-            <label htmlFor="email" className={styles.labelFirst}>
+            <label htmlFor="email" className={styles.formText}>
+              e-mail
               <input
                 className={
                   formik.touched.email && formik.errors.email
@@ -140,6 +144,7 @@ const StorePickup = ({
                 id="email"
                 type="text"
                 placeholder="e-mail"
+                onFocus={(e) => (e.target.placeholder = "")}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -151,8 +156,8 @@ const StorePickup = ({
           </li>
 
           <li className={styles.item}>
-            <label htmlFor="country" className={styles.labelFirst}>
-              <p className={styles.text}>ADRESS of store</p>
+            <label htmlFor="country" className={styles.formText}>
+              Adress of store
               {countryError && (
                 <h3 className={styles.errorEmail}>Ошибка получения стран</h3>
               )}
@@ -166,13 +171,12 @@ const StorePickup = ({
                 id="country"
                 type="text"
                 placeholder="Country"
-                autocomplete="off"
+                autoComplete="off"
                 onChange={(e) => handleChangeCountry(e)}
                 onBlur={formik.handleBlur}
                 onFocus={() => handleFocusCountry()}
                 value={valuesNew.country}
               />
-
               {countryName !== null && countryName.length !== 0 && (
                 <>
                   {arrowCountry === true ? (
@@ -222,10 +226,14 @@ const StorePickup = ({
                 </ul>
               </div>
             )}
-
-            {formik.touched.country && formik.errors.country && (
-              <p className={styles.errorEmail}>{formik.errors.country}</p>
+            {!incl && formik.touched.country && (
+              <h3 className={styles.errorEmail}>Нет такой страны в списке</h3>
             )}
+            {formik.touched.country &&
+              formik.errors.country &&
+              valuesNew.country === "" && (
+                <p className={styles.errorEmail}>{formik.errors.country}</p>
+              )}
           </li>
 
           <li className={styles.item}>
@@ -243,7 +251,7 @@ const StorePickup = ({
                 id="storeAddress"
                 type="text"
                 placeholder="Store adress"
-                autocomplete="off"
+                autoComplete="off"
                 onChange={(e) => handleChange(e)}
                 onBlur={formik.handleBlur}
                 value={valuesNew.storeAddress}
@@ -296,7 +304,9 @@ const StorePickup = ({
                 </ul>
               </div>
             )}
-
+            {!inclCities && formik.touched.storeAddress && (
+              <h3 className={styles.errorEmail}>Нет такого города в списке</h3>
+            )}
             {formik.touched.storeAddress && formik.errors.storeAddress && (
               <p className={styles.errorEmail}>{formik.errors.storeAddress}</p>
             )}
@@ -309,7 +319,7 @@ const StorePickup = ({
               type="checkbox"
               name="agree"
               id="agree"
-              onClick={() => setErrorCheckbox((errorCheckbox = false))}
+              onChange={() => setErrorCheckbox(false)}
             />
             <div
               className={errorCheckbox ? styles.errorCheck : styles.checkbox}
@@ -342,6 +352,9 @@ const StorePickup = ({
           formik={formik}
           setType={setType}
           setErrorCheckbox={setErrorCheckbox}
+          radio={radio}
+          incl={incl}
+          inclCities={inclCities}
         />
       </div>
     </>

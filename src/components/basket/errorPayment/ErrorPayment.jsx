@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import ButtonError from "../buttonError/ButtonError.jsx";
 import styles from "../fulfieldPayment/FulfieldPayment.module.css";

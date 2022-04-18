@@ -1,4 +1,3 @@
-import React from "react";
 import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
@@ -11,6 +10,7 @@ const PickupPost = ({
   formik,
   errorCheckbox,
   setErrorCheckbox,
+  radio,
 }) => {
   return (
     <>
@@ -18,8 +18,8 @@ const PickupPost = ({
         <div className={styles.form} data-test-id="review-modal" id="top">
           <ul>
             <li className={styles.item}>
-              <label htmlFor="phone" className={styles.labelFirst}>
-                <p className={styles.text}>PHONE</p>
+              <label htmlFor="phone" className={styles.formText}>
+                Phone
                 <InputMask
                   mask="+375 (99)9999999"
                   className={
@@ -41,8 +41,8 @@ const PickupPost = ({
               )}
             </li>
             <li className={styles.item}>
-              <label htmlFor="email" className={styles.labelFirst}>
-                <p className={styles.text}>e-mail</p>
+              <label htmlFor="email" className={styles.formText}>
+                e-mail
                 <input
                   className={
                     formik.touched.email && formik.errors.email
@@ -55,6 +55,7 @@ const PickupPost = ({
                   placeholder="e-mail"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  onFocus={(e) => (e.target.placeholder = "")}
                   value={formik.values.email}
                 />
               </label>
@@ -63,8 +64,8 @@ const PickupPost = ({
               )}
             </li>
             <li className={styles.item}>
-              <label htmlFor="country" className={styles.labelFirst}>
-                <p className={styles.text}>ADRESS</p>
+              <label htmlFor="country" className={styles.formText}>
+                Adress
                 <input
                   className={
                     formik.touched.country && formik.errors.country
@@ -166,8 +167,8 @@ const PickupPost = ({
               </div>
             </li>
             <li className={styles.item}>
-              <label htmlFor="postcode" className={styles.labelFirst}>
-                <p className={styles.text}>POSTcode</p>
+              <label htmlFor="postcode" className={styles.formText}>
+                Postcode
                 <InputMask
                   mask="BY 999999"
                   className={
@@ -194,9 +195,10 @@ const PickupPost = ({
               <input
                 className={styles.hiddencheckbox}
                 type="checkbox"
+                defaultChecked={errorCheckbox}
                 name="agree"
                 id="agree"
-                onClick={() => setErrorCheckbox((errorCheckbox = false))}
+                onClick={() => setErrorCheckbox(false)}
               />
               <div
                 className={errorCheckbox ? styles.errorCheck : styles.checkbox}
@@ -230,6 +232,7 @@ const PickupPost = ({
           formik={formik}
           setType={setType}
           setErrorCheckbox={setErrorCheckbox}
+          radio={radio}
         />
       </div>
     </>

@@ -8,15 +8,18 @@ import Im3 from "../../../assets/png/pp5.png";
 import Eye from "../../../assets/svg/eye.svg";
 import EyeSlash from "../../../assets/svg/icon-EyeSlash.svg";
 import styles from "./Payment.module.css";
+import PasswordOne from "../../passwordStars/PasswordOne";
+import PasswordTwo from "../../passwordStars/PasswordTwo";
+import PasswordThre from "../../passwordStars/PasswordThre";
 
 const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
   const [show, setShow] = useState(true);
-
   const Data = new Date();
   let Year = Data.getFullYear();
   const Month = Data.getMonth() + 1;
   Year = String(Year).split("");
-  let year = [Year[2], Year[3]].join("");
+  const year = [Year[2], Year[3]].join("");
+  const lengthPassword = formik.values.cardCVV.split("_").length;
 
   if (formik.values.cardDate) {
     const dayFormik = Number(formik.values.cardDate.split("/")[0]);
@@ -133,12 +136,12 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
         <form>
           {(cash === "cardVisa" || cash === "masterCard") && (
             <>
-              <label htmlFor="cardpassword">
-                <p className={styles.formText}>Card</p>
+              <label className={styles.formText} htmlFor="cardpassword">
+                Card
                 <InputMask
-                  mask="9999999999999999"
+                  mask="9999 9999 9999 9999"
                   className={
-                    formik.touched.cart && formik.errors.cart
+                    formik.touched.card && formik.errors.card
                       ? styles.inputError
                       : styles.formInput
                   }
@@ -181,6 +184,12 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
                 </div>
                 <div>
                   <label htmlFor="cardCVV" className={styles.labelShow}>
+                    {show && lengthPassword === 3 && <PasswordOne />}
+                    {show && lengthPassword === 2 && <PasswordTwo />}
+                    {show &&
+                      lengthPassword === 1 &&
+                      formik.values.cardCVV !== "" && <PasswordThre />}
+
                     <InputMask
                       mask="999"
                       className={
@@ -223,8 +232,8 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
           )}
           {cash === "paypal" && (
             <>
-              <label htmlFor="cashEmail" className={styles.labelFirst}>
-                <p className={styles.formText}>E-mail</p>
+              <label htmlFor="cashEmail" className={styles.formText}>
+                E-mail
                 <input
                   className={
                     formikPaypal.touched.cart && formikPaypal.errors.cart
@@ -235,6 +244,7 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
                   id="cashEmail"
                   type="text"
                   placeholder="e-mail"
+                  onFocus={(e) => (e.target.placeholder = "")}
                   onChange={formikPaypal.handleChange}
                   onBlur={formikPaypal.handleBlur}
                   value={formikPaypal.values.cashEmail}

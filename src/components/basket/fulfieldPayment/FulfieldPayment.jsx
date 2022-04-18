@@ -1,4 +1,3 @@
-import React from "react";
 import { clearCard } from "../../../redux/btnBasket/btnBasket-actions";
 import { order } from "../../../redux/thunk/asincThunk/postOrderThunk";
 import styles from "./FulfieldPayment.module.css";
