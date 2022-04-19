@@ -15,8 +15,8 @@ const StorePickup = ({
   valuesNew,
   setValues,
   radio,
-  checkedCheckbox,
-  setCheckedCheckbox,
+  checkedCheckboxStore,
+  setCheckedCheckboxStore,
 }) => {
   const dispatch = useDispatch();
   const [showCities, setShowCities] = useState(false);
@@ -31,12 +31,9 @@ const StorePickup = ({
   let newCountryArr = [];
   let newCities = [];
 
-  if (Object.keys(formik.touched).length === 0) {
-    formik.isValid = false;
-  }
   const handleChangeCheckbox = () => {
     setErrorCheckbox(false);
-    setCheckedCheckbox(!checkedCheckbox);
+    setCheckedCheckboxStore(!checkedCheckboxStore);
   };
 
   countryName.map((el) => el.map((item) => newCountryArr.push(item.name)));
@@ -324,7 +321,7 @@ const StorePickup = ({
           <label className={styles.checkbox}>
             <input
               type="checkbox"
-              checked={formik.isValid && checkedCheckbox ? true : false}
+              checked={checkedCheckboxStore ? true : false}
               name="agree"
               id="agree"
               onClick={() => handleChangeCheckbox()}

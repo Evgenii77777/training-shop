@@ -9,18 +9,14 @@ const Express = ({
   total,
   formik,
   radio,
-  checkedCheckbox,
-  setCheckedCheckbox,
+  checkedCheckboxExpress,
+  setCheckedCheckboxExpress,
 }) => {
   const [errorCheckbox, setErrorCheckbox] = useState(false);
 
-  if (Object.keys(formik.touched).length === 0) {
-    formik.isValid = false;
-  }
-
   const handleChangeCheckbox = () => {
     setErrorCheckbox(false);
-    setCheckedCheckbox(!checkedCheckbox);
+    setCheckedCheckboxExpress(!checkedCheckboxExpress);
   };
 
   return (
@@ -181,7 +177,7 @@ const Express = ({
           <label className={styles.checkbox}>
             <input
               type="checkbox"
-              checked={formik.isValid && checkedCheckbox ? true : false}
+              checked={checkedCheckboxExpress ? true : false}
               name="agree"
               id="agree"
               onClick={() => handleChangeCheckbox()}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 
@@ -34,10 +34,23 @@ const Basket = () => {
   const [cash, setCash] = useState("cardVisa");
   const [valuesNew, setValues] = useState(initial.initialStore);
   const [checkedCheckbox, setCheckedCheckbox] = useState(false);
+  const [checkedCheckboxExpress, setCheckedCheckboxExpress] = useState(false);
+  const [checkedCheckboxStore, setCheckedCheckboxStore] = useState(false);
   const [radio, setRadio] = useState("");
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
   const status = useSelector((state) => state.cart.status);
+  const backSide = function () {
+    const body = document.querySelector("body");
+    if (open) {
+      body.classList.add("no__scroll");
+    } else {
+      body.classList.remove("no__scroll");
+    }
+  };
+  useEffect(() => {
+    backSide();
+  });
 
   isEmpty.map(
     (el) =>
@@ -49,16 +62,6 @@ const Basket = () => {
       })
   );
   isEmpty.forEach((el) => (total = el.price * el.quantity + total));
-
-  const backSide = function () {
-    const body = document.querySelector("body");
-    if (open) {
-      body.classList.add("no__scroll");
-    } else {
-      body.classList.remove("no__scroll");
-    }
-  };
-  backSide();
 
   const formik = useFormik({
     initialValues: initial.initialPickup,
@@ -201,6 +204,10 @@ const Basket = () => {
                         valuesNew={valuesNew}
                         checkedCheckbox={checkedCheckbox}
                         setCheckedCheckbox={setCheckedCheckbox}
+                        checkedCheckboxExpress={checkedCheckboxExpress}
+                        setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+                        checkedCheckboxStore={checkedCheckboxStore}
+                        setCheckedCheckboxStore={setCheckedCheckboxStore}
                         radio={radio}
                         setRadio={setRadio}
                       />
@@ -213,7 +220,11 @@ const Basket = () => {
                         formikPaypal={formikPaymentPaypal}
                         cash={cash}
                         setCash={setCash}
+                        radio={radio}
+                        setRadio={setRadio}
                         setCheckedCheckbox={setCheckedCheckbox}
+                        setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+                        setCheckedCheckboxStore={setCheckedCheckboxStore}
                       />
                     )}
                   </div>

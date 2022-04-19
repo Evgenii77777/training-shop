@@ -20,7 +20,11 @@ const Payment = ({
   cash,
   setCash,
   setCheckedCheckbox,
+  setCheckedCheckboxExpress,
+  setCheckedCheckboxStore,
+  radio,
 }) => {
+  console.log(radio);
   const [show, setShow] = useState(true);
   const Data = new Date();
   let Year = Data.getFullYear();
@@ -265,6 +269,9 @@ const Payment = ({
             formik={formik}
             formikPaypal={formikPaypal}
             setCheckedCheckbox={setCheckedCheckbox}
+            setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+            setCheckedCheckboxStore={setCheckedCheckboxStore}
+            radio={radio}
           />
         </div>
       </div>

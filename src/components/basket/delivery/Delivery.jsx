@@ -16,6 +16,10 @@ const Delivery = ({
   valuesNew,
   checkedCheckbox,
   setCheckedCheckbox,
+  checkedCheckboxExpress,
+  setCheckedCheckboxExpress,
+  checkedCheckboxStore,
+  setCheckedCheckboxStore,
   radio,
   setRadio,
 }) => {
@@ -104,8 +108,8 @@ const Delivery = ({
           setType={setType}
           total={total}
           formik={formikExpress}
-          checkedCheckbox={checkedCheckbox}
-          setCheckedCheckbox={setCheckedCheckbox}
+          checkedCheckboxExpress={checkedCheckboxExpress}
+          setCheckedCheckboxExpress={setCheckedCheckboxExpress}
         />
       )}
       {radio === "3" && (
@@ -116,8 +120,8 @@ const Delivery = ({
           formik={formikStore}
           setValues={setValues}
           valuesNew={valuesNew}
-          checkedCheckbox={checkedCheckbox}
-          setCheckedCheckbox={setCheckedCheckbox}
+          checkedCheckboxStore={checkedCheckboxStore}
+          setCheckedCheckboxStore={setCheckedCheckboxStore}
         />
       )}
     </>

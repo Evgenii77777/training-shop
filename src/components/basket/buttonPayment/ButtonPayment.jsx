@@ -9,6 +9,9 @@ const ButtonPayment = ({
   formik,
   formikPaypal,
   setCheckedCheckbox,
+  setCheckedCheckboxExpress,
+  setCheckedCheckboxStore,
+  radio,
 }) => {
   const dispatch = useDispatch();
   const delivery = useSelector((state) => state.order.pickup);
@@ -69,7 +72,19 @@ const ButtonPayment = ({
 
   const onHandleBackToCart = () => {
     setType("Delivery Info");
-    setCheckedCheckbox(true);
+    if (radio === "1") {
+      setCheckedCheckbox(true);
+      setCheckedCheckboxExpress(false);
+      setCheckedCheckboxStore(false);
+    } else if (radio === "2") {
+      setCheckedCheckboxExpress(true);
+      setCheckedCheckboxStore(false);
+      setCheckedCheckbox(false);
+    } else if (radio === "3") {
+      setCheckedCheckboxStore(true);
+      setCheckedCheckboxExpress(false);
+      setCheckedCheckbox(false);
+    }
   };
 
   return (
