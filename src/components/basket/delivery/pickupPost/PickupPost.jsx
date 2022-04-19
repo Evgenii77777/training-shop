@@ -13,10 +13,7 @@ const PickupPost = ({
   setCheckedCheckbox,
 }) => {
   const [errorCheckbox, setErrorCheckbox] = useState(false);
-
-  if (Object.keys(formik.touched).length === 0) {
-    formik.isValid = false;
-  }
+  console.log(checkedCheckbox);
   const handleChangeCheckbox = () => {
     setErrorCheckbox(false);
     setCheckedCheckbox(!checkedCheckbox);
@@ -204,7 +201,7 @@ const PickupPost = ({
             <label className={styles.checkbox}>
               <input
                 type="checkbox"
-                checked={formik.isValid && checkedCheckbox ? true : false}
+                checked={checkedCheckbox ? true : false}
                 name="agree"
                 id="agree"
                 onClick={() => handleChangeCheckbox()}
