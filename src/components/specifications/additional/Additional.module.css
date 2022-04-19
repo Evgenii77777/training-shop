@@ -1,7 +1,5 @@
 .additionalTitle {
   margin-bottom: 32px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
@@ -11,8 +9,6 @@
 }
 .additionalText {
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.57;
@@ -28,8 +24,6 @@
 }
 .additionalSpan {
   margin-left: 4px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.57;

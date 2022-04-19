@@ -9,10 +9,10 @@ const Size = ({ sizes }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    currentSize(sizes[0]);
+    dispatch(currentSize(sizes[0]));
     const ite = document.querySelectorAll(".btnSize");
     ite[0].classList.add("btnSizeActive");
-  }, [sizes]);
+  }, [sizes, dispatch]);
 
   const onHandle = function (e) {
     const items = document.querySelectorAll(".btnSize");
@@ -33,7 +33,7 @@ const Size = ({ sizes }) => {
         {sizes.map((item) => (
           <li key={item} onClick={btnName}>
             <div onClick={(e) => dispatch(currentSize(e.target.textContent))}>
-              <button className="btnSize" onClick={onHandle}>
+              <button className="btnSize" onClick={(e) => onHandle(e)}>
                 {item}
               </button>
             </div>

@@ -7,8 +7,6 @@
   padding-top: 17px;
   padding-bottom: 16px;
   display: block;
-  font-family: "Spartan";
-  font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
@@ -44,8 +42,6 @@
   background-color: #fff;
 }
 .span {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 13px;
@@ -57,8 +53,6 @@
 }
 .title {
   margin-top: 14px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 25px;
@@ -93,8 +87,6 @@
 .acc a {
   display: block;
   padding: 13px 24px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
@@ -123,8 +115,6 @@
   padding-bottom: 48px;
 }
 .womenTitle {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 25px;
@@ -135,19 +125,7 @@
 .listBtn {
   display: flex;
 }
-/* .linkBtn {
-  font-family: Spartan;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 13px;
-  text-align: right;
-  letter-spacing: 0.06em;
-  color: #121212;
-  border: none;
-  background-color: inherit;
-  opacity: 0.6;
-} */
+
 .listBtn li:not(:last-child) {
   margin-right: 32px;
 }
@@ -185,12 +163,12 @@
   }
   .women {
     margin-right: 30px;
-    padding: 76px 69px;
+    padding: 76px 70px;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .men {
-    padding: 76px 69px;
+    padding: 76px 70px;
     background-image: url(../../assets/img/men.jpg);
     background-repeat: no-repeat;
     background-size: cover;

@@ -17,8 +17,6 @@
 
 .list p {
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 1.64;
@@ -35,8 +33,6 @@
 .newText,
 .text {
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 1.64;
@@ -45,8 +41,6 @@
 }
 .text span,
 .newText span {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: bold;
   font-size: 11px;
   line-height: 1.64;

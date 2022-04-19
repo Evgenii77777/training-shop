@@ -1,0 +1,53 @@
+.container {
+  height: 75vh;
+}
+.errorWrapper {
+  height: 65vh;
+}
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 196px;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 150%;
+  color: #121212;
+}
+.text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 266px;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121212;
+}
+.phrase {
+  margin-left: auto;
+  margin-right: auto;
+  width: 288px;
+  font-size: 16px;
+  line-height: 150%;
+  color: #121212;
+}
+.btn {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  background: #121212;
+  border: 2px solid #121212;
+}

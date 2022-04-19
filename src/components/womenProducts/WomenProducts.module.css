@@ -15,9 +15,6 @@
 }
 .foundTitle {
   margin-right: 32px;
-
-  font-family: Spartan;
-  font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 1.57;
@@ -26,8 +23,6 @@
 .foundPrice {
   margin-right: 10px;
   padding-left: 0;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.57;
@@ -40,8 +35,6 @@
 .item h4 {
   padding-top: 16px;
   padding-bottom: 12px;
-  font-family: Spartan;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -52,8 +45,6 @@
   border: 122px solid red;
 }
 .item span {
-  font-family: Spartan;
-  font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -79,7 +70,6 @@
 }
 .sale p {
   padding-left: 0;
-  font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 13px;
