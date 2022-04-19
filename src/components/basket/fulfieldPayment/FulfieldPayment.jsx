@@ -14,6 +14,9 @@ const FulfieldPayment = ({
   formikPaymentPaypal,
   setValues,
   valuesNew,
+  setCheckedCheckbox,
+  setCheckedCheckboxExpress,
+  setCheckedCheckboxStore,
 }) => {
   const onHandleBackToShopping = () => {
     setType("Item in Cart");
@@ -25,6 +28,9 @@ const FulfieldPayment = ({
     formikExpress.resetForm();
     formikPayment.resetForm();
     formikPaymentPaypal.resetForm();
+    setCheckedCheckboxStore(false);
+    setCheckedCheckboxExpress(false);
+    setCheckedCheckbox(false);
     setValues(
       (valuesNew = {
         phone: "",
