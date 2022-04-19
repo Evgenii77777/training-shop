@@ -34,6 +34,7 @@ const Basket = () => {
   const [cash, setCash] = useState("cardVisa");
   const [valuesNew, setValues] = useState(initial.initialStore);
   const [checkedCheckbox, setCheckedCheckbox] = useState(false);
+  const [radio, setRadio] = useState("");
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
   const status = useSelector((state) => state.cart.status);
@@ -200,6 +201,8 @@ const Basket = () => {
                         valuesNew={valuesNew}
                         checkedCheckbox={checkedCheckbox}
                         setCheckedCheckbox={setCheckedCheckbox}
+                        radio={radio}
+                        setRadio={setRadio}
                       />
                     )}
                     {type === "Payment" && (
