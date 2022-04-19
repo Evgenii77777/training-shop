@@ -19,7 +19,11 @@ const ButtonPayment = ({
       formik.isValid &&
       formik.dirty &&
       formik.values.cardCVV !== "" &&
-      formik.values.cardCVV.includes("_") === false
+      formik.values.cardCVV.includes("_") === false &&
+      formik.values.card !== "" &&
+      formik.values.card.includes("_") === false &&
+      formik.values.cardDate !== "" &&
+      formik.values.cardDate.includes("_") === false
     ) {
       dispatch(
         orderPost({
