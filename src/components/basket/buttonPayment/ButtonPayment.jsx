@@ -35,7 +35,7 @@ const ButtonPayment = ({
           totalPrice: `${total}`,
           ...formik.values,
           card: formik.values.card.replace(/\s/g, ""),
-          paymentMethod: "Card",
+          paymentMethod: "card",
         })
       );
     } else {
@@ -51,7 +51,7 @@ const ButtonPayment = ({
           ...delivery,
           totalPrice: `${total}`,
           ...formikPaypal.values,
-          paymentMethod: "PayPal",
+          paymentMethod: "paypal",
         })
       );
     } else {
@@ -65,7 +65,7 @@ const ButtonPayment = ({
         products: [orderProducts],
         ...delivery,
         totalPrice: `${total}`,
-        paymentMethod: "Cash",
+        paymentMethod: "cash",
       })
     );
   };

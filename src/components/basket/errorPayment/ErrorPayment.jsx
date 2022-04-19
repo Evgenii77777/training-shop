@@ -10,6 +10,9 @@ const ErrorPayment = ({
   formikPayment,
   formikPaymentPaypal,
   setValues,
+  setCheckedCheckbox,
+  setCheckedCheckboxExpress,
+  setCheckedCheckboxStore,
 }) => {
   const message = useSelector((state) => state.basket.message);
 
@@ -31,6 +34,9 @@ const ErrorPayment = ({
           formikStore={formikStore}
           formikPaymentPaypal={formikPaymentPaypal}
           setValues={setValues}
+          setCheckedCheckbox={setCheckedCheckbox}
+          setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+          setCheckedCheckboxStore={setCheckedCheckboxStore}
         />
       </div>
     </>

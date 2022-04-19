@@ -163,6 +163,9 @@ const Basket = () => {
                     formikStore={formikStore}
                     formikPaymentPaypal={formikPaymentPaypal}
                     setValues={setValues}
+                    setCheckedCheckbox={setCheckedCheckbox}
+                    setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+                    setCheckedCheckboxStore={setCheckedCheckboxStore}
                   />
                 )}
                 {status === "resolved" && (
@@ -180,6 +183,9 @@ const Basket = () => {
                     formikPaymentPaypal={formikPaymentPaypal}
                     setValues={setValues}
                     valuesNew={valuesNew}
+                    setCheckedCheckbox={setCheckedCheckbox}
+                    setCheckedCheckboxExpress={setCheckedCheckboxExpress}
+                    setCheckedCheckboxStore={setCheckedCheckboxStore}
                   />
                 )}
                 {!status && (

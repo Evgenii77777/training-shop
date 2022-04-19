@@ -73,6 +73,7 @@ const Payment = ({
                   id="paypal"
                   type="radio"
                   name="payment"
+                  value="paypal"
                   checked={cash === "paypal" ? true : false}
                   className={styles.input}
                   onClick={(e) => onChangeCash(e)}
@@ -88,6 +89,7 @@ const Payment = ({
               <label htmlFor="cardVisa" className={styles.radio}>
                 <input
                   id="cardVisa"
+                  value="cardVisa"
                   checked={cash === "cardVisa" ? true : false}
                   type="radio"
                   name="payment"
@@ -105,6 +107,7 @@ const Payment = ({
               <label htmlFor="masterCard" className={styles.radio}>
                 <input
                   id="masterCard"
+                  value="masterCard"
                   checked={cash === "masterCard" ? true : false}
                   type="radio"
                   name="payment"
@@ -122,6 +125,7 @@ const Payment = ({
               <label htmlFor="cash" className={styles.radio}>
                 <input
                   id="cash"
+                  value="cash"
                   checked={cash === "cash" ? true : false}
                   type="radio"
                   name="payment"
