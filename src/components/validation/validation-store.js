@@ -6,7 +6,7 @@ export const validationsSchemaStore = yup.object().shape({
   phone: yup
     .string()
     .required("Поле должно быть заполнено")
-    .matches(phoneRegExp, "Неправильный номер"),
+    .matches(phoneRegExp, "Неправильный код"),
   email: yup
     .string()
     .email("Невалидный email")
