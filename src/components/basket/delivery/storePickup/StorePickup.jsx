@@ -4,7 +4,6 @@ import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
 import { postCity } from "../../../../redux/thunk/asincThunk/postDeliveryCity";
-import Checkmark from "../../../../assets/svg/Check.svg";
 import Chevron from "../../../../assets/svg/chevron-right 1.svg";
 import Care from "../../../../assets/svg/icon-CareUp.svg";
 import styles from "../pickupPost/PickupPost.module.css";
@@ -12,24 +11,33 @@ import styles from "../pickupPost/PickupPost.module.css";
 const StorePickup = ({
   setType,
   total,
-  errorCheckbox,
-  setErrorCheckbox,
   formik,
   valuesNew,
   setValues,
   radio,
+  checkedCheckbox,
+  setCheckedCheckbox,
 }) => {
   const dispatch = useDispatch();
   const [showCities, setShowCities] = useState(false);
   const [arrow, setArrow] = useState(null);
   const [showCountry, setShowCountry] = useState(true);
   const [arrowCountry, setArrowCountry] = useState(null);
+  const [errorCheckbox, setErrorCheckbox] = useState(false);
   const cities = useSelector((state) => state.cities.cities);
   const countryName = useSelector((state) => state.country.country);
   const countryError = useSelector((state) => state.country.error);
   const citiesError = useSelector((state) => state.city.error);
   let newCountryArr = [];
   let newCities = [];
+
+  if (Object.keys(formik.touched).length === 0) {
+    formik.isValid = false;
+  }
+  const handleChangeCheckbox = () => {
+    setErrorCheckbox(false);
+    setCheckedCheckbox(!checkedCheckbox);
+  };
 
   countryName.map((el) => el.map((item) => newCountryArr.push(item.name)));
   cities.map((el) => newCities.push(el.city));
@@ -313,27 +321,22 @@ const StorePickup = ({
           </li>
         </ul>
         <div className={styles.containerAgree}>
-          <label className={styles.customcheckbox} htmlFor="agree">
+          <label className={styles.checkbox}>
             <input
-              className={styles.hiddencheckbox}
               type="checkbox"
+              checked={formik.isValid && checkedCheckbox ? true : false}
               name="agree"
               id="agree"
-              onChange={() => setErrorCheckbox(false)}
+              onClick={() => handleChangeCheckbox()}
             />
             <div
-              className={errorCheckbox ? styles.errorCheck : styles.checkbox}
+              className={
+                errorCheckbox ? styles.errorCheck : styles.checkbox__text
+              }
             >
-              <img
-                src={Checkmark}
-                alt="checkmark"
-                className={styles.checkmark}
-              />
+              I agree to the processing of my personal information
             </div>
           </label>
-          <p className={styles.textAgree}>
-            I agree to the processing of my personal information
-          </p>
         </div>
         {errorCheckbox === true && (
           <p className={styles.errorEmail}>

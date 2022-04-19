@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
 import StorePickup from "./storePickup/StorePickup";
@@ -14,20 +14,20 @@ const Delivery = ({
   formikStore,
   setValues,
   valuesNew,
+  checkedCheckbox,
+  setCheckedCheckbox,
 }) => {
   const [radio, setRadio] = useState("1");
-  const [errorCheckbox, setErrorCheckbox] = useState(false);
-  const country = useSelector((state) => state.country.country);
   const dispatch = useDispatch();
 
-  const handleChangeRadio = (id) => {
+  const handleChangeRadio = (id, e) => {
     setRadio(id);
   };
   useEffect(() => {
-    if (radio === "3" && country.length === 0) {
+    if (radio === "3") {
       dispatch(fetchCountry());
     }
-  }, [dispatch, country, radio]);
+  }, [dispatch, radio]);
 
   return (
     <>
@@ -37,53 +37,48 @@ const Delivery = ({
       <ul className={styles.list}>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label
-              htmlFor="1"
-              className={radio === "1" ? styles.checked : styles.noChecked}
-              checked
-            >
+            <label htmlFor="1" className={styles.radio}>
               <input
+                checked={radio === "1" ? true : false}
                 id="1"
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id)}
+                className={styles.input}
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
               />
+              <div className={styles.radio__text}>Pickup from post offices</div>
             </label>
           </div>
-          <p className={styles.itemText}>Pickup from post offices</p>
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label
-              htmlFor="2"
-              className={radio === "2" ? styles.checked : styles.noChecked}
-            >
+            <label htmlFor="2" className={styles.radio}>
               <input
                 id="2"
+                checked={radio === "2" ? true : false}
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id)}
+                className={styles.input}
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
               />
+              <div className={styles.radio__text}>Express delivery</div>
             </label>
           </div>
-          <p className={styles.itemText}>Express delivery</p>
         </li>
         <li className={styles.item}>
           <div className={styles.form_radio}>
-            <label
-              htmlFor="3"
-              className={radio === "3" ? styles.checked : styles.noChecked}
-            >
+            <label htmlFor="3" className={styles.radio}>
               <input
                 id="3"
+                checked={radio === "3" ? true : false}
                 type="radio"
                 name="radio"
-                onClick={(e) => handleChangeRadio(e.target.id)}
+                className={styles.input}
+                onClick={(e) => handleChangeRadio(e.target.id, e)}
               />
+              <div className={styles.radio__text}>Store pickup</div>
             </label>
           </div>
-
-          <p className={styles.itemText}>Store pickup</p>
         </li>
       </ul>
 
@@ -93,8 +88,8 @@ const Delivery = ({
           setType={setType}
           total={total}
           formik={formik}
-          errorCheckbox={errorCheckbox}
-          setErrorCheckbox={setErrorCheckbox}
+          checkedCheckbox={checkedCheckbox}
+          setCheckedCheckbox={setCheckedCheckbox}
         />
       )}
       {radio === "2" && (
@@ -102,9 +97,9 @@ const Delivery = ({
           radio={radio}
           setType={setType}
           total={total}
-          errorCheckbox={errorCheckbox}
-          setErrorCheckbox={setErrorCheckbox}
           formik={formikExpress}
+          checkedCheckbox={checkedCheckbox}
+          setCheckedCheckbox={setCheckedCheckbox}
         />
       )}
       {radio === "3" && (
@@ -112,11 +107,11 @@ const Delivery = ({
           radio={radio}
           setType={setType}
           total={total}
-          errorCheckbox={errorCheckbox}
-          setErrorCheckbox={setErrorCheckbox}
           formik={formikStore}
           setValues={setValues}
           valuesNew={valuesNew}
+          checkedCheckbox={checkedCheckbox}
+          setCheckedCheckbox={setCheckedCheckbox}
         />
       )}
     </>

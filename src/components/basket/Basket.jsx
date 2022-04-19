@@ -33,6 +33,7 @@ const Basket = () => {
   const [fulfield, setFulfield] = useState(false);
   const [cash, setCash] = useState("cardVisa");
   const [valuesNew, setValues] = useState(initial.initialStore);
+  const [checkedCheckbox, setCheckedCheckbox] = useState(false);
   const open = useSelector(getOpen);
   const isEmpty = useSelector(getIsEmpty);
   const status = useSelector((state) => state.cart.status);
@@ -197,6 +198,8 @@ const Basket = () => {
                         formikExpress={formikExpress}
                         setValues={setValues}
                         valuesNew={valuesNew}
+                        checkedCheckbox={checkedCheckbox}
+                        setCheckedCheckbox={setCheckedCheckbox}
                       />
                     )}
                     {type === "Payment" && (
@@ -207,6 +210,7 @@ const Basket = () => {
                         formikPaypal={formikPaymentPaypal}
                         cash={cash}
                         setCash={setCash}
+                        setCheckedCheckbox={setCheckedCheckbox}
                       />
                     )}
                   </div>
