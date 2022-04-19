@@ -76,7 +76,7 @@ const Basket = () => {
         ...prevValues,
         [event.target.name]: event.target.value,
       }));
-      if (valuesNew.storeAddress.length >= 3) {
+      if (valuesNew.storeAddress.length >= 2) {
         dispatch(
           postCity({
             city: valuesNew.storeAddress,

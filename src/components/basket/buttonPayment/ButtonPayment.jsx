@@ -15,7 +15,12 @@ const ButtonPayment = ({
   const orderProducts = useSelector((state) => state.order.cart);
 
   const onHandleOrder = () => {
-    if (formik.isValid && formik.dirty) {
+    if (
+      formik.isValid &&
+      formik.dirty &&
+      formik.values.cardCVV !== "" &&
+      formik.values.cardCVV.includes("_") === false
+    ) {
       dispatch(
         orderPost({
           products: [orderProducts],
@@ -89,7 +94,7 @@ const ButtonPayment = ({
           className={styles.btnWrapperFirst}
           onClick={() => onHandleOrderCash()}
         >
-          Ready
+          ready
         </button>
       )}
       <button
