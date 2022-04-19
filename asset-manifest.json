@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/training-shop/static/css/main.27cd4feb.css",
-    "main.js": "/training-shop/static/js/main.e3b1cfe2.js",
+    "main.css": "/training-shop/static/css/main.690d41c8.css",
+    "main.js": "/training-shop/static/js/main.b24c4353.js",
     "static/media/bgw.png": "/training-shop/static/media/bgw.4152b783e591f01bafb6.png",
     "static/media/Rectangle.jpg": "/training-shop/static/media/Rectangle.ba5d4eb3d9420781b5f8.jpg",
     "static/media/f5.png": "/training-shop/static/media/f5.7b6bd5f6c24afedd14bb.png",
@@ -28,7 +28,7 @@
     "static/media/logo-twitter 1.svg": "/training-shop/static/media/logo-twitter 1.62ef2af3f046bb8815888e0145a8aaf7.svg",
     "static/media/phone 1.svg": "/training-shop/static/media/phone 1.0a2acb9821d881d1c07d.svg",
     "index.html": "/training-shop/index.html",
-    "static/media/Check.svg": "/training-shop/static/media/Check.f2f85f169dd8d79459669b7e617356ea.svg",
+    "static/media/Check.svg": "/training-shop/static/media/Check.f2f85f169dd8d7945966.svg",
     "static/media/user 1.svg": "/training-shop/static/media/user 1.25b7e5b83c41cae3900270790c9a24f8.svg",
     "static/media/Group.svg": "/training-shop/static/media/Group.14f47f88684e6056e1d2.svg",
     "static/media/search 1.svg": "/training-shop/static/media/search 1.ffc3b1dc00a36d398f4e11af51bfb6ff.svg",
@@ -46,11 +46,11 @@
     "static/media/x 1.svg": "/training-shop/static/media/x 1.c1acda466a6f57fc13cc7c251b46df83.svg",
     "static/media/Rad.svg": "/training-shop/static/media/Rad.9c90a7020438bd7a1ed2.svg",
     "static/media/icon-CareUp.svg": "/training-shop/static/media/icon-CareUp.0e80708c32fb2c094119b7f812e3c89c.svg",
-    "main.27cd4feb.css.map": "/training-shop/static/css/main.27cd4feb.css.map",
-    "main.e3b1cfe2.js.map": "/training-shop/static/js/main.e3b1cfe2.js.map"
+    "main.690d41c8.css.map": "/training-shop/static/css/main.690d41c8.css.map",
+    "main.b24c4353.js.map": "/training-shop/static/js/main.b24c4353.js.map"
   },
   "entrypoints": [
-    "static/css/main.27cd4feb.css",
-    "static/js/main.e3b1cfe2.js"
+    "static/css/main.690d41c8.css",
+    "static/js/main.b24c4353.js"
   ]
 }
