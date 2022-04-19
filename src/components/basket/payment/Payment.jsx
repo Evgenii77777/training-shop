@@ -12,7 +12,15 @@ import PasswordOne from "../../passwordStars/PasswordOne";
 import PasswordTwo from "../../passwordStars/PasswordTwo";
 import PasswordThre from "../../passwordStars/PasswordThre";
 
-const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
+const Payment = ({
+  setType,
+  total,
+  formik,
+  formikPaypal,
+  cash,
+  setCash,
+  setCheckedCheckbox,
+}) => {
   const [show, setShow] = useState(true);
   const Data = new Date();
   let Year = Data.getFullYear();
@@ -56,79 +64,67 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
         <ul className={styles.list}>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label
-                htmlFor="paypal"
-                className={
-                  cash === "paypal" ? styles.checked : styles.noChecked
-                }
-              >
+              <label htmlFor="paypal" className={styles.radio}>
                 <input
                   id="paypal"
                   type="radio"
                   name="payment"
+                  checked={cash === "paypal" ? true : false}
+                  className={styles.input}
                   onClick={(e) => onChangeCash(e)}
                 />
+                <div className={styles.radio__text}>
+                  <img src={Im1} alt="Paypal" />
+                </div>
               </label>
-            </div>
-
-            <div className={styles.container}>
-              <img src={Im1} alt="Paypal" />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label
-                htmlFor="cardVisa"
-                className={
-                  cash === "cardVisa" ? styles.checked : styles.noChecked
-                }
-              >
+              <label htmlFor="cardVisa" className={styles.radio}>
                 <input
                   id="cardVisa"
+                  checked={cash === "cardVisa" ? true : false}
                   type="radio"
                   name="payment"
+                  className={styles.input}
                   onClick={(e) => onChangeCash(e)}
-                  checked
                 />
+                <div className={styles.radio__text}>
+                  <img src={Im2} alt="Visa" />
+                </div>
               </label>
-            </div>
-            <div className={styles.container}>
-              <img src={Im2} alt="Visa" />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label
-                htmlFor="masterCard"
-                className={
-                  cash === "masterCard" ? styles.checked : styles.noChecked
-                }
-              >
+              <label htmlFor="masterCard" className={styles.radio}>
                 <input
                   id="masterCard"
+                  checked={cash === "masterCard" ? true : false}
                   type="radio"
                   name="payment"
+                  className={styles.input}
                   onClick={(e) => onChangeCash(e)}
                 />
+                <div className={styles.radio__text}>
+                  <img src={Im3} alt="Master" />
+                </div>
               </label>
-            </div>
-            <div className={styles.container}>
-              <img src={Im3} alt="Master" />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.form_radio}>
-              <label
-                htmlFor="cash"
-                className={cash === "cash" ? styles.checked : styles.noChecked}
-              >
-                <span className={styles.cashSpan}>Cash</span>
+              <label htmlFor="cash" className={styles.radio}>
                 <input
                   id="cash"
+                  checked={cash === "cash" ? true : false}
                   type="radio"
                   name="payment"
+                  className={styles.input}
                   onClick={(e) => onChangeCash(e)}
                 />
+                <div className={styles.radio__text}>Cash</div>
               </label>
             </div>
           </li>
@@ -268,6 +264,7 @@ const Payment = ({ setType, total, formik, formikPaypal, cash, setCash }) => {
             total={total}
             formik={formik}
             formikPaypal={formikPaypal}
+            setCheckedCheckbox={setCheckedCheckbox}
           />
         </div>
       </div>

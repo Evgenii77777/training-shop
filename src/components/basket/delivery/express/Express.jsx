@@ -1,17 +1,28 @@
+import { useState } from "react";
 import InputMask from "react-input-mask";
 import ButtonFurther from "../../buttonFurther/ButtonFurther.jsx";
 import Total from "../../total/Total";
-import Checkmark from "../../../../assets/svg/Check.svg";
 import styles from "../pickupPost/PickupPost.module.css";
 
 const Express = ({
   setType,
   total,
-  errorCheckbox,
-  setErrorCheckbox,
   formik,
   radio,
+  checkedCheckbox,
+  setCheckedCheckbox,
 }) => {
+  const [errorCheckbox, setErrorCheckbox] = useState(false);
+
+  if (Object.keys(formik.touched).length === 0) {
+    formik.isValid = false;
+  }
+
+  const handleChangeCheckbox = () => {
+    setErrorCheckbox(false);
+    setCheckedCheckbox(!checkedCheckbox);
+  };
+
   return (
     <>
       <div className={styles.form} data-test-id="review-modal" id="top">
@@ -167,27 +178,22 @@ const Express = ({
           </li>
         </ul>
         <div className={styles.containerAgree}>
-          <label className={styles.customcheckbox} htmlFor="agree">
+          <label className={styles.checkbox}>
             <input
-              className={styles.hiddencheckbox}
               type="checkbox"
+              checked={formik.isValid && checkedCheckbox ? true : false}
               name="agree"
               id="agree"
-              onChange={() => setErrorCheckbox(false)}
+              onClick={() => handleChangeCheckbox()}
             />
             <div
-              className={errorCheckbox ? styles.errorCheck : styles.checkbox}
+              className={
+                errorCheckbox ? styles.errorCheck : styles.checkbox__text
+              }
             >
-              <img
-                src={Checkmark}
-                alt="checkmark"
-                className={styles.checkmark}
-              />
+              I agree to the processing of my personal information
             </div>
           </label>
-          <p className={styles.textAgree}>
-            I agree to the processing of my personal information
-          </p>
         </div>
         {errorCheckbox === true && (
           <p className={styles.errorEmail}>
