@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PickupPost from "./pickupPost/PickupPost";
 import Express from "./express/Express";
@@ -16,13 +16,19 @@ const Delivery = ({
   valuesNew,
   checkedCheckbox,
   setCheckedCheckbox,
+  radio,
+  setRadio,
 }) => {
-  const [radio, setRadio] = useState("1");
   const dispatch = useDispatch();
 
-  const handleChangeRadio = (id, e) => {
+  const handleChangeRadio = (id) => {
     setRadio(id);
   };
+  useEffect(() => {
+    if (radio === "") {
+      setRadio("1");
+    }
+  }, [radio, setRadio]);
   useEffect(() => {
     if (radio === "3") {
       dispatch(fetchCountry());
@@ -44,7 +50,7 @@ const Delivery = ({
                 type="radio"
                 name="radio"
                 className={styles.input}
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
               <div className={styles.radio__text}>Pickup from post offices</div>
             </label>
@@ -59,7 +65,7 @@ const Delivery = ({
                 type="radio"
                 name="radio"
                 className={styles.input}
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
               <div className={styles.radio__text}>Express delivery</div>
             </label>
@@ -74,7 +80,7 @@ const Delivery = ({
                 type="radio"
                 name="radio"
                 className={styles.input}
-                onClick={(e) => handleChangeRadio(e.target.id, e)}
+                onClick={(e) => handleChangeRadio(e.target.id)}
               />
               <div className={styles.radio__text}>Store pickup</div>
             </label>
